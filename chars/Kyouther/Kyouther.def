@@ -1,0 +1,40 @@
+; ‚±‚±‚ÉƒLƒƒƒ‰î•ñ‚ğ‘‚¢‚Ä‚­‚¾‚³‚¢
+[Info]
+name ="KYOUTHER"
+displayname ="KYOUTHER"
+versiondate =11,22,2000
+mugenversion =11,22,2000
+author ="ahuron"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =Thouther.cmd
+cns     =Thouther.cns
+st      =Thouther.cns
+stcommon =common1.cns 
+sprite  =Kyouther.sff
+anim    =Thouther.air
+sound   =Kyouther.snd
+pal1=Kyouther.act
+pal2=Kyouther2.act
+pal3=Kyouther.act
+pal4=Kyouther.act
+pal5=Kyouther.act
+pal6=Kyouther.act
+pal7=Kyouther.act
+pal8=Kyouther.act
+pal9=Kyouther.act
+pal10=Kyouther.act
+pal11=Kyouther.act
+pal12=Kyouther.act
+st1=Thouther2.cns
+st2=helper.cns
+st3=AIstateTh.txt
+;
+;
+;
+;
+[Arcade]
+intro.storyboard=
+ending.storyboard=

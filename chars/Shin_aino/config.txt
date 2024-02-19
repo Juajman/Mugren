@@ -1,0 +1,517 @@
+[statedef 83108310]
+anim=9999
+
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+
+[state a];バスケフラグ
+type=varset
+trigger1 = 1
+v=6
+
+value=1 ;0/1 バスケ
+
+;============================================================
+;::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+;アドオンの関係などで初期位置が邪魔な方はここで調整ください。
+
+
+;============================================================
+;                    正方向　x軸
+;============================================================
+
+[state a];位置調整 x軸,正方向ゲージ5
+type = varset
+trigger1 = 1
+fv=1
+value = 10          ;初期値 10
+
+[state a];位置調整 x軸,正方向ゲージ4
+type = varset
+trigger1 = 1
+fv=2
+value = 30         ;初期値 30
+
+[state a];位置調整 x軸,正方向ゲージ3
+type = varset
+trigger1 = 1
+fv=3
+value = 50         ;初期値 50
+
+[state a];位置調整 x軸,正方向ゲージ2
+type = varset
+trigger1 = 1
+fv=4
+value = 70         ;初期値 70
+
+[state a];位置調整 x軸,正方向ゲージ1
+type = varset
+trigger1 = 1
+fv=5
+value = 90         ;初期値 90
+
+;============================================================
+;                    正方向　y軸
+;============================================================
+
+[state a];一度に調整
+type = null;VarRangeSet
+trigger1 = 1
+fvalue = 200
+first = 6
+last = 10
+
+[state a];位置調整 y軸,正方向ゲージ5
+type = varset
+trigger1 = time=0
+fv=6
+value = 200          ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ4
+type = varset
+trigger1 = time=0
+fv=7
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ3
+type = varset
+trigger1 = time=0
+fv=8
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ2
+type = varset
+trigger1 = time=0
+fv=9
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ1
+type = varset
+trigger1 = time=0
+fv=10
+value = 200         ;初期値 200
+
+
+
+
+
+;============================================================
+;                    負方向　x軸
+;============================================================
+
+[state a];位置調整 x軸,正方向ゲージ5
+type = varset
+trigger1 = 1
+fv=11
+value = -10          ;初期値 -10
+
+[state a];位置調整 x軸,正方向ゲージ4
+type = varset
+trigger1 = 1
+fv=12
+value = -30         ;初期値 -30
+
+[state a];位置調整 x軸,正方向ゲージ3
+type = varset
+trigger1 = 1
+fv=13
+value = -50         ;初期値 -50
+
+[state a];位置調整 x軸,正方向ゲージ2
+type = varset
+trigger1 = 1
+fv=14
+value = -70         ;初期値 -70
+
+[state a];位置調整 x軸,正方向ゲージ1
+type = varset
+trigger1 = 1
+fv=15
+value = -90         ;初期値 -90
+
+;============================================================
+;                    負方向　y軸
+;============================================================
+
+[state a];一度に調整
+type = null;VarRangeSet
+trigger1 = 1
+fvalue = 200
+first = 16
+last = 20
+
+[state a];位置調整 y軸,正方向ゲージ5
+type = varset
+trigger1 = time=0
+fv=16
+value = 200          ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ4
+type = varset
+trigger1 = time=0
+fv=17
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ3
+type = varset
+trigger1 = time=0
+fv=18
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ2
+type = varset
+trigger1 = time=0
+fv=19
+value = 200         ;初期値 200
+
+[state a];位置調整 y軸,正方向ゲージ1
+type = varset
+trigger1 = time=0
+fv=20
+value = 200         ;初期値 200
+
+
+
+;============================================================
+;                    アルカナ
+;============================================================
+
+[state a];位置調整 x軸,正方向
+type = varset
+trigger1 = 1
+fv=21
+value = 30         ;初期値 30
+
+[state a];位置調整 x軸,負方向
+type = varset
+trigger1 = 1
+fv=22
+value = -30        ;初期値 -30
+
+[state a];位置調整 y軸,正方向
+type = varset
+trigger1 = 1
+fv=23
+value = 180        ;初期値 180
+
+[state a];位置調整 y軸,負方向
+type = varset
+trigger1 = 1
+fv=24
+value = 180       ;初期値 180
+
+
+
+
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;
+;　　　　　　　   弄らないでください
+;
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+[State テーレッテー]
+type = assertspecial
+trigger1 = root,var(21) = 1
+flag = nomusic
+
+[state a,グレイスケール]
+type = varadd
+trigger1 = root,stateno=16500
+trigger1 = root,time>=34
+trigger1 = var(1)<256
+trigger2 = root,stateno=16510
+trigger2 = time >= 310
+trigger2 = var(1)<256
+v=1
+value=10
+
+[state a,グレイスケール]
+type = varset
+trigger1 = root,stateno=16500
+trigger1 = root,time>=34
+trigger1 = var(1)>=256
+trigger2 = root,stateno=16510
+trigger2 = time >= 310
+trigger2 = var(1)>=256
+v=1
+value=256
+
+[state a,透過処理]
+type = varadd
+trigger1 = root,stateno=16500
+trigger1 = root,time>=34
+trigger1 = var(2)<200
+v=2
+value=10
+
+[state a,透過処理]
+type = varset
+trigger1 = root,stateno=16500
+trigger1 = root,time>=34
+trigger1 = var(2)>=200
+v=2
+value=200
+
+[state a,透過処理2]
+type = varadd
+trigger1 = root,stateno=16500
+trigger1 = root,anim=50002
+trigger1 = var(3)<200
+v=3
+value=20
+
+[state a,透過処理2]
+type = varset
+trigger1 = root,stateno=16500
+trigger1 = root,anim=50002
+trigger1 = var(3)>=200
+v=3
+value=200
+
+
+[state a,透過処理3]
+type = varadd
+trigger1 = root,stateno=16500
+trigger1 = root,anim=50002
+trigger1 = var(1)<256
+v=0
+value=20
+
+[state a,透過処理3]
+type = varset
+trigger1 = root,stateno=16500
+trigger1 = root,anim=50002
+trigger1 = var(1)>=256
+v=0
+value=256
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;疑似バスケ
+;//////////////////////////////////////////////////////////////////////////
+[state a];
+type = varset
+trigger1 = enemy,movetype != H
+v = 4
+value = 0
+
+[state a];悪夢のカウント
+type = varadd
+trigger1 = enemy,movetype = H
+v = 4
+value = 1
+
+[state a];
+type = varset
+trigger1 = enemy,movetype != H
+v = 5
+value = 0
+
+[state a];バスケ成功
+type = varset
+triggerall=var(6)=1
+trigger1 = var(4)>=60
+trigger1 = root,var(3)>=70
+v = 5
+value = 1
+
+
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+
+[statedef 45000];アルカナ
+
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+anim=9999
+
+
+[state a]
+type = varset
+trigger1 = var(5)=1
+fvar(10) = 0.5                ;回復速度変更できます
+
+[state a]
+type = varset
+trigger1 = var(5)=1
+fvar(11) = 0.75               ;回復速度変更できます
+
+
+
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;
+;　　　　　　　   弄らないでください
+;
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+[state a];点滅
+type     = varadd
+trigger1 = var(5)=1
+trigger1 = gametime%60=[0,30)
+trigger2 = root,fvar(20)<=0
+trigger2 = var(5)!=1
+trigger2 = var(6)=1
+trigger2 = gametime%60=[0,30)
+v        = 1
+value    = 5
+[state a];点滅
+type     = varadd
+trigger1 = var(5)=1
+trigger1 = gametime%60=[30,60]
+trigger2 = root,fvar(20)<=0
+trigger2 = var(5)!=1
+trigger2 = var(6)=1
+trigger2 = gametime%60=[30,60]
+v        = 1
+value    = -5
+
+[state a];点滅
+type     = varset
+trigger1 = var(5)=1
+trigger1 = var(1)<=0
+trigger2 = root,fvar(20)<=0
+trigger2 = var(5)!=1
+trigger2 = var(6)=1
+trigger2 = var(1)<=0
+v        = 1
+value    = 0
+
+
+[state a];発動
+type     = varset
+trigger1 = root,stateno=40000
+trigger1 = root,time = 120
+v        = 5
+value    = 1
+
+[state a];発動
+type     = varset
+trigger1 = Roundstate != 2
+trigger2 = root,fvar(20)<=0
+v        = 5
+value    = 0
+
+
+[state a];発動
+type     = varset
+trigger1 = root,stateno=40000
+v        = 6
+value    = 1
+
+[state a];発動
+type     = varset
+trigger1 = Roundstate != 2
+v        = 6
+value    = 0
+
+;==================================================
+;キャンセル
+[State a]
+Type      = VarSet
+TriggerAll= !Root,Var(30)
+TriggerAll= Root,command = "start"
+Trigger1  = (Root,StateNo = 1200)*((Root,AnimElem = 1,>=1)*(Root,AnimElem = 1,<=4))*(Root,Anim = 1200)
+Trigger2  = (Root,StateNo = 851)*(Root,Anim = 851)*((Root,AnimElem = 7,>=1)*(Root,AnimElem = 7,<=6))
+Trigger3  = (Root,StateNo = 1300)*(Root,Anim = 1300)
+Trigger4  = (Root,StateNo = 12500)*(Root,Anim = 20100)
+Trigger5  = (Root,StateNo = 1100)*(Root,Anim = 1100)
+Trigger6  = (Root,StateNo = 14100)*(Root,Anim = 50250)
+V     = 30
+Value = 1
+
+[State a]
+Type      = VarSet
+TriggerAll= Root,Var(30)
+Trigger1  = Root,FVar(30)=1
+V     = 30
+Value = 1
+
+[State a]
+Type      = VarSet
+TriggerAll= Root,Var(30)
+Trigger1  = (Root,StateNo !=851)*(Root,StateNo !=1100)*(Root,StateNo !=1200)*(Root,StateNo !=1300)*(Root,StateNo !=1505)*(Root,StateNo !=12500)*(Root,StateNo !=14100)
+Trigger2  = Root,FVar(30)=0
+V     = 30
+Value = 0
+
+[State a]
+Type      = VarSet
+TriggerAll= !Root,Var(30)
+Trigger1  = (Root,StateNo !=851)*(Root,StateNo !=1100)*(Root,StateNo !=1200)*(Root,StateNo !=1300)*(Root,StateNo !=1505)*(Root,StateNo !=12500)*(Root,StateNo !=14100)
+Trigger2  = ((Root,StateNo = 1505)*(AnimTime =0))*(Root,PrevStateNo=851)
+Trigger3  = (Root,StateNo = 1100)*(Root,Anim != 1100)
+Trigger4  = (Root,StateNo = 1200)*(Root,Anim != 1200)
+Trigger5  = (Root,StateNo = 1300)*(Root,Anim != 1300)
+Trigger6  = (Root,StateNo = 12500)*(Root,Anim!= 20100)
+Trigger7  = (Root,StateNo = 14100)*(Root,Anim!= 50250)
+V     = 30
+Value = 0
+
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;AI起動ヘルパー
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Statedef 83202000]
+anim=9999;なにも表示しないｱﾆﾒでもいいけど入れなくても全然問題ない
+ctrl=0
+
+[State 10000,間違いで本体が来たら立ちへ移行]
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State 10000,プレイヤー判定]
+type=varset
+trigger1=command="U"&&root,command="U"
+trigger2=command="D"&&root,command="D"
+trigger3=command="B"&&root,command="B"
+trigger4=command="F"&&root,command="F"
+trigger5=command="a"&&root,command="a"
+trigger6=command="b"&&root,command="b"
+trigger7=command="c"&&root,command="c"
+trigger8=command="x"&&root,command="x"
+trigger9=command="y"&&root,command="y"
+trigger10=command="z"&&root,command="z"
+trigger11=command="start"&&root,command="start"
+var(59)=-1
+
+[State 10000,立ったら消失]
+Type = DestroySelf
+triggerAll = isHelper
+Trigger1 = root,var(59)||var(59)=-1
+trigger2=command="U"&&root,command="U"
+trigger3=command="D"&&root,command="D"
+trigger4=command="B"&&root,command="B"
+trigger5=command="F"&&root,command="F"
+trigger6=command="a"&&root,command="a"
+trigger7=command="b"&&root,command="b"
+trigger8=command="c"&&root,command="c"
+trigger9=command="x"&&root,command="x"
+trigger10=command="y"&&root,command="y"
+trigger11=command="z"&&root,command="z"
+trigger12=command="start"&&root,command="start"
+
+[State 10000,ﾌﾗｸﾞON]
+type=varset
+triggerall=var(59)!=-1
+trigger1=root,command="U"
+trigger2=root,command="D"
+trigger3=root,command="B"
+trigger4=root,command="F"
+trigger5=root,command="a"
+trigger6=root,command="b"
+trigger7=root,command="c"
+trigger8=root,command="x"
+trigger9=root,command="y"
+trigger10=root,command="z"
+trigger11=root,command="start"
+var(59)=1

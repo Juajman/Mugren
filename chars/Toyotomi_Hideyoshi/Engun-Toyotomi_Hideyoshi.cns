@@ -1,0 +1,3401 @@
+;var(0) ランダム
+;var(1) 時間
+;var(2) 音声重複防止1
+;var(3) 音声重複防止2
+;var(4) 一度のみの音声
+;var(5) 
+;var(6) 
+
+;援軍待機
+[statedef 10000]
+type = S
+ctrl = 0
+velset = 0,0
+anim = 10000
+sprpriority = -4
+
+[state 10000]
+type = assertspecial
+trigger1 = time
+flag = invisible
+
+[state 10000]
+type = DestroySelf
+trigger1 = root,var(40)=0&&time
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&(prevstateno!=[10000,19999])
+x = ifelse(teamside=2,60,-60)
+y = -20
+
+[state 190]
+type = PosSet
+trigger1 = Time=ifelse(roundstate<2,1,0)&&IsHelper(10000)&&(prevstateno!=[10000,19999])&&numpartner
+trigger1 = (root,ID-partner,ID)>0
+x = ifelse(teamside=2,120,-120)
+y = -20
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&NumHelper(18000)&&(prevstateno=[10000,19999])
+x = Helper(18000),Pos X
+y = -20
+
+[state 190]
+type = PalFX
+trigger1 = 1
+;add = -56,-56,-56
+mul = 224,224,224
+time=1
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = VarAdd
+trigger1 = Roundstate>=2
+var(1) = 1
+
+[state 190]
+type = VarSet
+trigger1 = var(1)>2400
+var(1) = 0
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 190]
+type = VarAdd
+trigger1 = Roundstate>=2
+var(6) = 1
+
+;目印（ヘルパーにしないと影の表示が正常にできないため）
+[state 190]
+type = Helper
+trigger1 = !Time&&IsHelper(10000)&&!NumHelper(18000)
+id = 18000
+stateno = 18000
+pos = 0,0
+postype = P1
+sprpriority = -4
+shadowoffset = -16
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
+;援軍アタック・勝利時
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(10000)&&Time
+trigger1 = root,stateno=180&&root,time>=1
+value = 10180
+
+;援軍アタック(待機用ヘルパー隔離)
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(10000)&&Time
+trigger1 = (Root,NumExplod(6295)||Root,NumExplod(6296)||Root,NumExplod(6297))&&root,var(40)>0
+trigger2 = (root,var(40)=[5,8])
+value = 19000
+
+;~~~別アニメーション
+[state 190]
+type = ChangeAnim
+trigger1 = Anim=10002&&animtime=0
+value = 10000
+
+[state 190]
+type = ChangeAnim
+trigger1 = Anim=10000&&var(0)%360=0&&SelfAnimExist(10002)
+value = 10002
+;~~~
+
+;~~手出し無用宣言~~~
+[state 190]
+type = VarAdd
+trigger1 = var(19)
+var(19) = -1
+
+[state 190]
+type = VarSet
+trigger1 = root,var(40)=-2&&Root,NumExplod(6295)
+var(19) = 181
+persistent=0
+
+[state 190]
+type = PlaySND
+trigger1 = root,var(40)=-2&&var(19)=1
+trigger1 = var(2) := ifelse(var(0)%4<2,124,131)*floor(TicksPerSecond/60)
+value = 20,195+(var(0)%4>=2)
+channel = 2
+persistent=0
+;2.055sec
+;2.183sec
+
+;その他~~~~
+;秀吉と対した…(ジャストディフェンス成功時)
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&(root,stateno=150||root,stateno=152||root,stateno=154)&&root,time<=1&&root,numexplod(7706)&&random%2=0
+trigger1 = var(2):=276*floor(TicksPerSecond/60)
+value = 20,182
+channel = 2
+;4.599sec
+
+;~~~~~~SP獲得時
+
+;君はこの国を統べる器だ…間違いないよ
+;君たちには逃げることをお勧めするよ
+;そこの君！秀吉はまだ本気じゃないよ
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3) && root,var(11)
+trigger1 = var(2):=ifelse(var(0)%3=0,230,ifelse(var(0)%3=1,201,159))*floor(TicksPerSecond/60)
+value = 20,189+var(0)%3
+channel = 2
+;3.832sec
+;3.350sec
+;2.650sec
+
+;~~~一定時間毎に判別~~~~
+;詳しい条件がわからないのでほぼアレンジ
+
+;そろそろ豊臣に降る気に・・・
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&(root,life-enemynear,life)>=250&&(enemynear,life=(enemynear,const(data.life)*.5,enemynear,const(data.life)*.75])&&var(0)%960=0&&roundstate=2
+trigger1 = var(2) := 160*floor(TicksPerSecond/60)
+value = 20,186
+channel = 2
+;2.660sec
+
+;一刻も早くここから立ち去ることを・・・
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&(root,life-enemynear,life)>=250&&(enemynear,life=(enemynear,const(data.life)*.25,enemynear,const(data.life)*.5])&&var(0)%600=0&&roundstate=2
+trigger1 = var(2) := 219*floor(TicksPerSecond/60)
+value = 20,187
+channel = 2
+;3.650sec
+
+;秀吉！やはり君は僕の思った通りの男だ！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&!root,var(2)&&(root,life-enemynear,life)>=500&&enemynear,life<=enemynear,const(data.life)*.25&&var(0)%420=0&&roundstate=2
+trigger1 = var(2) := 239*floor(TicksPerSecond/60)
+value = 20,187
+channel = 2
+;3.981sec
+
+;~~~~劣勢時~~~~
+;詳しい条件がわからないのでほぼアレンジ
+
+;どうしたんだい？いつもの君らしくないよ
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&(root,movetype=H||root,statetype=L)&&(root,life-enemynear,life)<0&&(root,life=[(const(data.life)-250),(const(data.life)-500)])&&var(0)%480=0&&roundstate=2
+trigger1 = var(2) := 194*floor(TicksPerSecond/60)
+value = 20,184
+channel = 2
+;3.220sec
+
+;秀吉！こんなところで止まってどうするんだ！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&(Root,movetype!=H||Root,Statetype=L)&&!root,var(2)&&(root,life-enemynear,life)<0&&root,life<(root,const(data.life)-750)&&var(0)%240=0&&roundstate=2
+trigger1 = var(2) := 199*floor(TicksPerSecond/60)
+value = 20,185
+channel = 2
+;3.304sec
+
+;==
+
+;援軍勝利
+[statedef 10180]
+type = S
+physics = S
+movetype=I
+anim = 10180
+velset = 0,0
+sprpriority = -1
+
+[state 190]
+type = ChangeAnim
+trigger1 = Time=8
+value = anim
+elem = 2
+
+[state 190]
+type = PalFX
+trigger1 = IsHelper(10000)
+;add = -56,-56,-56
+mul = 224,224,224
+time=1
+
+[state 10180]
+type = SprPriority
+trigger1 = IsHelper(11000)
+value = 1
+
+[state 10180]
+type = SprPriority
+trigger1 = IsHelper(10000)
+value = -4
+
+;援軍戦場待機
+[statedef 10500]
+type = S
+physics = S
+movetype=I
+anim = 10500
+velset = 0,0
+sprpriority = -4
+
+[state 10000]
+type = assertspecial
+trigger1 = time
+flag = invisible
+
+[state 10000]
+type = destroyself
+trigger1 = time && numhelper(11000)>1
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = ifelse((prevstateno=[15000,15031]),ifelse(root,var(40)!=4,3+(IsHelper(11010)),root,var(40)),ifelse((prevstateno=[13500,13600])||root,var(42)<=0,-1,1))
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+[state 10500]
+type = PosSet
+trigger1 = !time
+y = 0
+
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)&&root,var(40)!=4&&!(roundstate>=3&&Root,WinKO&&Root,Alive)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+trigger2 = IsHelper(11010)&&(prevstateno=[15000,15031])
+value = SCA
+
+[state 105090]
+type = PosSet
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)&&time
+x = floor(root,fvar(22))
+y = 0
+
+;援軍アタック・勝利時
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(11000)&&Time
+trigger1 = root,stateno=180&&root,time>=1
+value = 10180
+
+;援軍カウンター
+[state 10000]
+type = ChangeState
+trigger1 = IsHelper(11000)&&root,var(40)=[8,9]
+value = 11000
+
+;援軍アシスト
+[state 10000]
+type = ChangeState
+trigger1 = IsHelper(11000)&&root,var(40)=7
+value = 11000
+
+;援護形態
+[state 10000]
+type = ChangeState
+trigger1 = IsHelper(11000)&&root,var(40)=5
+value = 11000
+
+;援軍アタック（対空）
+[state 10000]
+type = ChangeState
+trigger1 = root,var(40)=6
+value = 11000
+
+[state 19000]
+type = DestroySelf
+trigger1 = ((root,var(40)=[5,9])||Root,NumExplod(6295)||Root,NumExplod(6296)||Root,NumExplod(6297))&&IsHelper(11010)
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11010))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 19000]
+type = DestroySelf
+trigger1 = (AnimTime=0||(roundstate>=3&&Root,WinKO&&Root,Alive))&&IsHelper(11010)
+trigger2 = Time>=2&&(prevstateno=[15000,15031])&&IsHelper(11010)
+
+[state 19000]
+type = ChangeState
+trigger1 = AnimTime=0&&IsHelper(11000)&&root,var(40)!=3&&!(roundstate>=3&&Root,WinKO&&Root,Alive)
+trigger2 = ((root,var(40)=4&&ifelse((prevstateno=[15000,15031]),time>=2,1))||(root,var(40)=3&&time>=2)) && IsHelper(11000)
+trigger3 = Time=40&&prevstateno=13500
+value = 10600
+
+;援軍戦場定位置へ
+[statedef 10600]
+type = S
+anim = 11000
+sprpriority = -4
+velset = 0,0
+
+[state 12000]
+type = PosSet
+trigger1 = !time
+y = 0
+
+[state 10600]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = parentvarset
+trigger1 = AnimElem=1
+var(40) = -1
+
+[state 12000]
+type = parentvarset
+trigger1 = !Time
+fvar(22) = 0
+
+[state 12000]
+type = parentvarset
+trigger1 = !Time&&(((pos x-helper(18000),pos x)>ifelse(teamside=2,40,-40)&&facing=1)||((pos x-helper(18000),pos x)<ifelse(teamside=2,40,-40)&&facing=-1))
+fvar(22) = -1.1
+
+[state 12000]
+type = Turn
+trigger1 = !Time&&(((pos x-helper(18000),pos x)>ifelse(teamside=2,40,-40)&&facing=1)||((pos x-helper(18000),pos x)<ifelse(teamside=2,40,-40)&&facing=-1))
+
+[state 12000]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state 12000]
+type = AngleDraw
+trigger1 = Time>=4
+scale = 1-(time-4)*.03,1-(time-4)*.03
+
+[state 12000]
+type = OffSet
+trigger1 = AnimElem=2,>0
+y = -Time*3
+
+[state 10600]
+type = VelSet
+trigger1 = AnimElem=2
+x = ((pos X-(helper(18000),pos x-floor(80*const(size.xscale)/2)*ifelse(teamside=2,-1,1)*facing))*ifelse(fvar(22)=-1.1,facing,-facing))/8
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 10500]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = parentvarset
+trigger1 = AnimElem=4
+var(40) = floor(ifelse((prevstateno=[13500,13600])||var(43)>=100000||(prevstateno=[15000,15031]),240,ifelse((prevstateno=[12000,12050]),90,120))*ifelse(root,var(43)>=10000,1.0,ifelse(root,var(43)>=5000,1.5,2.0)))+11
+
+[state 19000]
+type = DestroySelf
+trigger1 = AnimElem=4
+
+;援軍アタック時移動中
+[statedef 11000]
+type = S
+physics = N
+anim = 11000
+
+[state 12000]
+type = VarSet
+trigger1 = !time
+var(7) = ifelse(root,var(40)=7,0,ifelse(root,NumExplod(6296),1,ifelse(root,NumExplod(6297),-1,0)))
+
+[state 11000]
+type = VarSet
+trigger1 = !time
+var(8) = ifelse(root,var(40)=9,13600,ifelse(root,var(40)=8,13500,ifelse(root,var(40)=7,13000,ifelse(root,stateno=180,10180,ifelse(root,NumHelper(6200)||root,var(40)=5,12000,12500+(root,var(1)%4>=2&&root,var(1)%2<1&&root,var(1)%8<4)*100)))))
+
+[state 11000]
+type = varset
+trigger1 = !time
+var(9) = floor(root,Pos X)
+
+[state 19000]
+type = ParentVarAdd
+trigger1 = !time&&(root,var(40)=[5,6])&&IsHelper(11000)
+var(42) = -floor(ifelse(floor(root,var(43)/1000)<50,100-floor((floor(root,var(43)/1000)-1)*1.0/1.50),67)*(1.0+((floor((root,var(41)-72)*3.125/2)-floor(root,var(43)/1000))*1.00/200)*(root,var(43)<floor((root,var(41)-72)*3.125/2))))
+persistent=0
+
+;援軍使用回数
+[state 13000]
+type = varset
+trigger1 = !time&&(prevstateno!=[10000,19999])
+var(10) = 0
+
+[state 13000]
+type = varadd
+trigger1 = !time&&IsHelper(11000)
+var(10) = 1
+
+;援軍使用不能時間
+[state 12000]
+type = VarSet
+trigger1 = !time&&IsHelper(11000)
+var(40) = floor(ifelse((prevstateno=[13500,13600])||(prevstateno=[15000,15031]),3,var(10))*75*(1.0+floor((100-floor(root,var(43)/1000))*1.0/25)))
+
+;援軍使用不能時間
+[state 12000]
+type = VarSet
+trigger1 = !time&&IsHelper(11000)
+trigger1 = floor(ifelse((prevstateno=[13500,13600])||(prevstateno=[15000,15031]),3,var(10))*75*(1.0+floor((100-floor(root,var(43)/1000))*1.0/25)))>600
+var(40) = 600
+
+;BASARAゲージ回復不能時間
+[state 2000]
+type = ParentVarAdd
+trigger1 = root,var(40)=[7,9]
+var(9)=ifelse((root,var(9)=[1,999]),420-root,var(9),420)
+
+[state 13500]
+type = NotHitBy
+trigger1 = root,var(40)=8||var(8)=13500
+value = SCA
+
+[state 13500]
+type = SuperPause
+trigger1 = !time&&root,var(40)=8
+time = 30+ifelse(root,var(57)>=4,40,ifelse(root,var(57)=3,33,ifelse(root,var(57)=2,22,ifelse(root,var(57)=1,12,0))))+14
+movetime=30+ifelse(root,var(57)>=4,40,ifelse(root,var(57)=3,33,ifelse(root,var(57)=2,22,ifelse(root,var(57)=1,12,0))))+14
+p2defmul = 1
+sound = -1
+anim = -1
+darken = 0
+poweradd = 0
+
+;ゲージ減少
+[state 13500]
+type = PowerAdd
+trigger1 = !time&&root,var(40)=8
+value = -1000*(root,var(57)+1)
+
+[state 13000]
+type = ParentVaradd
+trigger1 = !time&&(root,var(40)=7||root,var(40)=8)
+var(42) = -200
+
+;援軍レベル減少
+[state 13500]
+type = ParentVarAdd
+trigger1 = !time&&root,var(40)=8
+var(43) = ifelse(root,var(43)<=30000,-root,var(43)+1000,-30000)
+
+;援軍カウンター使用回数
+[state 13500]
+type = ParentVarAdd
+trigger1 = !time&&root,var(40)=8&&root,var(57)<5
+var(57) = 1
+
+[state 13500]
+type = PlaySND
+trigger1 = !time&&root,var(40)=8
+value = 3500,0
+
+[state 13500]
+type = PlaySND
+trigger1 = !time&&root,var(40)=9
+value = 3600,0
+
+;カットイン
+[state 13500]
+type = Helper
+trigger1 = !time&&root,var(40)=8
+id = 7565
+stateno=7565
+pos = 0,0
+postype = p1
+ignorehitpause=1
+supermovetime=60
+
+[state 11000]
+type = null;DisplaytoClipboard
+trigger1 = !time
+params = ((pos x-root,pos x)-ifelse(abs(root,pos X-enemynear,Pos X)<14.0*11,abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)-3*11* ifelse((root,var(1)%2>=1||root,var(1)%8>=4),0,1),14.0*11)*ifelse(facing!=root,facing,-1,1))
+text = "%f"
+
+[state 11000]
+type = Turn
+triggerall = !time&&!(var(8)=12000&&root,numexplod(6296))
+triggerall = !(var(8)=12500&&(root,numexplod(6296)||(root,NumExplod(6297)&&root,facing*enemynear,facing>0&&(root,var(1)%2>=1||root,var(1)%8>=4))))
+triggerall = var(8)!=13000
+triggerall = !((var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005))
+trigger1 = ((pos x-root,pos x)-ifelse(root,NumExplod(6297),-6*11,0)*ifelse(facing!=root,facing,-1,1))>0&&facing=1
+trigger2 = ((pos x-root,pos x)-ifelse(root,NumExplod(6297),-6*11,0)*ifelse(facing!=root,facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&var(8)=12000&&root,numexplod(6296)
+triggerall = !((var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005))
+trigger1 = ((pos x-root,pos x)-ifelse(abs(root,pos X-enemynear,Pos X)<10.0*11,abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)-3*11,7.0*11)*ifelse(facing!=root,facing,-1,1))>0&&facing=1
+trigger2 = ((pos x-root,pos x)-ifelse(abs(root,pos X-enemynear,Pos X)<10.0*11,abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)-3*11,7.0*11)*ifelse(facing!=root,facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&var(8)=12500&&(root,numexplod(6296)||(root,NumExplod(6297)&&root,facing*enemynear,facing>0&&(root,var(1)%2>=1||root,var(1)%8>=4)))
+triggerall = !((var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005))
+trigger1 = ((pos x-root,pos x)-ifelse(abs(root,pos X-enemynear,Pos X)<14.0*11,abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)-3*11*ifelse((root,var(1)%2>=1||root,var(1)%8>=4),0,1),14.0*11)*ifelse(facing!=root,facing,-1,1))>0&&facing=1
+trigger2 = ((pos x-root,pos x)-ifelse(abs(root,pos X-enemynear,Pos X)<14.0*11,abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)-3*11*ifelse((root,var(1)%2>=1||root,var(1)%8>=4),0,1),14.0*11)*ifelse(facing!=root,facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&numhelper(30000)&&numhelper(30005)&&(!var(7)||numenemy=1)
+triggerall = var(8)=13000
+trigger1 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-6*11*ifelse(root,facing!=facing,-1,1))>0&&facing=1
+trigger2 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-6*11*ifelse(root,facing!=facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&numhelper(30000)&&numhelper(30005)&&(!var(7)||numenemy=1)
+triggerall = ((var(8)=[13500,13600])||(var(8)=12500&&(root,var(1)%2>=1||root,var(1)%8>=4)&&(root,NumExplod(6296)||(root,NumExplod(6297)&&root,facing*enemynear,facing>0)))||var(8)=12600)
+trigger1 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-3*11*ifelse(root,facing!=facing,-1,1))>0&&facing=1
+trigger2 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-3*11*ifelse(root,facing!=facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&(var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005)&&var(7)=-1&&numenemy>1
+triggerall = ifelse(root,screenpos x>=160,!helper(30000),var(16),!helper(30005),var(16))
+trigger1 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-3*11*ifelse(root,facing!=facing,-1,1))>0&&facing=1
+trigger2 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(11)),(pos x-helper(30005),var(11)))-3*11*ifelse(root,facing!=facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&(var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005)&&var(7)=-1&&numenemy>1
+triggerall = ifelse(root,screenpos x>=160,helper(30000),var(16),helper(30005),var(16))
+trigger1 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(12)),(pos x-helper(30005),var(12)))-3*11*ifelse(root,facing!=facing,-1,1))>0&&facing=1
+trigger2 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(12)),(pos x-helper(30005),var(12)))-3*11*ifelse(root,facing!=facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = Turn
+triggerall = !time&&(var(8)=[13500,13600])&&numhelper(30000)&&numhelper(30005)&&var(7)=1&&numenemy>1
+trigger1 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(12)),(pos x-helper(30005),var(12)))-3*11*ifelse(root,facing!=facing,-1,1))>0&&facing=1
+trigger2 = (ifelse(root,screenpos x>=160,(pos x-helper(30000),var(12)),(pos x-helper(30005),var(12)))-3*11*ifelse(root,facing!=facing,-1,1))<0&&facing=-1
+
+[state 11000]
+type = ChangeAnim
+trigger1 = !Time
+value = anim
+elem = 2
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 12000]
+type = PosSet
+trigger1 = !Time
+y = 0
+
+[state 11000]
+type = VelSet
+trigger1 = !time
+x = -(pos X-root,Pos X)*facing/11+ifelse(root,NumExplod(6296),10+(var(8)=12500)*4,ifelse(root,NumExplod(6297),-4,2-(var(8)=12500)*2))*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(8)=12000&&root,NumExplod(6296)&&abs(root,pos X-enemynear,Pos X)<10.0*11
+trigger2 = !time&&var(8)=12500&&root,NumExplod(6296)&&abs(root,pos X-enemynear,Pos X)<14.0*11
+x = -(pos X-root,Pos X)*facing/11+abs(root,pos X-enemynear,Pos X)*ifelse(facing!=root,facing,-1,1)/11-3*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(8)=[13500,13600]
+trigger2 = !time&&((var(8)=12500&&(root,var(1)%2>=1||root,var(1)%8>=4)&&(root,NumExplod(6296)||(root,NumExplod(6297)&&root,facing*enemynear,facing>0)))||var(8)=12600)
+x = abs(pos X-enemynear,Pos X)/11-3*ifelse(facing!=root,facing,-1,1)*ifelse((root,var(1)%2>=1||root,var(1)%8>=4)&&abs(root,pos X-enemynear,Pos X)<14.0*11,0,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(8)=13000
+x = abs(pos X-enemynear,Pos X)/11-6*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&(!var(7)||numenemy=1)&&numhelper(30000)&&numhelper(30005)&&var(8)=[13500,13600]
+x = abs(floor(pos X-ifelse(root,screenpos x>=160,helper(30000),var(11),helper(30005),var(11))))/11-3*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(7)=-1&&numenemy>1&&numhelper(30000)&&numhelper(30005)&&var(8)=[13500,13600]
+trigger1 = ifelse(root,screenpos x>=160,!helper(30000),var(16),!helper(30005),var(16))
+x = abs(floor(pos X-ifelse(root,screenpos x>=160,helper(30000),var(11),helper(30005),var(11))))/11-3*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(7)=-1&&numenemy>1&&numhelper(30000)&&numhelper(30005)&&var(8)=[13500,13600]
+trigger1 = ifelse(root,screenpos x>=160,helper(30000),var(16),helper(30005),var(16))
+x = abs(floor(pos X-ifelse(root,screenpos x>=160,helper(30000),var(12),helper(30005),var(12))))/11-3*ifelse(facing!=root,facing,-1,1)
+
+[state 11000]
+type = VelSet
+trigger1 = !time&&var(7)=1&&numenemy>1&&numhelper(30000)&&numhelper(30005)&&var(8)=[13500,13600]
+x = abs(floor(pos X-ifelse(root,screenpos x>=160,helper(30000),var(12),helper(30005),var(12))))/11-3*ifelse(facing!=root,facing,-1,1)
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time&&root,stateno!=181
+var(40) = ifelse(root,var(42)<=0,-1,2)
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = DestroySelf
+trigger1 = P2dist X<=Vel X&&IsHelper(11010)&&!(AnimElemTime(3)>=0&&AnimElemTime(4)<0)
+
+[state 11000]
+type = ChangeState
+trigger1 = Time=11
+value = ifelse(!var(8),12500,var(8))
+
+;援軍アタック（対地）
+[statedef 12000]
+type = S
+movetype=A
+physics = S
+anim = 12000+(floor(root,var(43)/1000)>=50)*100+(floor(root,var(43)/1000)>=100)*100
+velset = 0,0
+sprpriority = 2
+
+[state 11000]
+type = Turn
+trigger1 = !time&&facing!=root,facing
+
+[state 11000]
+type = Turn
+trigger1 = !time&&P2dist X<0
+
+[state 12000]
+type = PosSet
+trigger1 = !Time
+y = 0
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = ifelse(root,var(42)<=0,-1,2)
+
+[state 12000]
+type = PosSet
+trigger1 = !Time&&IsHelper(11010)&&prevstateno!=10500
+x = helper(11000),pos x
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+[state 190]
+type = PlaySND
+trigger1 = AnimElem=4&&IsHelper(11000)&&floor(root,var(43)/1000)<50
+value = 7300,2
+;channel = 10
+
+[state 190]
+type = PlaySND
+trigger1 = AnimElem=6&&IsHelper(11000)&&floor(root,var(43)/1000)=[50,99]
+trigger2 = AnimElem=7&&IsHelper(11000)&&floor(root,var(43)/1000)>=100
+value = 7300,3
+;channel = 10
+
+;終わりだっ！
+[state 12000]
+type = null;PlaySND
+trigger1 = AnimElem=4&&IsHelper(11000)&&floor(root,var(43)/1000)<50
+trigger2 = AnimElem=7&&IsHelper(11000)&&floor(root,var(43)/1000)=[50,99]
+trigger3 = AnimElem=6&&IsHelper(11000)&&floor(root,var(43)/1000)>=100
+value = 20,5
+channel = 2
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 12000]
+type = ChangeAnim
+trigger1 = Time=3&&(Prevstateno!=[10000,19999])&&IsHelper(11010)
+value = anim
+elem = 2
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+value = SCA
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 12000]
+type = DestroySelf
+trigger1 = P2dist X<=0&&IsHelper(11010)&&!(AnimElemTime(3)>=0&&AnimElemTime(4)<0)
+
+[state 12000]
+type = VarSet
+trigger1 = abs(root,var(15))<=18&&IsHelper(11000)
+var(20) = 1
+
+[state 12000]
+type = ChangeAnim
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&AnimElemNo(0)=3&&IsHelper(11000)
+value = anim
+elem = 3
+
+[state 12000]
+type = ChangeAnim
+trigger1 = abs(root,var(15))<=18&&var(20)=34&&IsHelper(11000)
+value = anim
+elem = 4
+
+[state 12000]
+type = PosFreeze
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&IsHelper(11000)
+value = 1
+
+;Attack Lv.2
+[state 200]
+type = Hitdef
+triggerall = floor(root,var(43)/1000)<50
+triggerall = !movecontact&&!movereversed
+trigger1 = AnimElem=5,>=0&&AnimElem=6,<0&&!(root,var(15)&&IsHelper(11000))
+damage = floor(ifelse((28+floor(root,var(43)/1000)+(root,var(43)=49000))*root,fvar(0)<1,1+(root,var(2)%5=4),(28+floor(root,var(43)/1000)+(root,var(43)=49000))*root,fvar(0))*1.22)
+ground.slidetime = 12+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 12+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 10
+pausetime = 12,11
+ground.velocity = 13.5*(1.0+ifelse(root,var(2)>31,31,root,var(2))*.04)*const(size.xscale)
+guard.velocity = 13.5*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = 2*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale),(-16.0*(51-root,var(3))*1.0/51)*const(size.yscale)
+airguard.velocity = 6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),44+11,32-ifelse(floor(root,var(14)/80)>6,6,floor(root,var(14)/80))+11)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,9+random%2)
+guardsound = s7000,4
+getpower = floor(ifelse(root,var(9),0,floor(45*root,fvar(1)*root,fvar(3))*1.38*root,fvar(16))),floor(ifelse(root,var(9),0,ceil(45*root,fvar(3)*1.0/8)*1.38*root,fvar(16)))
+givepower = floor(45*root,fvar(1)*root,fvar(3)*.8)*1.38,floor(45*root,fvar(3)*.8*1.0/8)*1.38
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = High
+ground.type = High
+attr = S,NA
+hitflag = MAFD
+guardflag = MA
+
+;Attack Lv.3
+[state 200]
+type = Hitdef
+triggerall = floor(root,var(43)/1000)=[50,99]
+triggerall = !movecontact&&!movereversed
+trigger1 = AnimElem=8,>=0&&AnimElem=9,<0&&!(root,var(15)&&IsHelper(11000))
+damage = floor(ifelse((57+floor((floor(root,var(43)/1000)-50)*1.0/4))*root,fvar(0)<1,1+(root,var(2)%5=4),(57+floor((floor(root,var(43)/1000)-50)*1.0/4))*root,fvar(0))*1.22)
+ground.slidetime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 12
+pausetime = 13,12
+ground.velocity = 15.0*(1.0+ifelse(root,var(2)>31,31,root,var(2))*.04)*const(size.xscale)
+guard.velocity = 15.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = 4*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale),(-18.0*(51-root,var(3))*1.0/51)*const(size.yscale)
+airguard.velocity = 6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),50+12,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+12)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,4)
+guardsound = s7000,4
+getpower = floor(ifelse(root,var(9),0,floor(45*root,fvar(1)*root,fvar(3))*1.38*root,fvar(16))),floor(ifelse(root,var(9),0,ceil(45*root,fvar(3)*1.0/8)*1.38*root,fvar(16)))
+givepower = floor(45*root,fvar(1)*root,fvar(3)*.8)*1.38,floor(45*root,fvar(3)*.8*1.0/8)*1.38
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = High
+ground.type = High
+attr = S,NA
+hitflag = MAFD
+guardflag = MA
+
+;Attack Lv.3
+[state 200]
+type = Hitdef
+triggerall = floor(root,var(43)/1000)>=100
+triggerall = !movecontact&&!movereversed
+trigger1 = AnimElem=7,>=0&&AnimElem=8,<0&&!(root,var(15)&&IsHelper(11000))
+damage = floor(ifelse(98*root,fvar(0)<1,1+(root,var(2)%5=4),98*root,fvar(0))*1.22)
+ground.slidetime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 12
+pausetime = 13,12
+ground.velocity = 15.0*(1.0+ifelse(root,var(2)>31,31,root,var(2))*.04)*const(size.xscale)
+guard.velocity = 15.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = 6*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale),(-20.0*(51-root,var(3))*1.0/51)*const(size.yscale)
+airguard.velocity = 6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),69+12,55-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+12)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,4)
+guardsound = s7000,4
+getpower = floor(ifelse(root,var(9),0,floor(45*root,fvar(1)*root,fvar(3))*1.38*root,fvar(16))),floor(ifelse(root,var(9),0,ceil(45*root,fvar(3)*1.0/8)*1.38*root,fvar(16)))
+givepower = floor(45*root,fvar(1)*root,fvar(3)*.8)*1.38,floor(45*root,fvar(3)*.8*1.0/8)*1.38
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = High
+ground.type = High
+attr = S,NA
+hitflag = MAFD
+guardflag = MA
+
+[state -1]
+type = parentvaradd
+trigger1 = (root,var(1)%2>=1||root,var(1)%8>=4)&&numtarget
+trigger1 = movehit=1 && target,time=0
+var(1) = -1*(root,var(1)%2>=1)-4*(root,var(1)%8>=4)
+ignorehitpause=1
+
+;援軍ヒット判別
+[state 12000]
+type = ParentVarSet
+trigger1 = movecontact=1
+var(15) = ifelse((root,stateno=[1000,1999]),36,28)*ifelse(moveguarded||!numtarget,-1,1)
+persistent=0
+ignorehitpause=1
+
+;ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(2) = 1
+persistent=0
+ignorehitpause=1
+
+;空中ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget&&root,var(3)
+var(3) = 1
+persistent=0
+ignorehitpause=1
+
+;引き剥がし効果
+[state 12000]
+type = ParentVarSet
+trigger1 = movehit=1&&numtarget&&root,var(6)!=0
+var(6) = 0
+persistent=0
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+triggerall = floor(root,var(43)/1000)<50
+trigger1 = movehit=1&&hitpausetime=11
+fvar(15) = .00005*floor(ifelse((28+floor(root,var(43)/1000)+(root,var(43)=49000))*root,fvar(14)<1,1+(root,var(2)%5=1),(28+floor(root,var(43)/1000)+(root,var(43)=49000))*root,fvar(14))*1.22)
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+triggerall = (floor(root,var(43)/1000)=[50,99])
+trigger1 = movehit=1&&hitpausetime=12
+fvar(15) = .00005*floor(ifelse((57+floor((root,var(43)-50)/1000)+(root,var(43)=99000))*root,fvar(14)<1,1+(root,var(2)%5=1),(57+floor((root,var(43)-50)/1000)+(root,var(43)=99000))*root,fvar(14))*1.22)
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+triggerall = floor(root,var(43)/1000)>=100
+trigger1 = movehit=1&&hitpausetime=12
+fvar(15) = .00005*floor(ifelse(98*root,fvar(14)<1,1+(root,var(2)%5=1),98*root,fvar(14))*1.22)
+ignorehitpause=1
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+fvar(14) = root,fvar(1)*root,fvar(2)*root,fvar(3)*root,fvar(4)
+ignorehitpause=1
+
+;◇◇ヒットスパーク◇◇
+[state 240]
+type = VarSet
+trigger1 = floor(root,var(43)/1000)<50 && AnimElem=5
+var(16) = 4
+persistent=0
+
+[state 240]
+type = VarSet
+trigger1 = (floor(root,var(43)/1000)=[50,99]) && AnimElem=8
+trigger2 = floor(root,var(43)/1000)>=100 && AnimElem=7
+var(16) = 5
+persistent=0
+
+;X座標
+[state 240]
+type = VarSet
+trigger1 = floor(root,var(43)/1000)<50 && AnimElem=5,>=0&&AnimElem=6,<0
+trigger2 = (floor(root,var(43)/1000)=[50,99]) && AnimElem=8,>=0&&AnimElem=9,<0
+trigger3 = floor(root,var(43)/1000)>=100 && AnimElem=7,>=0&&AnimElem=8,<0
+var(17) = floor(P2dist X)+ifelse((P2dist X=[1,60]),10,-10)
+
+;Y座標
+[state 240]
+type = VarSet
+trigger1 = floor(root,var(43)/1000)<50 && AnimElem=5,>=0&&AnimElem=6,<0
+trigger2 = (floor(root,var(43)/1000)=[50,99]) && AnimElem=8,>=0&&AnimElem=9,<0
+trigger3 = floor(root,var(43)/1000)>=100 && AnimElem=7,>=0&&AnimElem=8,<0
+var(18) = floor(-120*const(size.yscale))
+
+;ヒットスパーク
+[state 1000]
+type = Helper
+trigger1 = movecontact=1&&hitpausetime=ifelse(floor(root,var(43)/1000)<50,11,12)
+id = 7000
+stateno=7000+(movehit)*100
+pos = var(17),var(18)
+postype = p1
+ignorehitpause=1
+ownpal = 1
+pausemovetime=99999
+supermovetime=99999
+size.xscale = .5
+size.yscale = .5
+
+[state 1000]
+type = parentvaradd
+trigger1 = var(25)
+var(25) = var(25)
+ignorehitpause=1
+
+[state 1000]
+type = varset
+trigger1 = var(25)
+var(25) = 0
+ignorehitpause=1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = !enemynear,numpartner && !numhelper(15904)&&IsHelper
+trigger1 = time=1
+id = 15904
+stateno=15904
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = moveguarded=1&&!numhelper(15909)&&IsHelper
+triggerall = !enemynear,numpartner
+trigger1 = numtarget
+trigger1 = target,time=0 && (target,stateno=150||target,stateno=152||target,stateno=154)
+trigger2 = !numtarget && movetype=H && (P2stateno=[150,155])
+id = 15905+4
+stateno=15905
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 12000]
+type = AttackDist
+trigger1 = floor(root,var(43)/1000)<50 && AnimElem=6
+trigger2 = (floor(root,var(43)/1000)=[50,99]) && AnimElem=9
+trigger3 = floor(root,var(43)/1000)>=100 && AnimElem=8
+value = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11010))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 19000]
+type = ChangeState
+trigger1 = AnimTime=0
+value = 10500
+
+;援軍アタック対空
+[statedef 12500]
+type = S
+movetype=A
+physics =S
+anim = 12500
+sprpriority = 2
+velset = 0,0
+
+[state 11000]
+type = Turn
+trigger1 = !time&&facing!=root,facing
+
+[state 11000]
+type = Turn
+trigger1 = !time&&P2dist X<0
+
+[state 12000]
+type = PosSet
+trigger1 = !Time
+y = 0
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = ifelse(root,var(42)<=0,-1,2)
+
+[state 12000]
+type = PosSet
+trigger1 = !Time&&IsHelper(11010)&&prevstateno!=10500
+x = helper(11000),pos x
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+;終わりだっ！
+[state 12000]
+type = null;PlaySND
+trigger1 = !Time&&IsHelper(11000)
+value = 20,5
+channel = 2
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 12000]
+type = PlaySND
+trigger1 = !Time&&IsHelper(11000)
+value = 110,0
+
+[state 12000]
+type = ChangeAnim
+trigger1 = Time=1&&(Prevstateno!=[10000,19999])&&IsHelper(11010)
+value = anim
+elem = 2
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+value = SCA
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 12000]
+type = null;StatetypeSet
+trigger1 = P2dist X>Vel X&&IsHelper(11000)&&AnimElem=3
+movetype=I
+
+[state 12000]
+type = DestroySelf
+trigger1 = P2dist X<=Vel X&&IsHelper(11010)&&!(AnimElemTime(3)>=0&&AnimElemTime(4)<0)
+
+[state 12000]
+type = VarSet
+trigger1 = abs(root,var(15))<=18&&IsHelper(11000)
+var(20) = 1
+
+[state 12000]
+type = ChangeAnim
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&AnimElemNo(0)=3&&IsHelper(11000)
+value = anim
+elem = 3
+
+[state 12000]
+type = ChangeAnim
+trigger1 = abs(root,var(15))<=18&&var(20)=34&&IsHelper(11000)
+value = anim
+elem = 4
+
+[state 12000]
+type = PosFreeze
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&IsHelper(11000)
+value = 1
+
+[state 12000]
+type = StatetypeSet
+trigger1 = AnimElem=3
+statetype=A
+physics = N
+
+[state 12000]
+type = VelSet
+trigger1 = AnimElem=3,=1&&!((root,var(15)<-23||root,var(15)>23)&&IsHelper(11000))
+x = 3.5
+y = -13.5
+
+[state 12000]
+type = VelAdd
+trigger1 = AnimElem=3,>1&&!((root,var(15)<-23||root,var(15)>23)&&IsHelper(11000))
+y = .5
+
+;Attack Lv.3
+[state 200]
+type = Hitdef
+triggerall = !movecontact&&!movereversed
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0&&!(root,var(15)&&IsHelper(11000))
+damage = floor(ifelse((50+floor(root,var(43)/5000)-(root,var(43)=100000))*root,fvar(0)<1,1+(root,var(2)%5=4),(50+floor(root,var(43)/5000)-(root,var(43)=100000))*root,fvar(0))*1.22)
+ground.slidetime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 12
+pausetime = 15,14
+ground.velocity = -3*const(size.xscale),-22.0*const(size.yscale)
+guard.velocity = -12.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = ifelse(root,var(1)%8>=4||root,var(1)%2>=1,-10.0-.0014,-3*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale)),ifelse(root,var(6)%10>0,2,(-22.0*(51-root,var(3))*1.0/51)*const(size.yscale))
+airguard.velocity = -6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),50+14,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+14)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,4)
+guardsound = s7000,4
+getpower = floor(ifelse(root,var(9),0,floor(45*root,fvar(1)*root,fvar(3))*1.38*root,fvar(16))),floor(ifelse(root,var(9),0,ceil(45*root,fvar(3)*1.0/8)*1.38*root,fvar(16)))
+givepower = floor(45*root,fvar(1)*root,fvar(3)*.8)*1.38,floor(45*root,fvar(3)*.8*1.0/8)*1.38
+fall = 1
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = up
+ground.type = High
+attr = A,NA
+hitflag = MAFD
+guardflag = M
+
+;◇◇ヒットスパーク◇◇
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3
+var(16) = 5
+persistent=0
+
+;X座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(17) = floor(P2dist X)+ifelse((P2dist X=[1,60]),10,-10)
+
+;Y座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(18) = -floor(100*const(size.yscale))+ifelse(P2bodydist Y<-floor(360*const(size.yscale)),-floor(240*const(size.yscale)),floor(P2bodydist Y))
+
+;ヒットスパーク
+[state 1000]
+type = Helper
+trigger1 = movecontact=1&&hitpausetime=14
+id = 7000
+stateno=7000+(movehit)*100
+pos = var(17),var(18)
+postype = p1
+ignorehitpause=1
+pausemovetime=99999
+supermovetime=99999
+size.xscale = .5
+size.yscale = .5
+
+[state -1]
+type = targetstate
+trigger1 = (root,var(1)%2>=1||root,var(1)%8>=4)&&numtarget
+trigger1 = movehit=1 && target,time=0
+value = 926+(root,var(1)%8>=4)*10
+ignorehitpause=1
+
+;援軍ヒット判別
+[state 12000]
+type = ParentVarSet
+trigger1 = movecontact=1
+var(15) = ifelse((root,stateno=[1000,1999]),36,28)*ifelse(moveguarded||!numtarget,-1,1)
+persistent=0
+ignorehitpause=1
+
+;ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(2) = 1
+persistent=0
+ignorehitpause=1
+
+;空中ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(3) = 1
+persistent=0
+ignorehitpause=1
+
+;壁コンボヒット数補正増加
+[state -1]
+type = parentvaradd
+trigger1 = (root,var(1)%2>=1||root,var(1)%8>=4)&&numtarget && floor(root,var(6)%100/10)<9
+trigger1 = movehit=1 && target,time=0
+var(6) = 10
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=14
+fvar(15) = .00005*floor(ifelse((50+floor(root,var(43)/5000)-(root,var(43)=100000))*root,fvar(14)<1,1+(root,var(2)%5=1),(50+floor(root,var(43)/5000)-(root,var(43)=100000))*root,fvar(14))*1.22)
+ignorehitpause=1
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+fvar(14) = root,fvar(1)*root,fvar(2)*root,fvar(3)*root,fvar(4)
+ignorehitpause=1
+
+[state 1000]
+type = parentvaradd
+trigger1 = var(25)
+var(25) = var(25)
+ignorehitpause=1
+
+[state 1000]
+type = varset
+trigger1 = var(25)
+var(25) = 0
+ignorehitpause=1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = !enemynear,numpartner && !numhelper(15904)&&IsHelper
+trigger1 = time=1
+id = 15904
+stateno=15904
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = moveguarded=1&&!numhelper(15909)&&IsHelper
+triggerall = !enemynear,numpartner
+trigger1 = numtarget
+trigger1 = target,time=0 && (target,stateno=150||target,stateno=152||target,stateno=154)
+trigger2 = !numtarget && movetype=H && (P2stateno=[150,155])
+id = 15905+4
+stateno=15905
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 12000]
+type = AttackDist
+trigger1 = AnimElem=4
+value = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11010))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 50]
+type = PlaySND
+trigger1 = AnimElem=8,=1
+value = 41,0
+
+[state 19000]
+type = PlaySND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 52,0
+
+[state 19000]
+type = StopSND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+channel = 10
+
+[state 19000]
+type = ChangeAnim
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 12547
+
+[state 19000]
+type = StatetypeSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+statetype=S
+physics = S
+
+[state 19000]
+type = PosSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+y = 0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+x = 0
+y = 0
+
+[state 19000]
+type = ChangeState
+trigger1 = Anim=12547&&AnimTime=0
+value = 10500
+
+;援軍エリアルアタック
+[statedef 12600]
+type = S
+movetype=A
+physics =S
+anim = 12500
+sprpriority = 2
+velset = 0,0
+
+[state 11000]
+type = Turn
+trigger1 = !time&&facing!=root,facing
+
+[state 11000]
+type = Turn
+trigger1 = !time&&P2dist X<0
+
+[state 12000]
+type = PosSet
+trigger1 = !Time
+y = 0
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = ifelse(root,var(42)<=0,-1,2)
+
+[state 12000]
+type = PosSet
+trigger1 = !Time&&IsHelper(11010)&&prevstateno!=10500
+x = helper(11000),pos x
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+;終わりだっ！
+[state 12000]
+type = null;PlaySND
+trigger1 = !Time&&IsHelper(11000)
+value = 20,5
+channel = 2
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 12000]
+type = PlaySND
+trigger1 = !Time&&IsHelper(11000)
+value = 40,1
+
+[state 12000]
+type = ChangeAnim
+trigger1 = Time=3&&(Prevstateno!=[10000,19999])&&IsHelper(11010)
+value = anim
+elem = 2
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+value = SCA
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 12000]
+type = null;StatetypeSet
+trigger1 = P2dist X>Vel X&&IsHelper(11000)&&AnimElem=3
+movetype=I
+
+[state 12000]
+type = DestroySelf
+trigger1 = P2dist X<=Vel X&&IsHelper(11010)&&!(AnimElemTime(3)>=0&&AnimElemTime(4)<0)
+
+[state 12000]
+type = VarSet
+trigger1 = abs(root,var(15))<=18&&IsHelper(11000)
+var(20) = 1
+
+[state 12000]
+type = ChangeAnim
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&AnimElemNo(0)=3&&IsHelper(11000)
+value = anim
+elem = 3
+
+[state 12000]
+type = ChangeAnim
+trigger1 = abs(root,var(15))<=18&&var(20)=34&&IsHelper(11000)
+value = anim
+elem = 4
+
+[state 12000]
+type = PosFreeze
+trigger1 = (root,var(15)<-23||root,var(15)>23)&&IsHelper(11000)
+value = 1
+
+[state 12000]
+type = StatetypeSet
+trigger1 = AnimElem=3
+statetype=A
+physics = N
+
+[state 12000]
+type = VelSet
+trigger1 = AnimElem=3,=1&&!((root,var(15)<-23||root,var(15)>23)&&IsHelper(11000))
+x = 3.5
+y = -13.5
+
+[state 12000]
+type = VelAdd
+trigger1 = AnimElem=3,>1&&!((root,var(15)<-23||root,var(15)>23)&&IsHelper(11000))
+y = .5
+
+;Attack Lv.3
+[state 200]
+type = Hitdef
+triggerall = !movecontact&&!movereversed
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0&&!(root,var(15)&&IsHelper(11000))
+damage = floor(ifelse((57+floor(root,var(43)/4000)+root,var(43)=100000)*root,fvar(0)<1,1+(root,var(2)%5=4),(57+floor(root,var(43)/4000)+root,var(43)=100000)*root,fvar(0))*1.22)
+ground.slidetime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 12
+pausetime = 15,14
+ground.velocity = -3*const(size.xscale),-22.0*const(size.yscale)
+guard.velocity = -12.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = ifelse(root,var(1)%8>=4||root,var(1)%2>=1,-10.0-.0013,-3*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale)),ifelse(root,var(6)%10>0,2,(-22.0*(51-root,var(3))*1.0/51)*const(size.yscale))
+airguard.velocity = -6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),50+14,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+14)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,4)
+guardsound = s7000,4
+getpower = floor(ifelse(root,var(9),0,floor(45*root,fvar(1)*root,fvar(3))*1.38*root,fvar(16))),floor(ifelse(root,var(9),0,ceil(45*root,fvar(3)*1.0/8)*1.38*root,fvar(16)))
+givepower = floor(45*root,fvar(1)*root,fvar(3)*.8)*1.38,floor(45*root,fvar(3)*.8*1.0/8)*1.38
+fall = 1
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = up
+ground.type = High
+attr = A,NA
+hitflag = MAFD
+guardflag = M
+
+;◇◇ヒットスパーク◇◇
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3
+var(16) = 5
+persistent=0
+
+;X座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(17) = floor(P2dist X)+ifelse((P2dist X=[1,60]),10,-10)
+
+;Y座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(18) = -floor(100*const(size.yscale))+ifelse(P2bodydist Y<-floor(360*const(size.yscale)),-floor(240*const(size.yscale)),floor(P2bodydist Y))
+
+;ヒットスパーク
+[state 1000]
+type = Helper
+trigger1 = movecontact=1&&hitpausetime=14
+id = 7000
+stateno=7000+(movehit)*100
+pos = var(17),var(18)
+postype = p1
+ignorehitpause=1
+pausemovetime=99999
+supermovetime=99999
+size.xscale = .5
+size.yscale = .5
+
+[state -1]
+type = targetstate
+trigger1 = (root,var(1)%2>=1||root,var(1)%8>=4)&&numtarget
+trigger1 = movehit=1 && target,time=0
+value = 926+(root,var(1)%8>=4)*10
+ignorehitpause=1
+
+;援軍ヒット判別
+[state 12000]
+type = ParentVarSet
+trigger1 = movecontact=1
+var(15) = ifelse((root,stateno=[1000,1999]),36,28)*ifelse(moveguarded||!numtarget,-1,1)
+persistent=0
+ignorehitpause=1
+
+;ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(2) = 1
+persistent=0
+ignorehitpause=1
+
+;空中ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(3) = 1
+persistent=0
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=14
+fvar(15) = .00005*floor(ifelse((57+floor(root,var(43)/4000)+root,var(43)=100000)*root,fvar(14)<1,1+(root,var(2)%5=1),(57+floor(root,var(43)/4000)+root,var(43)=100000)*root,fvar(14))*1.22)
+ignorehitpause=1
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+fvar(14) = root,fvar(1)*root,fvar(2)*root,fvar(3)*root,fvar(4)
+ignorehitpause=1
+
+[state 1000]
+type = parentvaradd
+trigger1 = var(25)
+var(25) = var(25)
+ignorehitpause=1
+
+[state 1000]
+type = varset
+trigger1 = var(25)
+var(25) = 0
+ignorehitpause=1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = !enemynear,numpartner && !numhelper(15904)&&IsHelper
+trigger1 = time=1
+id = 15904
+stateno=15904
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = moveguarded=1&&!numhelper(15909)&&IsHelper
+triggerall = !enemynear,numpartner
+trigger1 = numtarget
+trigger1 = target,time=0 && (target,stateno=150||target,stateno=152||target,stateno=154)
+trigger2 = !numtarget && movetype=H && (P2stateno=[150,155])
+id = 15905+4
+stateno=15905
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 12000]
+type = AttackDist
+trigger1 = AnimElem=4
+value = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11010))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 50]
+type = PlaySND
+trigger1 = AnimElem=8,=1
+value = 41,0
+
+[state 19000]
+type = PlaySND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 52,0
+
+[state 19000]
+type = StopSND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+channel = 10
+
+[state 19000]
+type = ChangeAnim
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 12547
+
+[state 19000]
+type = StatetypeSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+statetype=S
+physics = S
+
+[state 19000]
+type = PosSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+y = 0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+x = 0
+y = 0
+
+[state 19000]
+type = ChangeState
+trigger1 = Anim=12547&&AnimTime=0
+value = 10500
+
+;援軍アシスト
+[statedef 13000]
+type = S
+movetype=A
+physics =S
+anim = 13000+(floor(root,var(43)/1000)>=100)*10
+sprpriority = 2
+velset = 0,0
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 11000]
+type = Turn
+trigger1 = !time&&facing!=root,facing
+
+[state 11000]
+type = Turn
+trigger1 = !time&&P2dist X<0
+
+[state 200]
+type = helper
+trigger1 = AnimElem=1,=2
+id = 7570
+stateno = 7570
+pos = 0,floor(-120*const(size.yscale))
+postype = P1
+pausemovetime=50
+supermovetime=50
+ownpal = 1
+
+[state 13000]
+type = SuperPause
+trigger1 = AnimElem=1,=2
+time = 50
+movetime = 50
+p2defmul = 1
+sound = -1
+anim = -1
+darken = 0
+poweradd = 0
+
+[state 13000]
+type = PowerAdd
+trigger1 = AnimElem=1,=2
+value  = -1000
+
+[state 13000]
+type = VarAdd
+trigger1 = AnimElem=1,=2
+var(42) = -200
+
+[state 13000]
+type = VarSet
+trigger1 = AnimElem=1,=2
+var(40) = -1
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+;Attack Lv.4
+[state 200]
+type = Hitdef
+trigger1 = AnimElem=10&&floor(root,var(43)/1000)<100
+damage = ceil(floor((26+floor(root,var(43)/3000))*1.2*ifelse(root,fvar(1)<.25,.25,root,fvar(1))*root,fvar(2)*root,fvar(3)*root,fvar(4))*1.22),ceil(floor((26+floor(root,var(43)/3000))*1.2*1.0/ifelse(fvar(21),6,4))*1.22)
+ground.slidetime = 17+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 17+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 15
+pausetime = 14,13
+ground.velocity = 0*const(size.xscale)
+guard.velocity = -12.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = -6*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale),ifelse(root,var(6)%10>0,2,(-10.0*(51-root,var(3))*1.0/51)*const(size.yscale))
+airguard.velocity = -6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),57+12,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+12)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,5)
+guardsound = s7000,4
+getpower = 0,0
+givepower = 0,0
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = High
+ground.type = High
+attr = S,HA
+hitflag = MAFD
+guardflag = M
+persistent=0
+kill = 0
+
+;Attack Lv.5
+[state 200]
+type = Hitdef
+trigger1 = AnimElem=10&&floor(root,var(43)/1000)>=100
+damage = ceil(floor(63*1.2*ifelse(root,fvar(1)<.25,.25,root,fvar(1))*root,fvar(2)*root,fvar(3)*root,fvar(4))*1.22),ceil(floor(63*1.2*1.0/ifelse(fvar(21),6,4))*1.22)
+ground.slidetime = 20+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 20+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 18
+pausetime = 15,14
+ground.velocity = 0*const(size.xscale)
+guard.velocity = -12.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = -6*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale),ifelse(root,var(6)%10>0,2,(-10.0*(51-root,var(3))*1.0/51)*const(size.yscale))
+airguard.velocity = -6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = .9*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),57+12,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+12)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,5)
+guardsound = s7000,4
+getpower = 0,0
+givepower = 0,0
+air.fall = 1
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = High
+ground.type = High
+attr = S,HA
+hitflag = MAFD
+guardflag = M
+persistent=0
+kill = 0
+
+;ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(2) = 1
+persistent=0
+ignorehitpause=1
+
+;空中ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget&&root,var(3)
+var(3) = 1
+persistent=0
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=13
+fvar(15) = .00005*floor(ifelse((ifelse(fvar(21),36,26)+floor(root,var(43)/3000))*root,fvar(14)<1,1+(root,var(2)%5=1),(ifelse(fvar(21),36,26)+floor(root,var(43)/3000))*root,fvar(14))*1.22)
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=14&&floor(root,var(43)/1000)>=100
+fvar(15) = .00005*floor(ifelse(ifelse(fvar(21),80,63)*root,fvar(14)<1,1+(root,var(2)%5=1),ifelse(fvar(21),80,63)*root,fvar(14))*1.22)
+ignorehitpause=1
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+fvar(14) = root,fvar(1)*root,fvar(2)*root,fvar(3)*root,fvar(4)
+ignorehitpause=1
+
+;◇◇ヒットスパーク◇◇
+[state 240]
+type = VarSet
+trigger1 = AnimElem=10
+var(16) = 10+random%4
+persistent=0
+
+;X座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=10,>=0&&AnimElem=11,<0
+var(17) = floor(P2dist X)+ifelse((P2dist X=[1,60]),10,-10)
+
+;Y座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=10,>=0&&AnimElem=11,<0
+var(18) = floor(-120*const(size.yscale))
+
+;ヒットスパーク
+[state 1000]
+type = Helper
+trigger1 = movecontact=1&&hitpausetime=(13+(floor(root,var(43)/1000)>=100))
+id = 7000
+stateno=7000+(movehit)*100
+pos = var(17),var(18)
+postype = p1
+ignorehitpause=1
+pausemovetime=99999
+supermovetime=99999
+size.xscale = .5
+size.yscale = .5
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+trigger1 = target,time=0
+var(28) = 360-2
+ignorehitpause=1
+persistent=0
+
+[state -2]
+type = targetstate
+trigger1 = root,var(28)>0 && numtarget
+trigger1 = target,time>0 && (target,stateno=5001||target,stateno=5011) && target,hitover
+value = 15300
+ignorehitpause=1
+persistent=0
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = !enemynear,numpartner && !numhelper(15904)&&IsHelper
+trigger1 = time=1
+id = 15904
+stateno=15904
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 1000]
+type = parentvaradd
+trigger1 = var(25)
+var(25) = var(25)
+ignorehitpause=1
+
+[state 1000]
+type = varset
+trigger1 = var(25)
+var(25) = 0
+ignorehitpause=1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = moveguarded=1&&!numhelper(15909)&&IsHelper
+triggerall = !enemynear,numpartner
+trigger1 = numtarget
+trigger1 = target,time=0 && (target,stateno=150||target,stateno=152||target,stateno=154)
+trigger2 = !numtarget && movetype=H && (P2stateno=[150,155])
+id = 15905+4
+stateno=15905
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 12000]
+type = AttackDist
+trigger1 = AnimElem=11
+value = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11010))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 13000]
+type = ChangeState
+trigger1 = AnimTime=0
+value = 10500
+
+;援軍カウンター
+[statedef 13500]
+type = S
+movetype=A
+physics =S
+anim = 13500+root,var(57)-1
+sprpriority = 2
+velset = 0,0
+
+[state 13500]
+type = NotHitBy
+trigger1 = AnimElem=3,<1
+value = SCA
+
+[state 11000]
+type = Turn
+trigger1 = facing!=root,facing
+
+[state 12000]
+type = PosSet
+trigger1 = !Time
+y = 0
+
+[state 12000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = -1
+
+;迷わず突き進もう！未来に向かって！
+[state 12000]
+type = null;PlaySND
+trigger1 = movehit=1&&IsHelper(11000)
+value = 20,188
+channel = 2
+persistent=0
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 12000]
+type = PlaySND
+trigger1 = !Time&&IsHelper(11000)
+value = 110,0
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 12000]
+type = StatetypeSet
+trigger1 = AnimElem=3
+statetype=A
+physics = N
+
+[state 12000]
+type = VelSet
+trigger1 = AnimElem=3,=1
+x = 1.5
+y = -24.0
+
+[state 12000]
+type = VelAdd
+trigger1 = AnimElem=3,>1
+y = .5
+
+;Attack Lv.3
+[state 200]
+type = Hitdef
+triggerall = !movecontact && !movereversed
+trigger1 = AnimElem=3,>=0 && AnimElem=4,<0
+damage = floor(ifelse((20+floor((root,var(43)-10000)/10000))*root,fvar(0)<1,1+(root,var(2)%5=4),(20+floor((root,var(43)-10000)/10000))*root,fvar(0))*1.22),ceil(floor((20+floor((root,var(43)-10000)/3000))*1.0/4)*1.22)
+ground.slidetime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+ground.hittime = 14+(P2statetype=C)+(root,var(49)&&!root,var(2))*6
+guard.hittime = 12
+priority = 9,Dodge
+pausetime = 15,14
+ground.velocity = -3*const(size.xscale),-22.0*const(size.yscale)
+guard.velocity = -12.0*const(size.xscale)
+ground.cornerpush.veloff = 0
+air.velocity = ifelse(root,var(1)%8>=4||root,var(1)%2>=1,-10.0-.0013,-3*(1.0+ifelse(root,var(3)>31,31,root,var(3))*.06)*const(size.xscale)),ifelse(root,var(6)%10>0,2,(-22.0*(51-root,var(3))*1.0/51)*const(size.yscale))
+airguard.velocity = -6*const(size.xscale),-2*const(size.yscale)
+air.cornerpush.veloff = 0
+yaccel = 1.0*const(size.yscale)
+fall.recover = ifelse(root,var(6)%10>0||root,var(28)>0,0,1)
+fall.recovertime = ifelse(root,var(49)&&!root,var(2),50+12,36-ifelse(floor(root,var(14)/70)>7,7,floor(root,var(14)/70))+12)
+hitsound = s7100,ifelse(!(enemynear,teammode=simul)&&enemynear,name="Honda Tadakatsu",999,4)
+guardsound = s7000,4
+getpower = 0,0
+givepower =  0,0
+fall = 1
+air.fall = 1
+kill = 0
+guard.kill = 0
+sparkno = -1;0
+guard.sparkno = -1;40
+sparkxy = ifelse(P2bodydist X<20,-20,-10),floor(-60*const(size.xscale))
+animtype = up
+ground.type = High
+attr = A,SA
+hitflag = MAFD
+guardflag = MA
+persistent=0
+
+[state -1]
+type = targetstate
+trigger1 = (root,var(1)%2>=1||root,var(1)%8>=4)&&numtarget
+trigger1 = movehit=1 && target,time=0
+value = 926+(root,var(1)%8>=4)*10
+ignorehitpause=1
+
+;援軍ヒット判別
+[state 12000]
+type = ParentVarSet
+trigger1 = movecontact=1
+var(15) = ifelse((root,stateno=[1000,1999]),36,28)*ifelse(moveguarded||!numtarget,-1,1)
+persistent=0
+ignorehitpause=1
+
+;ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(2) = 1
+persistent=0
+ignorehitpause=1
+
+;空中ヒット数補正増加
+[state 12000]
+type = ParentVarAdd
+trigger1 = movehit=1&&numtarget
+var(3) = 1
+persistent=0
+ignorehitpause=1
+
+;ヒットによる増加(スタイリッシュポイント)
+[state -2]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=14
+fvar(15) = .00005*floor(ifelse((20+floor((root,var(43)-10000)/10000))*root,fvar(14)<1,1+(root,var(2)%5=1),(20+floor((root,var(43)-10000)/10000))*root,fvar(14))*1.22)
+ignorehitpause=1
+
+[state -2]
+type = parentvarset
+trigger1 = movehit=1
+fvar(14) = root,fvar(1)*root,fvar(2)*root,fvar(3)*root,fvar(4)
+ignorehitpause=1
+
+;スタイリッシュポイント増加(援軍カウンター成功)
+[state 13500]
+type = parentvaradd
+trigger1 = movehit=1&&hitpausetime=14
+fvar(15) = .07
+ignorehitpause=1
+
+;◇◇ヒットスパーク◇◇
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3
+var(16) = 10
+persistent=0
+
+;X座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(17) = floor(P2dist X)+ifelse((P2dist X=[1,60]),10,-10)
+
+;Y座標
+[state 240]
+type = VarSet
+trigger1 = AnimElem=3,>=0&&AnimElem=4,<0
+var(18) = -floor(100*const(size.yscale))+ifelse(P2bodydist Y<-floor(360*const(size.yscale)),-floor(240*const(size.yscale)),floor(P2bodydist Y))
+
+;ヒットスパーク
+[state 1000]
+type = Helper
+trigger1 = movecontact=1&&hitpausetime=12
+id = 7000
+stateno=7000+(movehit)*100
+pos = var(17),var(18)
+postype = p1
+ignorehitpause=1
+pausemovetime=99999
+supermovetime=99999
+size.xscale = .5
+size.yscale = .5
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = !enemynear,numpartner && !numhelper(15904)&&IsHelper
+trigger1 = time=1
+id = 15904
+stateno=15904
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+;ガードクラッシュ減少値判別
+[State 100, Helper]
+type = Helper
+triggerall = moveguarded=1&&!numhelper(15909)&&IsHelper
+triggerall = !enemynear,numpartner
+trigger1 = numtarget
+trigger1 = target,time=0 && (target,stateno=150||target,stateno=152||target,stateno=154)
+trigger2 = !numtarget && movetype=H && (P2stateno=[150,155])
+id = 15905+4
+stateno=15905
+pos = 0,0
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[state 12000]
+type = AttackDist
+trigger1 = AnimElem=4
+value = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = AnimElemTime(3)>=1
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)=3&&IsHelper(11000)&&Root,NumHelper(11010)
+value = 15000
+
+[state 50]
+type = PlaySND
+trigger1 = AnimElem=8,=1
+value = 41,0
+
+[state 19000]
+type = PlaySND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 52,0
+
+[state 19000]
+type = StopSND
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+channel = 10
+
+[state 19000]
+type = ChangeAnim
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+value = 12547
+
+[state 19000]
+type = StatetypeSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+statetype=S
+physics = S
+
+[state 19000]
+type = PosSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+y = 0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+x = 0
+y = 0
+
+[state 19000]
+type = ChangeState
+trigger1 = Anim=12547&&AnimTime=0
+value = 10500
+
+;援軍ダメージ
+[statedef 15000]
+type = S
+movetype=H
+physics = S
+sprpriority = -4
+velset = 0,0
+
+[state 10000]
+type = parentvarset
+trigger1 = !time&&root,var(40)!=4
+var(40) = 3
+
+[state 10000]
+type = parentvaradd
+trigger1 = !time&&!(IsHelper(11000)&&Root,NumHelper(11010))
+var(42) = -floor(22.5*ifelse(gethitvar(hittime)>=14,3,2))
+
+[state 13000]
+type = varadd
+trigger1 = !time&&IsHelper(11000)
+var(10) = 1
+
+;おおぅ！、ぐお！
+[state 10000]
+type = PlaySND
+trigger1 = !time&&!(IsHelper(11000)&&Root,NumHelper(11010))
+value = 20,15+(hitfall||pos Y<0)*2
+chanel = 2
+
+;あー！！
+[state 10000]
+type = PlaySND
+trigger1 = !time&&!(IsHelper(11000)&&Root,NumHelper(11010))&&(prevstateno=[13500,13600])
+value = 20,18
+chanel = 2
+
+;何の、これしきっ！
+[state 10000]
+type = PlaySND
+trigger1 = time=1&&!(IsHelper(11000)&&Root,NumHelper(11010))&&prevstateno=15000&&root,var(42)<=0
+value = 20,9
+chanel = 2
+
+[state 12000]
+type = AssertSpecial
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+flag = invisible
+
+[state 12000]
+type = NotHitBy
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+value = SCA
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 10000]
+type = varset
+trigger1 = !time
+var(7) = GetHitVar(hittime)
+
+[state 10000]
+type = posset
+trigger1 = IsHelper(11000) && Root,NumHelper(11010)
+x = root,fvar(23)
+
+[state 10000]
+type = posset
+trigger1 = IsHelper(11000) && Root,NumHelper(11010)
+y = root,fvar(23)
+
+[state 15000]
+type = VarSet
+trigger1 = !Hitshakeover&&IsHelper(11010)
+var(6) = ifelse(hitfall||pos Y<0||root,var(42)<=0,15030,15000+(gethitvar(hittime)>=14)*10)
+
+[state 15000]
+type = ChangeAnim
+trigger1 = !Hitshakeover
+value = ifelse(hitfall||pos Y<0||root,var(42)<=0,15030,15000+(gethitvar(hittime)>=14)*10)
+
+[state 15000]
+type = ChangeAnim
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+value = var(6)
+
+[state 10500]
+type = NotHitBy
+trigger1 = !(IsHelper(11000)&&Root,NumHelper(11000))
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+
+[state 19000]
+type = DestroySelf
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)
+trigger1 = Helper(11010),var(6)=15030
+
+[state 19000]
+type = ChangeState
+trigger1 = IsHelper(11000)&&Root,NumHelper(11010)&&time
+trigger1 = Helper(11010),time>=(Helper(11010),var(7)-1)
+value = 10500+(root,var(40)=4)*4531
+
+[state 19000]
+type = ChangeState
+trigger1 = HitShakeOver&&!(IsHelper(11000)&&Root,NumHelper(11010))
+value = 15001+(HitFall||pos Y<0||root,var(42)<=0)*30
+
+;援軍ダメージ
+[statedef 15001]
+type = S
+movetype=H
+physics = S
+sprpriority = -4
+
+[state 10000]
+type = parentvarset
+trigger1 = 1
+var(40) = 3
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)
+fvar(23) = floor(pos y)
+
+[state 12000]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[state 12000]
+type = Width
+trigger1 = Vel X>0
+edge = 2,0
+
+[state 12000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 900, 4]
+type = ScreenBound
+trigger1 = numhelper(30000)
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<(40+const(size.ground.front))&&frontedgebodydist<=0
+trigger2 = numhelper(30000)
+trigger2 = ifelse(facing=1,-(helper(30005),pos x-pos x),(helper(30000),pos x-pos x))<(40+const(size.ground.back))&&backedgebodydist<=0
+value = 1
+movecamera = 0,0
+
+[state 15000]
+type = HitVelSet
+trigger1 = !time
+x = 1
+
+[State 5001, 3] ;Stop sliding back
+type = VelMul
+trigger1 = Time >= GetHitVar(slidetime)
+x = .6
+
+[State 5001, 4]
+type = VelSet
+trigger1 = HitOver
+x = 0
+
+[state 10500]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+ignorehitpause=1
+
+[state 10500]
+type = HitOverride
+trigger1 = 1
+time = 1
+attr = SCA,AA,AP
+stateno=15000
+slot = 0
+
+[state 19000]
+type = ChangeState
+trigger1 = HitOver
+value = 10500
+
+;援軍ダメージ
+[statedef 15031]
+type = A
+movetype=H
+physics = N
+sprpriority = -4
+
+[state 10000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 10000]
+type = parentvarset
+trigger1 = 1
+var(40) = 4
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)||(IsHelper(11000)&&!Root,NumHelper(11010))
+fvar(22) = floor(pos X)
+
+[state 10000]
+type = parentvarset
+trigger1 = IsHelper(11010)||(IsHelper(11000)&&!Root,NumHelper(11010))
+fvar(23) = floor(pos y)
+
+[state 15000]
+type = VelSet
+trigger1 = !time
+x = -12.0
+y = -12.0
+
+[State 5001, 3] ;Stop sliding back
+type = VelAdd
+trigger1 = 1
+y = .5
+
+[state 19000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 19000]
+type = DestroySelf
+trigger1 = Vel Y>0 && Pos Y>=-Vel Y
+
+;援軍帰還
+[statedef 16000]
+movetype=I
+physics = N
+type = S
+anim = 11000
+sprpriority = -4
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = PalFX
+trigger1 = 1
+;add = -56,-56,-56
+mul = 224,224,224
+time=1
+
+[state 16000]
+type = ChangeAnim
+trigger1 = prevstateno=19000
+trigger1 = time<ifelse(floor(ifelse(root,var(42)<=0,3.0,1.0)*75*(1.0+floor((100-floor(root,var(43)/1000))*1.0/50)))>600,600,floor(ifelse(root,var(42)<=0,3.0,1.0)*75*(1.0+floor((100-floor(root,var(43)/1000))*1.0/50))))
+value = anim
+
+[state 19000]
+type = Turn
+trigger1 = !Time
+trigger1 = ((Pos X<Helper(18000),Pos X&&facing=-1)||(Pos X>Helper(18000),Pos X&&facing=1))
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno!=19000
+var(40) = 0
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno=19000
+var(40) = floor(225*(1.0+floor((100-floor(root,var(43)/1000))*1.0/25)))
+
+[state 19000]
+type = VarAdd
+trigger1 = Time&&var(40)>0
+var(40) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 16500]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = VelSet
+trigger1 = AnimElem=2
+x = 6.0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel X<.75&&AnimElemTime(2)>=0
+x = 0
+
+[state 19000]
+type = VelMul
+trigger1 = Vel X<6&&AnimElemTime(2)>=0
+x = .9
+
+[state 19000]
+type = VelMul
+triggerall = AnimElemTime(2)>=0
+trigger1 = Pos X=[Helper(18000),Pos X-Vel X*4*facing-4,Helper(18000),Pos X-Vel X*4*facing+4]
+x = .9
+persistent=0
+
+[state 19000]
+type = PosSet
+trigger1 = !Vel X&&AnimElemTime(2)>=0
+x = Helper(18000),Pos X
+
+[state 19000]
+type = ChangeAnim
+trigger1 = AnimElemTime(4)=0 && Vel X>=6
+value = anim
+elem = 2
+
+[state 14000]
+type = Turn
+trigger1 = !AnimTime
+trigger1 = (teamside=1&&facing=-1)||(teamside=2&&facing=1)
+
+[state 14000]
+type = ParentVarSet
+trigger1 = AnimTime=0
+var(40) = 10
+
+[state 19000]
+type = ChangeState
+trigger1 = AnimTime=0
+value = 10000
+
+;援軍移動中
+[statedef 17000]
+type = S
+sprpriority = -4
+anim = 90000
+
+[state 17000]
+type = PosSet
+trigger1 = !time
+x = ifelse(teamside=1,floor(root,fvar(12))+80,-floor((root,fvar(12)-floor(root,fvar(12)))*10000)-80)
+y = -20
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+;ここまでは全て予定通り
+[state 17000]
+type = PlaySND
+trigger1 = time=120&&roundstate>=2
+value = 20,192
+channel = 2
+;2.733sec
+;2.946sec
+
+;時間だ秀吉に合流しよう
+;いいよ秀吉その調子だ
+[state 17000]
+type = PlaySND
+trigger1 = var(0)%6=0&&time%30=0&&time=[300,480]
+value = 20,193+var(0)%2
+channel = 2
+persistent=0
+
+;援軍ゲージ最大値設定
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&root,var(40)>=-10
+var(41) = 71+floor((floor(root,var(43)/1000)-1)*1.0/.77)+(root,var(43)=100)
+
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&(root,var(40)=[0,-10])
+var(42) = 0
+
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&root,var(40)>=-10&&root,var(40)<=0
+var(40) = -10
+
+[state 17000]
+type = ParentVarAdd
+trigger1 = time=1&&root,var(40)=-10
+var(40) = -1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)<=-670||root,var(40)=1
+value = 17500
+
+;援軍到着モーション
+[statedef 17500]
+type = A
+physics = N
+anim = 17000
+sprpriority = -4
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 190]
+type = PalFX
+trigger1 = 1
+;add = -56,-56,-56
+mul = 224,224,224
+time=1
+
+[state 17000]
+type = PosSet
+trigger1 = !time
+x = ifelse(root,facing=-1,160,-160)
+
+[state 17000]
+type = ParentVarAdd
+trigger1 = prevstateno=17000&&root,var(42)<root,var(41)
+var(42) = ifelse(root,var(42)<(root,var(41)-3),4,1)
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno!=19000
+var(40) = 0
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno=19000
+var(40) = floor(225*(1.0+floor((100-floor(root,var(43)/1000))*1.0/25)))
+
+[state 19000]
+type = VarAdd
+trigger1 = Time&&var(40)>0
+var(40) = -1
+
+[state 19000]
+type = ParentVarSet
+trigger1 = !Time&&prevstateno=17000
+var(40) = -900
+
+[state 19000]
+type = turn
+trigger1 = !time&&facing!=root,facing
+
+[state 19000]
+type = PlaySND
+trigger1 = Anim=17500
+trigger1 = var(2) := ifelse(floor(root,var(43)/1000)>=100,191,151)*floor(TicksPerSecond/60)
+trigger1 = var(4) := var(4)+2
+value = 20,180+(floor(root,var(43)/1000)>=100)
+persistent=0
+;2.503sec
+;3.170sec
+
+[state 19000]
+type = VelSet
+trigger1 = !time
+x = 3.0
+y = -5.0
+
+[state 19000]
+type = VelAdd
+trigger1 = time
+y = .4
+
+[state 19000]
+type = ChangeAnim
+trigger1 = vel y>0&&Pos y>=(-Vel Y-20)
+value = 17500
+persistent=0
+
+[State 40, 1]
+type = PlaySND
+trigger1 = Anim=17500
+value = 52,0
+persistent = 0
+
+[State 40, 1]
+type = Explod
+trigger1 = Anim=17500
+id = 6910
+anim = 6910
+pos = ceil(-6*const(size.xscale)),ceil(0*const(size.yscale))
+postype = p1
+ownpal = 1
+sprpriority = 3
+facing = -1
+vel = -5*const(size.xscale),0
+scale = const(size.xscale),const(size.yscale)
+pausemovetime = 9999
+supermovetime = 9999
+persistent = 0
+
+[State 40, 1]
+type = Explod
+trigger1 = Anim=17500
+id = 6910
+anim = 6910
+pos = ceil(6*const(size.xscale)),ceil(0*const(size.yscale))
+postype = p1
+ownpal = 1
+sprpriority = 3
+facing = 1
+vel = 5*const(size.xscale)
+scale = const(size.xscale),const(size.yscale)
+pausemovetime = 9999
+supermovetime = 9999
+persistent = 0
+
+[state 19000]
+type = StatetypeSet
+trigger1 = Anim=17500
+statetype=S
+
+[state 19000]
+type = VelSet
+trigger1 = Anim=17500
+x = 0
+y = 0
+
+[state 19000]
+type = PosSet
+trigger1 = Anim=17500
+y = -20
+
+[state 19000]
+type = ParentVarSet
+trigger1 = Anim=17500&&AnimTime=0&&(Pos X=[Helper(18000),Pos X-24,Helper(18000),Pos X+24])
+var(40) = 10
+
+[state 19000]
+type = Turn
+trigger1 = Anim=17500&&AnimTime=0&&(Pos X=[Helper(18000),Pos X-24,Helper(18000),Pos X+24])&&((facing=-1&&teamside=1)||(facing=1&&teamside=2))
+
+[state 19000]
+type = ChangeState
+trigger1 = Anim=17500&&AnimTime=0
+value = ifelse((Pos X=[Helper(18000),Pos X-24,Helper(18000),Pos X+24]),10000,16000)
+
+;位置判別ヘルパー
+[statedef 18000]
+type = S
+anim = 90000
+sprpriority = -4
+
+[state 18000]
+type = PosAdd
+trigger1 = Time=0&&numpartner&&ifelse(teamside=2,Pos X<60,Pos X>-60)
+trigger1 = (root,ID-partner,ID)>0
+x = ifelse(teamside=2,60,-60)
+
+;援軍行動中（待機用ヘルパー隔離）
+[statedef 19000]
+type = S
+anim = 90000
+
+[state 190]
+type = StopSND
+trigger1 = !Time&&!(root,stateno=180&&Root,WinTime&&root,var(51)%2=0)
+channel = 2
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+;手出し無用宣言可能か判別
+[state 10000]
+type = varset
+trigger1 = !time
+var(30) = 1
+
+[state 19000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+;終わりだっ！
+[state 19000]
+type = PlaySND
+triggerall = !var(2)&&!var(3)&&numhelper(11000)
+triggerall = helper(11000),stateno=12000&&!helper(11000),movecontact
+trigger1 = helper(11000),animelemTime(4)=0&&floor(root,var(43)/1000)<50
+trigger1 = var(3) := 34*floor(TicksPerSecond/60)
+trigger2 = helper(11000),animelemTime(7)=0&&floor(root,var(43)/1000)=[50,99]
+trigger2 = var(3) := 34*floor(TicksPerSecond/60)
+trigger3 = helper(11000),animelemTime(6)=0&&floor(root,var(43)/1000)>=100
+trigger3 = var(3) := 34*floor(TicksPerSecond/60)
+value = 20,5
+channel = 2
+;0.551sec
+
+;終わりだっ！
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&numhelper(11000)
+trigger1 = (helper(11000),stateno=[12500,12600])&&helper(11000),anim=12500&&helper(11000),animelemTime(3)=0&&!helper(11000),movecontact
+trigger1 = var(3) := 34*floor(TicksPerSecond/60)
+value = 20,5
+channel = 2
+;0.551sec
+
+;意外かい？これは必然だ
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&numhelper(11000)
+trigger1 = helper(11000),stateno=13000&&helper(11000),movehit=2
+trigger1 = var(3) := 155*floor(TicksPerSecond/60)
+value = 20,183
+channel = 2
+;2.573sec
+
+;迷わず突き進もう！未来に向かって！
+[state 12000]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&numHelper(11000)
+trigger1 = helper(11000),stateno=13500&&helper(11000),movehit=1&&helper(11000),hitpausetime=12
+value = 20,188
+channel = 2
+
+;~~~援軍ファーストヒット用
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Date Masamune"||enemynear,name="Masamune"
+trigger1 = var(2) := 163*floor(TicksPerSecond/60)
+value = 20,199
+channel = 2
+;2.716sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Sanada yukimura"||enemynear,name="Yukimura"
+trigger1 = var(2) := 287*floor(TicksPerSecond/60)
+value = 20,200
+channel = 2
+;4.775sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Maeda Keiji"||enemynear,name="Keiji"
+trigger1 = var(2) := 270*floor(TicksPerSecond/60)
+value = 20,201
+channel = 2
+;4.498sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Chousokabe Motochika"||enemynear,name="Motochika"
+trigger1 = var(2) := 245*floor(TicksPerSecond/60)
+value = 20,202
+channel = 2
+;4.081sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Mouri Motonari"||enemynear,name="Motonari"
+trigger1 = var(2) := 204*floor(TicksPerSecond/60)
+value = 20,203
+channel = 2
+;3.393sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Oda Nobunaga"||enemynear,name="Nobunaga"
+trigger1 = var(2) := 314*floor(TicksPerSecond/60)
+value = 20,204
+channel = 2
+;5.223sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Uesugi Kenshin"||enemynear,name="Kenshin"
+trigger1 = var(2) := 307*floor(TicksPerSecond/60)
+value = 20,205
+channel = 2
+;5.111sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Oichi"
+trigger1 = var(2) := 331*floor(TicksPerSecond/60)
+value = 20,206
+channel = 2
+;5.505sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Honda Tadakatsu"||enemynear,name="Tadakatsu"
+trigger1 = var(2) := 183*floor(TicksPerSecond/60)
+value = 20,207
+channel = 2
+;3.041sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&random%2=0&&roundstate=2
+trigger1 = enemynear,name="Katakura Kojuro"||enemynear,name="Kojuro"
+trigger1 = var(2) := 268*floor(TicksPerSecond/60)
+value = 20,208
+channel = 2
+;4.455sec
+
+[state 19000]
+type = PlaySND
+trigger1 = !var(2)&&root,var(11)=2&&roundstate=2
+trigger1 = var(2) := 219*floor(TicksPerSecond/60)
+value = 20,198
+channel = 2
+;3.638sec
+
+[state 19000]
+type = VarSet
+trigger1 = !Time
+trigger2 = root,var(40)=-1||root,var(40)=3
+var(7) = 0
+
+[state 19000]
+type = VarSet
+trigger1 = Time&&(root,NumHelper(11000)||root,NumHelper(11010))
+trigger1 = root,var(40)=4
+var(7) = 1
+
+[state 19000]
+type = PosSet
+trigger1 = Time&&var(7)
+x = ifelse(teamside=2,floor(root,fvar(12))+240,-floor((root,fvar(12)-floor(root,fvar(12)))*10000)-240)
+
+[state 19000]
+type = ChangeState
+trigger1 = Time&&!Root,NumHelper(11000)&&!Root,NumHelper(11010) && var(7)
+value = 16000
+
+[state 19000]
+type = ChangeState
+trigger1 = Time&&root,var(40)>0 && !Root,NumHelper(11000) && !Root,NumHelper(11010)
+value = 10000
+
+;援軍要請前
+[statedef 19900]
+type = S
+anim = 90000
+ctrl = 0
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&(prevstateno!=[10000,19999])
+x = ifelse(teamside=2,60,-60)
+y = -20
+
+;目印（ヘルパーにしないと影の表示が正常にできないため）
+[state 190]
+type = Helper
+trigger1 = !Time&&IsHelper(10000)&&!NumHelper(18000)
+id = 18000
+stateno = 18000
+pos = 0,0
+postype = P1
+sprpriority = -4
+shadowoffset = -16
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
+[state 17000]
+type = ParentVarSet
+trigger1 = 1
+var(41) = 71+floor((floor(root,var(43)/1000)-1)*1.0/.77)+(root,var(43)=100)
+
+;援軍要請
+[state -2]
+type = ParentVarSet
+triggerall = !(enemynear,name="Oichi"&&enemynear,authorname="rei"&&enemynear,numexplod(6793))
+triggerall = !(enemynear,name="Mouri Motonari"&&enemynear,authorname="Neat Unsou"&&enemynear,var(29))
+triggerall = !(root,stateno=3000&&root,AnimElemTime(1)>=1&&root,AnimElemTime(1)<31)&&!(root,stateno=3100&&root,AnimElemTime(1)>=1&&root,AnimElemTime(2)<0)
+triggerall = !(root,stateno=3500&&root,AnimElemTime(1)>=1&&root,AnimElemTime(1)<31)
+triggerall = !root,var(40)&&roundstate=2&&!root,numexplod(40000)
+trigger1 = command="a"&&!root,var(59)&&!root,numhelper(90000)
+trigger2 = random%19=0 && root,Life<=ifelse(floor(root,var(43)/1000)>=65,100000,ifelse(floor(root,var(43)/1000)>=62,700,ifelse(floor(root,var(43)/1000)>=59,500,300)))&&floor(root,var(43)/1000)>=55&&root,var(59)
+trigger3 = floor(root,var(43)/1000)>=100
+var(40) = -10
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)<=-10||root,var(40)=1
+value = 17000
+

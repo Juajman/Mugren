@@ -1,0 +1,9665 @@
+;============================================================
+;============================================================
+
+;ƒn[ƒg—lƒQ[ƒWA‚O‚É‚È‚é‚Æ¢Š«‚Å‚«‚È‚­‚È‚é‚æ‚¤‚É‚·‚é—\’èB
+
+;============================================================
+;============================================================
+
+[Statedef 20000]
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 10036
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+;---------------------------------------------
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = 1
+anim = 10036
+id = 10036
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 49
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = 1
+anim = 10036
+id = 10037
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 49
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = 1
+anim = 10036
+id = 10038
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 49
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = 1
+anim = 10036
+id = 10039
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 49
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = 1
+anim = 10036
+id = 10040
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 49
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 180
+anim = 10035
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 144
+anim = 10035
+id = 11001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 108
+anim = 10035
+id = 11002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 72
+anim = 10035
+id = 11003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 36
+anim = 10035
+id = 11004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 180
+ID = 11000
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 144
+ID = 11001
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 108
+ID = 11002
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 72
+ID = 11003
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 36
+ID = 11004
+
+
+
+
+[state a];ƒQ[ƒW5,35
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 179
+trigger1 = root,fvar(28) < 180
+anim = 11000
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 179
+ID = 11000
+
+
+[state a];ƒQ[ƒW5,34
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 178
+trigger1 = root,fvar(28) < 179
+anim = 10000
+id = 10000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 178
+ID = 10000
+
+
+[state a];ƒQ[ƒW5,33
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 177
+trigger1 = root,fvar(28) < 178
+anim = 10001
+id = 10001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 177
+ID = 10001
+
+
+[state a];ƒQ[ƒW5,32
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 176
+trigger1 = root,fvar(28) < 177
+anim = 10002
+id = 10002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 176
+ID = 10002
+
+
+[state a];ƒQ[ƒW5,31
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 175
+trigger1 = root,fvar(28) < 176
+anim = 10003
+id = 10003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 175
+ID = 10003
+
+
+[state a];ƒQ[ƒW5,30
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 174
+trigger1 = root,fvar(28) < 175
+anim = 10004
+id = 10004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 174
+ID = 10004
+
+
+[state a];ƒQ[ƒW5,29
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 173
+trigger1 = root,fvar(28) < 174
+anim = 10005
+id = 10005
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 173
+ID = 10005
+
+
+[state a];ƒQ[ƒW5,28
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 172
+trigger1 = root,fvar(28) < 173
+anim = 10006
+id = 10006
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 172
+ID = 10006
+
+
+[state a];ƒQ[ƒW5,27
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 171
+trigger1 = root,fvar(28) < 172
+anim = 10007
+id = 10007
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 171
+ID = 10007
+
+[state a];ƒQ[ƒW5,26
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 170
+trigger1 = root,fvar(28) < 171
+anim = 10008
+id = 10008
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 170
+ID = 10008
+
+[state a];ƒQ[ƒW5,25
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 169
+trigger1 = root,fvar(28) < 170
+anim = 10009
+id = 10009
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 169
+ID = 10009
+
+[state a];ƒQ[ƒW5,24
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 168
+trigger1 = root,fvar(28) < 169
+anim = 10010
+id = 10010
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 168
+ID = 10010
+
+[state a];ƒQ[ƒW5,23
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 167
+trigger1 = root,fvar(28) < 168
+anim = 10011
+id = 10011
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 167
+ID = 10011
+
+
+[state a];ƒQ[ƒW5,22
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 166
+trigger1 = root,fvar(28) < 167
+anim = 10012
+id = 10012
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 166
+ID = 10012
+
+[state a];ƒQ[ƒW5,21
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 165
+trigger1 = root,fvar(28) < 166
+anim = 10013
+id = 10013
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 165
+ID = 10013
+
+[state a];ƒQ[ƒW5,20
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 164
+trigger1 = root,fvar(28) < 165
+anim = 10014
+id = 10014
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 164
+ID = 10014
+
+[state a];ƒQ[ƒW5,19
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 163
+trigger1 = root,fvar(28) < 164
+anim = 10015
+id = 10015
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 163
+ID = 10015
+
+[state a];ƒQ[ƒW5,18
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 162
+trigger1 = root,fvar(28) < 163
+anim = 10016
+id = 10016
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 162
+ID = 10016
+
+
+[state a];ƒQ[ƒW5,17
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 161
+trigger1 = root,fvar(28) < 162
+anim = 10017
+id = 10017
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 161
+ID = 10017
+
+
+[state a];ƒQ[ƒW5,16
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 160
+trigger1 = root,fvar(28) < 161
+anim = 10018
+id = 10018
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 160
+ID = 10018
+
+[state a];ƒQ[ƒW5,15
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 159
+trigger1 = root,fvar(28) < 160
+anim = 10019
+id = 10019
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 159
+ID = 10019
+
+[state a];ƒQ[ƒW5,14
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 158
+trigger1 = root,fvar(28) < 159
+anim = 10020
+id = 10020
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 158
+ID = 10020
+
+
+[state a];ƒQ[ƒW5,13
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 157
+trigger1 = root,fvar(28) < 158
+anim = 10021
+id = 10021
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 157
+ID = 10021
+
+
+[state a];ƒQ[ƒW5,12
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 156
+trigger1 = root,fvar(28) < 157
+anim = 10022
+id = 10022
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 156
+ID = 10022
+
+
+[state a];ƒQ[ƒW5,11
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 155
+trigger1 = root,fvar(28) < 156
+anim = 10023
+id = 10023
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 155
+ID = 10023
+
+
+[state a];ƒQ[ƒW5,10
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 154
+trigger1 = root,fvar(28) < 155
+anim = 10024
+id = 10024
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 154
+ID = 10024
+
+
+[state a];ƒQ[ƒW5,9
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 153
+trigger1 = root,fvar(28) < 154
+anim = 10025
+id = 10025
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 153
+ID = 10025
+
+
+[state a];ƒQ[ƒW5,8
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 152
+trigger1 = root,fvar(28) < 153
+anim = 10026
+id = 10026
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 152
+ID = 10026
+
+
+[state a];ƒQ[ƒW5,7
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 151
+trigger1 = root,fvar(28) < 152
+anim = 10027
+id = 10027
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 151
+ID = 10027
+
+
+[state a];ƒQ[ƒW5,6
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 150
+trigger1 = root,fvar(28) < 151
+anim = 10028
+id = 10028
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 150
+ID = 10028
+
+
+[state a];ƒQ[ƒW5,5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 149
+trigger1 = root,fvar(28) < 150
+anim = 10029
+id = 10029
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 149
+ID = 10029
+
+
+[state a];ƒQ[ƒW5,4
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 148
+trigger1 = root,fvar(28) < 149
+anim = 10030
+id = 10030
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 148
+ID = 10030
+
+[state a];ƒQ[ƒW5,3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 147
+trigger1 = root,fvar(28) < 148
+anim = 10031
+id = 10031
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 147
+ID = 10031
+
+[state a];ƒQ[ƒW5,2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 146
+trigger1 = root,fvar(28) < 147
+anim = 10032
+id = 10032
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 146
+ID = 10032
+
+
+[state a];ƒQ[ƒW5,1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 145
+trigger1 = root,fvar(28) < 146
+anim = 10033
+id = 10033
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(1)),Ceil(helper(83108310),fvar(6))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 145
+ID = 10033
+
+
+
+[state a];ƒQ[ƒW4,35
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 143
+trigger1 = root,fvar(28) < 144
+anim = 11000
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 143
+ID = 11000
+
+[state a];ƒQ[ƒW4,34
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 142
+trigger1 = root,fvar(28) < 143
+anim = 10000
+id = 10000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 142
+ID = 10000
+
+[state a];ƒQ[ƒW4,33
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 141
+trigger1 = root,fvar(28) < 142
+anim = 10001
+id = 10001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 141
+ID = 10001
+
+
+[state a];ƒQ[ƒW4,32
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 140
+trigger1 = root,fvar(28) < 141
+anim = 10002
+id = 10002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 140
+ID = 10002
+
+[state a];ƒQ[ƒW4,31
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 139
+trigger1 = root,fvar(28) < 140
+anim = 10003
+id = 10003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 139
+ID = 10003
+
+
+[state a];ƒQ[ƒW4,30
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 138
+trigger1 = root,fvar(28) < 139
+anim = 10004
+id = 10004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 138
+ID = 10004
+
+
+[state a];ƒQ[ƒW4,29
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 137
+trigger1 = root,fvar(28) < 138
+anim = 10005
+id = 10005
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 137
+ID = 10005
+
+
+[state a];ƒQ[ƒW4,28
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 136
+trigger1 = root,fvar(28) < 137
+anim = 10006
+id = 10006
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 136
+ID = 10006
+
+
+[state a];ƒQ[ƒW4,27
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 135
+trigger1 = root,fvar(28) < 136
+anim = 10007
+id = 10007
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 135
+ID = 10007
+
+
+[state a];ƒQ[ƒW4,26
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 134
+trigger1 = root,fvar(28) < 135
+anim = 10008
+id = 10008
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 134
+ID = 10008
+
+
+[state a];ƒQ[ƒW4,25
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 133
+trigger1 = root,fvar(28) < 134
+anim = 10009
+id = 10009
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 133
+ID = 10009
+
+
+[state a];ƒQ[ƒW4,24
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 132
+trigger1 = root,fvar(28) < 133
+anim = 10010
+id = 10010
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 132
+ID = 10010
+
+
+[state a];ƒQ[ƒW4,23
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 131
+trigger1 = root,fvar(28) < 132
+anim = 10011
+id = 10011
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 131
+ID = 10011
+
+
+[state a];ƒQ[ƒW4,22
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 130
+trigger1 = root,fvar(28) < 131
+anim = 10012
+id = 10012
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 130
+ID = 10012
+
+
+[state a];ƒQ[ƒW4,21
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 129
+trigger1 = root,fvar(28) < 130
+anim = 10013
+id = 10013
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 129
+ID = 10013
+
+
+[state a];ƒQ[ƒW4,20
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 128
+trigger1 = root,fvar(28) < 129
+anim = 10014
+id = 10014
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 128
+ID = 10014
+
+
+[state a];ƒQ[ƒW4,19
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 127
+trigger1 = root,fvar(28) < 128
+anim = 10015
+id = 10015
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 127
+ID = 10015
+
+
+[state a];ƒQ[ƒW4,18
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 126
+trigger1 = root,fvar(28) < 127
+anim = 10016
+id = 10016
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 126
+ID = 10016
+
+
+[state a];ƒQ[ƒW4,17
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 125
+trigger1 = root,fvar(28) < 126
+anim = 10017
+id = 10017
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 125
+ID = 10017
+
+
+[state a];ƒQ[ƒW4,16
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 124
+trigger1 = root,fvar(28) < 125
+anim = 10018
+id = 10018
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 124
+ID = 10018
+
+
+[state a];ƒQ[ƒW4,15
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 123
+trigger1 = root,fvar(28) < 124
+anim = 10019
+id = 10019
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 123
+ID = 10019
+
+
+[state a];ƒQ[ƒW4,14
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 122
+trigger1 = root,fvar(28) < 123
+anim = 10020
+id = 10020
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 122
+ID = 10020
+
+
+[state a];ƒQ[ƒW4,13
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 121
+trigger1 = root,fvar(28) < 122
+anim = 10021
+id = 10021
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 121
+ID = 10021
+
+
+[state a];ƒQ[ƒW4,12
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 120
+trigger1 = root,fvar(28) < 121
+anim = 10022
+id = 10022
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 120
+ID = 10022
+
+
+[state a];ƒQ[ƒW4,11
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 119
+trigger1 = root,fvar(28) < 120
+anim = 10023
+id = 10023
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 119
+ID = 10023
+
+
+[state a];ƒQ[ƒW4,10
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 118
+trigger1 = root,fvar(28) < 119
+anim = 10024
+id = 10024
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 118
+ID = 10024
+
+
+[state a];ƒQ[ƒW4,9
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 117
+trigger1 = root,fvar(28) < 118
+anim = 10025
+id = 10025
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 117
+ID = 10025
+
+
+[state a];ƒQ[ƒW4,8
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 116
+trigger1 = root,fvar(28) < 117
+anim = 10026
+id = 10026
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 116
+ID = 10026
+
+
+[state a];ƒQ[ƒW4,7
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 115
+trigger1 = root,fvar(28) < 116
+anim = 10027
+id = 10027
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 115
+ID = 10027
+
+
+[state a];ƒQ[ƒW4,6
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 114
+trigger1 = root,fvar(28) < 115
+anim = 10028
+id = 10028
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 114
+ID = 10028
+
+
+[state a];ƒQ[ƒW4,5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 113
+trigger1 = root,fvar(28) < 114
+anim = 10029
+id = 10029
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 113
+ID = 10029
+
+
+[state a];ƒQ[ƒW4,4
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 112
+trigger1 = root,fvar(28) < 113
+anim = 10030
+id = 10030
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 112
+ID = 10030
+
+
+[state a];ƒQ[ƒW4,3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 111
+trigger1 = root,fvar(28) < 112
+anim = 10031
+id = 10031
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 111
+ID = 10031
+
+
+[state a];ƒQ[ƒW4,2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 110
+trigger1 = root,fvar(28) < 111
+anim = 10032
+id = 10032
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 110
+ID = 10032
+
+
+[state a];ƒQ[ƒW4,1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 109
+trigger1 = root,fvar(28) < 110
+anim = 10033
+id = 10033
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(2)),Ceil(helper(83108310),fvar(7))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 109
+ID = 10033
+
+
+
+[state a];ƒQ[ƒW3,35
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 107
+trigger1 = root,fvar(28) < 108
+anim = 11000
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 107
+ID = 11000
+
+
+
+[state a];ƒQ[ƒW3,34
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 106
+trigger1 = root,fvar(28) < 107
+anim = 10000
+id = 10000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 106
+ID = 10000
+
+
+[state a];ƒQ[ƒW3,33
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 105
+trigger1 = root,fvar(28) < 106
+anim = 10001
+id = 10001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 105
+ID = 10001
+
+
+[state a];ƒQ[ƒW3,32
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 104
+trigger1 = root,fvar(28) < 105
+anim = 10002
+id = 10002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 104
+ID = 10002
+
+[state a];ƒQ[ƒW3,31
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 103
+trigger1 = root,fvar(28) < 104
+anim = 10003
+id = 10003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 103
+ID = 10003
+
+
+[state a];ƒQ[ƒW3,30
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 102
+trigger1 = root,fvar(28) < 103
+anim = 10004
+id = 10004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 102
+ID = 10004
+
+
+[state a];ƒQ[ƒW3,29
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 101
+trigger1 = root,fvar(28) < 102
+anim = 10005
+id = 10005
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 101
+ID = 10005
+
+
+[state a];ƒQ[ƒW3,28
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 100
+trigger1 = root,fvar(28) < 101
+anim = 10006
+id = 10006
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 100
+ID = 10006
+
+
+[state a];ƒQ[ƒW3,27
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 99
+trigger1 = root,fvar(28) < 100
+anim = 10007
+id = 10007
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 99
+ID = 10007
+
+
+[state a];ƒQ[ƒW3,26
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 98
+trigger1 = root,fvar(28) < 99
+anim = 10008
+id = 10008
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 98
+ID = 10008
+
+
+[state a];ƒQ[ƒW3,25
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 97
+trigger1 = root,fvar(28) < 98
+anim = 10009
+id = 10009
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 97
+ID = 10009
+
+[state a];ƒQ[ƒW3,24
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 96
+trigger1 = root,fvar(28) < 97
+anim = 10010
+id = 10010
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 96
+ID = 10010
+
+
+[state a];ƒQ[ƒW3,23
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 95
+trigger1 = root,fvar(28) < 96
+anim = 10011
+id = 10011
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 95
+ID = 10011
+
+
+[state a];ƒQ[ƒW3,22
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 94
+trigger1 = root,fvar(28) < 95
+anim = 10012
+id = 10012
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 94
+ID = 10012
+
+
+[state a];ƒQ[ƒW3,21
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 93
+trigger1 = root,fvar(28) < 94
+anim = 10013
+id = 10013
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 93
+ID = 10013
+
+
+[state a];ƒQ[ƒW3,20
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 92
+trigger1 = root,fvar(28) < 93
+anim = 10014
+id = 10014
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 92
+ID = 10014
+
+
+[state a];ƒQ[ƒW3,19
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 91
+trigger1 = root,fvar(28) < 92
+anim = 10015
+id = 10015
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 91
+ID = 10015
+
+
+[state a];ƒQ[ƒW3,18
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 90
+trigger1 = root,fvar(28) < 91
+anim = 10016
+id = 10016
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 90
+ID = 10016
+
+
+[state a];ƒQ[ƒW3,17
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 89
+trigger1 = root,fvar(28) < 90
+anim = 10017
+id = 10017
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 89
+ID = 10017
+
+
+[state a];ƒQ[ƒW3,16
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 88
+trigger1 = root,fvar(28) < 89
+anim = 10018
+id = 10018
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 88
+ID = 10018
+
+
+[state a];ƒQ[ƒW3,15
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 87
+trigger1 = root,fvar(28) < 88
+anim = 10019
+id = 10019
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 87
+ID = 10019
+
+
+[state a];ƒQ[ƒW3,14
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 86
+trigger1 = root,fvar(28) < 87
+anim = 10020
+id = 10020
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 86
+ID = 10020
+
+
+[state a];ƒQ[ƒW3,13
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 85
+trigger1 = root,fvar(28) < 86
+anim = 10021
+id = 10021
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 85
+ID = 10021
+
+
+[state a];ƒQ[ƒW3,12
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 84
+trigger1 = root,fvar(28) < 85
+anim = 10022
+id = 10022
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 84
+ID = 10022
+
+
+[state a];ƒQ[ƒW3,11
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 83
+trigger1 = root,fvar(28) < 84
+anim = 10023
+id = 10023
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 83
+ID = 10023
+
+
+[state a];ƒQ[ƒW3,10
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 82
+trigger1 = root,fvar(28) < 83
+anim = 10024
+id = 10024
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 82
+ID = 10024
+
+
+[state a];ƒQ[ƒW3,9
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 81
+trigger1 = root,fvar(28) < 82
+anim = 10025
+id = 10025
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 81
+ID = 10025
+
+
+[state a];ƒQ[ƒW3,8
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 80
+trigger1 = root,fvar(28) < 81
+anim = 10026
+id = 10026
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 80
+ID = 10026
+
+
+[state a];ƒQ[ƒW3,7
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 79
+trigger1 = root,fvar(28) < 80
+anim = 10027
+id = 10027
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 79
+ID = 10027
+
+
+[state a];ƒQ[ƒW3,6
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 78
+trigger1 = root,fvar(28) < 79
+anim = 10028
+id = 10028
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 78
+ID = 10028
+
+
+[state a];ƒQ[ƒW3,5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 77
+trigger1 = root,fvar(28) < 78
+anim = 10029
+id = 10029
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 77
+ID = 10029
+
+
+[state a];ƒQ[ƒW3,4
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 76
+trigger1 = root,fvar(28) < 77
+anim = 10030
+id = 10030
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 76
+ID = 10030
+
+[state a];ƒQ[ƒW3,3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 75
+trigger1 = root,fvar(28) < 76
+anim = 10031
+id = 10031
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 75
+ID = 10031
+
+
+[state a];ƒQ[ƒW3,2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 74
+trigger1 = root,fvar(28) < 75
+anim = 10032
+id = 10032
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 74
+ID = 10032
+
+
+[state a];ƒQ[ƒW3,1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 73
+trigger1 = root,fvar(28) < 74
+anim = 10033
+id = 10033
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(3)),Ceil(helper(83108310),fvar(8))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 73
+ID = 10033
+
+
+
+[state a];ƒQ[ƒW2,35
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 71
+trigger1 = root,fvar(28) < 72
+anim = 11000
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 71
+ID = 11000
+
+
+[state a];ƒQ[ƒW2,34
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 70
+trigger1 = root,fvar(28) < 71
+anim = 10000
+id = 10000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 70
+ID = 10000
+
+
+[state a];ƒQ[ƒW2,33
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 69
+trigger1 = root,fvar(28) < 70
+anim = 10001
+id = 10001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 69
+ID = 10001
+
+
+[state a];ƒQ[ƒW2,32
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 68
+trigger1 = root,fvar(28) < 69
+anim = 10002
+id = 10002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 68
+ID = 10002
+
+
+[state a];ƒQ[ƒW2,31
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 67
+trigger1 = root,fvar(28) < 68
+anim = 10003
+id = 10003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 67
+ID = 10003
+
+
+[state a];ƒQ[ƒW2,30
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 66
+trigger1 = root,fvar(28) < 67
+anim = 10004
+id = 10004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 66
+ID = 10004
+
+
+[state a];ƒQ[ƒW2,29
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 65
+trigger1 = root,fvar(28) < 66
+anim = 10005
+id = 10005
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 65
+ID = 10005
+
+
+[state a];ƒQ[ƒW2,28
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 64
+trigger1 = root,fvar(28) < 65
+anim = 10006
+id = 10006
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 64
+ID = 10006
+
+
+[state a];ƒQ[ƒW2,27
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 63
+trigger1 = root,fvar(28) < 64
+anim = 10007
+id = 10007
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 63
+ID = 10007
+
+
+[state a];ƒQ[ƒW2,26
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 62
+trigger1 = root,fvar(28) < 63
+anim = 10008
+id = 10008
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 62
+ID = 10008
+
+
+[state a];ƒQ[ƒW2,25
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 61
+trigger1 = root,fvar(28) < 62
+anim = 10009
+id = 10009
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 61
+ID = 10009
+
+
+[state a];ƒQ[ƒW2,24
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 60
+trigger1 = root,fvar(28) < 61
+anim = 10010
+id = 10010
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 60
+ID = 10010
+
+
+[state a];ƒQ[ƒW2,23
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 59
+trigger1 = root,fvar(28) < 60
+anim = 10011
+id = 10011
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 59
+ID = 10011
+
+
+[state a];ƒQ[ƒW2,22
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 58
+trigger1 = root,fvar(28) < 59
+anim = 10012
+id = 10012
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 58
+ID = 10012
+
+
+[state a];ƒQ[ƒW2,21
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 57
+trigger1 = root,fvar(28) < 58
+anim = 10013
+id = 10013
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 57
+ID = 10013
+
+
+[state a];ƒQ[ƒW2,20
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 56
+trigger1 = root,fvar(28) < 57
+anim = 10014
+id = 10014
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 56
+ID = 10014
+
+[state a];ƒQ[ƒW2,19
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 55
+trigger1 = root,fvar(28) < 56
+anim = 10015
+id = 10015
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 55
+ID = 10015
+
+[state a];ƒQ[ƒW2,18
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 54
+trigger1 = root,fvar(28) < 55
+anim = 10016
+id = 10016
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 54
+ID = 10016
+
+
+[state a];ƒQ[ƒW2,17
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 53
+trigger1 = root,fvar(28) < 54
+anim = 10017
+id = 10017
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 53
+ID = 10017
+
+
+[state a];ƒQ[ƒW2,16
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 52
+trigger1 = root,fvar(28) < 53
+anim = 10018
+id = 10018
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 52
+ID = 10018
+
+
+[state a];ƒQ[ƒW2,15
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 51
+trigger1 = root,fvar(28) < 52
+anim = 10019
+id = 10019
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 51
+ID = 10019
+
+[state a];ƒQ[ƒW2,14
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 50
+trigger1 = root,fvar(28) < 51
+anim = 10020
+id = 10020
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 50
+ID = 10020
+
+
+[state a];ƒQ[ƒW2,13
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 49
+trigger1 = root,fvar(28) < 50
+anim = 10021
+id = 10021
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 49
+ID = 10021
+
+
+[state a];ƒQ[ƒW2,12
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 48
+trigger1 = root,fvar(28) < 49
+anim = 10022
+id = 10022
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 48
+ID = 10022
+
+
+[state a];ƒQ[ƒW2,11
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 47
+trigger1 = root,fvar(28) < 48
+anim = 10023
+id = 10023
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 47
+ID = 10023
+
+
+[state a];ƒQ[ƒW2,10
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 46
+trigger1 = root,fvar(28) < 47
+anim = 10024
+id = 10024
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 46
+ID = 10024
+
+
+[state a];ƒQ[ƒW2,9
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 45
+trigger1 = root,fvar(28) < 46
+anim = 10025
+id = 10025
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 45
+ID = 10025
+
+
+[state a];ƒQ[ƒW2,8
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 44
+trigger1 = root,fvar(28) < 45
+anim = 10026
+id = 10026
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 44
+ID = 10026
+
+
+[state a];ƒQ[ƒW2,7
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 43
+trigger1 = root,fvar(28) < 44
+anim = 10027
+id = 10027
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 43
+ID = 10027
+
+
+[state a];ƒQ[ƒW2,6
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 42
+trigger1 = root,fvar(28) < 43
+anim = 10028
+id = 10028
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 42
+ID = 10028
+
+
+[state a];ƒQ[ƒW2,5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 41
+trigger1 = root,fvar(28) < 42
+anim = 10029
+id = 10029
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 41
+ID = 10029
+
+
+[state a];ƒQ[ƒW2,4
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 40
+trigger1 = root,fvar(28) < 41
+anim = 10030
+id = 10030
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 40
+ID = 10030
+
+
+[state a];ƒQ[ƒW2,3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 39
+trigger1 = root,fvar(28) < 40
+anim = 10031
+id = 10031
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 39
+ID = 10031
+
+
+[state a];ƒQ[ƒW2,2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 38
+trigger1 = root,fvar(28) < 39
+anim = 10032
+id = 10032
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 38
+ID = 10032
+
+
+[state a];ƒQ[ƒW2,1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 37
+trigger1 = root,fvar(28) < 38
+anim = 10033
+id = 10033
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(4)),Ceil(helper(83108310),fvar(9))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 37
+ID = 10033
+
+
+
+[state a];ƒQ[ƒW1,35
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 35
+trigger1 = root,fvar(28) < 36
+anim = 11000
+id = 11000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 35
+ID = 11000
+
+
+[state a];ƒQ[ƒW1,34
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 34
+trigger1 = root,fvar(28) < 35
+anim = 10000
+id = 10000
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 34
+ID = 10000
+
+
+[state a];ƒQ[ƒW1,33
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 33
+trigger1 = root,fvar(28) < 34
+anim = 10001
+id = 10001
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 33
+ID = 10001
+
+
+[state a];ƒQ[ƒW1,32
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 32
+trigger1 = root,fvar(28) < 33
+anim = 10002
+id = 10002
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 32
+ID = 10002
+
+
+[state a];ƒQ[ƒW1,31
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 31
+trigger1 = root,fvar(28) < 32
+anim = 10003
+id = 10003
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 31
+ID = 10003
+
+
+[state a];ƒQ[ƒW1,30
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 30
+trigger1 = root,fvar(28) < 31
+anim = 10004
+id = 10004
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 30
+ID = 10004
+
+
+[state a];ƒQ[ƒW1,29
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 29
+trigger1 = root,fvar(28) < 30
+anim = 10005
+id = 10005
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 29
+ID = 10005
+
+
+[state a];ƒQ[ƒW1,28
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 28
+trigger1 = root,fvar(28) < 29
+anim = 10006
+id = 10006
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 28
+ID = 10006
+
+
+[state a];ƒQ[ƒW1,27
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 27
+trigger1 = root,fvar(28) < 28
+anim = 10007
+id = 10007
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 27
+ID = 10007
+
+
+[state a];ƒQ[ƒW1,26
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 26
+trigger1 = root,fvar(28) < 27
+anim = 10008
+id = 10008
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 26
+ID = 10008
+
+
+[state a];ƒQ[ƒW1,25
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 25
+trigger1 = root,fvar(28) < 26
+anim = 10009
+id = 10009
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 25
+ID = 10009
+
+
+[state a];ƒQ[ƒW1,24
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 24
+trigger1 = root,fvar(28) < 25
+anim = 10010
+id = 10010
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 24
+ID = 10010
+
+
+[state a];ƒQ[ƒW1,23
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 23
+trigger1 = root,fvar(28) < 24
+anim = 10011
+id = 10011
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 23
+ID = 10011
+
+
+[state a];ƒQ[ƒW1,22
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 22
+trigger1 = root,fvar(28) < 23
+anim = 10012
+id = 10012
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 22
+ID = 10012
+
+
+
+[state a];ƒQ[ƒW1,21
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 21
+trigger1 = root,fvar(28) < 22
+anim = 10013
+id = 10013
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 21
+ID = 10013
+
+
+[state a];ƒQ[ƒW1,20
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 20
+trigger1 = root,fvar(28) < 21
+anim = 10014
+id = 10014
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 20
+ID = 10014
+
+
+[state a];ƒQ[ƒW1,19
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 19
+trigger1 = root,fvar(28) < 20
+anim = 10015
+id = 10015
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 19
+ID = 10015
+
+
+[state a];ƒQ[ƒW1,18
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 18
+trigger1 = root,fvar(28) < 19
+anim = 10016
+id = 10016
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 18
+ID = 10016
+
+
+[state a];ƒQ[ƒW1,17
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 17
+trigger1 = root,fvar(28) < 18
+anim = 10017
+id = 10017
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 17
+ID = 10017
+
+
+[state a];ƒQ[ƒW1,16
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 16
+trigger1 = root,fvar(28) < 17
+anim = 10018
+id = 10018
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 16
+ID = 10018
+
+
+[state a];ƒQ[ƒW1,15
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 15
+trigger1 = root,fvar(28) < 16
+anim = 10019
+id = 10019
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 15
+ID = 10019
+
+
+[state a];ƒQ[ƒW1,14
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 14
+trigger1 = root,fvar(28) < 15
+anim = 10020
+id = 10020
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 13
+ID = 10020
+
+
+[state a];ƒQ[ƒW1,13
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 13
+trigger1 = root,fvar(28) < 14
+anim = 10021
+id = 10021
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 13
+ID = 10021
+
+
+[state a];ƒQ[ƒW1,12
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 12
+trigger1 = root,fvar(28) < 13
+anim = 10022
+id = 10022
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 12
+ID = 10022
+
+
+[state a];ƒQ[ƒW1,11
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 11
+trigger1 = root,fvar(28) < 12
+anim = 10023
+id = 10023
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 11
+ID = 10023
+
+
+[state a];ƒQ[ƒW1,10
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 10
+trigger1 = root,fvar(28) < 11
+anim = 10024
+id = 10024
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 10
+ID = 10024
+
+
+[state a];ƒQ[ƒW1,9
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 9
+trigger1 = root,fvar(28) < 10
+anim = 10025
+id = 10025
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 9
+ID = 10025
+
+
+[state a];ƒQ[ƒW1,8
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 8
+trigger1 = root,fvar(28) < 9
+anim = 10026
+id = 10026
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 8
+ID = 10026
+
+
+[state a];ƒQ[ƒW1,7
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 7
+trigger1 = root,fvar(28) < 8
+anim = 10027
+id = 10027
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 7
+ID = 10027
+
+
+[state a];ƒQ[ƒW1,6
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 6
+trigger1 = root,fvar(28) < 7
+anim = 10028
+id = 10028
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 6
+ID = 10028
+
+
+[state a];ƒQ[ƒW1,5
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 5
+trigger1 = root,fvar(28) < 6
+anim = 10029
+id = 10029
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 5
+ID = 10029
+
+
+[state a];ƒQ[ƒW1,4
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 4
+trigger1 = root,fvar(28) < 5
+anim = 10030
+id = 10030
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 4
+ID = 10030
+
+
+[state a];ƒQ[ƒW1,3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 3
+trigger1 = root,fvar(28) < 4
+anim = 10031
+id = 10031
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 3
+ID = 10031
+
+
+[state a];ƒQ[ƒW1,2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 2
+trigger1 = root,fvar(28) < 3
+anim = 10032
+id = 10032
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 2
+ID = 10032
+
+
+[state a];ƒQ[ƒW1,1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = root,fvar(28) >= 1
+trigger1 = root,fvar(28) < 2
+anim = 10033
+id = 10033
+postype = left
+bindtime = -1
+pos = Ceil(helper(83108310),fvar(5)),Ceil(helper(83108310),fvar(10))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 1
+ID = 10033
+
+
+
+;================================================================
+;################################################################
+;================================================================
+
+;@@@@@@@@@@@@@”½‘Î‘¤
+
+;================================================================
+;################################################################
+;================================================================
+
+[Statedef 20001]
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 10036
+velset = 0,0
+sprpriority = 10
+
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+
+;---------------------------------------------
+[state -2];˜g
+type = Explod
+trigger1 = Facing = -1
+anim = 20036
+id = 20036
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 50
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = -1
+anim = 20036
+id = 20037
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 50
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = -1
+anim = 20036
+id = 20038
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 50
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = -1
+anim = 20036
+id = 20039
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 50
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state -2];˜g
+type = Explod
+trigger1 = Facing = -1
+anim = 20036
+id = 20040
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 50
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 180
+anim = 20035
+id = 21000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 144
+anim = 20035
+id = 21001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 108
+anim = 20035
+id = 21002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 72
+anim = 20035
+id = 21003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a];ƒQ[ƒW5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 36
+anim = 20035
+id = 21004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 180
+ID = 21000
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 144
+ID = 21001
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 108
+ID = 21002
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 72
+ID = 21003
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 36
+ID = 21004
+
+
+
+[state a];ƒQ[ƒW5,35
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 179
+trigger1 = root,fvar(28) < 180
+anim = 11001
+id = 11001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 179
+ID = 11001
+
+
+
+[state a];ƒQ[ƒW5,34
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 178
+trigger1 = root,fvar(28) < 179
+anim = 20000
+id = 20000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 178
+ID = 20000
+
+
+[state a];ƒQ[ƒW5,33
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 177
+trigger1 = root,fvar(28) < 178
+anim = 20001
+id = 20001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 177
+ID = 20001
+
+[state a];ƒQ[ƒW5,32
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 176
+trigger1 = root,fvar(28) < 177
+anim = 20002
+id = 20002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 176
+ID = 20002
+
+[state a];ƒQ[ƒW5,31
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 175
+trigger1 = root,fvar(28) < 176
+anim = 20003
+id = 20003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 175
+ID = 20003
+
+[state a];ƒQ[ƒW5,30
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 174
+trigger1 = root,fvar(28) < 175
+anim = 20004
+id = 20004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 174
+ID = 20004
+
+[state a];ƒQ[ƒW5,29
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 173
+trigger1 = root,fvar(28) < 174
+anim = 20005
+id = 20005
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 173
+ID = 20005
+
+[state a];ƒQ[ƒW5,28
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 172
+trigger1 = root,fvar(28) < 173
+anim = 20006
+id = 20006
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 172
+ID = 20006
+
+[state a];ƒQ[ƒW5,27
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 171
+trigger1 = root,fvar(28) < 172
+anim = 20007
+id = 20007
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 171
+ID = 20007
+
+[state a];ƒQ[ƒW5,26
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 170
+trigger1 = root,fvar(28) < 171
+anim = 20008
+id = 20008
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 170
+ID = 20008
+
+[state a];ƒQ[ƒW5,25
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 169
+trigger1 = root,fvar(28) < 170
+anim = 20009
+id = 20009
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 169
+ID = 20009
+
+[state a];ƒQ[ƒW5,24
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 168
+trigger1 = root,fvar(28) < 169
+anim = 20010
+id = 20010
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 168
+ID = 20010
+
+[state a];ƒQ[ƒW5,23
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 167
+trigger1 = root,fvar(28) < 168
+anim = 20011
+id = 20011
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 167
+ID = 20011
+
+[state a];ƒQ[ƒW5,22
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 166
+trigger1 = root,fvar(28) < 167
+anim = 20012
+id = 20012
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 166
+ID = 20012
+
+[state a];ƒQ[ƒW5,21
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 165
+trigger1 = root,fvar(28) < 166
+anim = 20013
+id = 20013
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 165
+ID = 20013
+
+[state a];ƒQ[ƒW5,20
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 164
+trigger1 = root,fvar(28) < 165
+anim = 20014
+id = 20014
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 164
+ID = 20014
+
+[state a];ƒQ[ƒW5,19
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 163
+trigger1 = root,fvar(28) < 164
+anim = 20015
+id = 20015
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 163
+ID = 20015
+
+[state a];ƒQ[ƒW5,18
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 162
+trigger1 = root,fvar(28) < 163
+anim = 20016
+id = 20016
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 162
+ID = 20016
+
+[state a];ƒQ[ƒW5,17
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 161
+trigger1 = root,fvar(28) < 162
+anim = 20017
+id = 20017
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 161
+ID = 20017
+
+[state a];ƒQ[ƒW5,16
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 160
+trigger1 = root,fvar(28) < 161
+anim = 20018
+id = 20018
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 160
+ID = 20018
+
+[state a];ƒQ[ƒW5,15
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 159
+trigger1 = root,fvar(28) < 160
+anim = 20019
+id = 20019
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 159
+ID = 20019
+
+[state a];ƒQ[ƒW5,14
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 158
+trigger1 = root,fvar(28) < 159
+anim = 20020
+id = 20020
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 158
+ID = 20020
+
+[state a];ƒQ[ƒW5,13
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 157
+trigger1 = root,fvar(28) < 158
+anim = 20021
+id = 20021
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 157
+ID = 20021
+
+[state a];ƒQ[ƒW5,12
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 156
+trigger1 = root,fvar(28) < 157
+anim = 20022
+id = 20022
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 156
+ID = 20022
+
+[state a];ƒQ[ƒW5,11
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 155
+trigger1 = root,fvar(28) < 156
+anim = 20023
+id = 20023
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 155
+ID = 20023
+
+[state a];ƒQ[ƒW5,10
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 154
+trigger1 = root,fvar(28) < 155
+anim = 20024
+id = 20024
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 154
+ID = 20024
+
+[state a];ƒQ[ƒW5,9
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 153
+trigger1 = root,fvar(28) < 154
+anim = 20025
+id = 20025
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 153
+ID = 20025
+
+[state a];ƒQ[ƒW5,8
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 152
+trigger1 = root,fvar(28) < 153
+anim = 20026
+id = 20026
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 152
+ID = 20026
+
+[state a];ƒQ[ƒW5,7
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 151
+trigger1 = root,fvar(28) < 152
+anim = 20027
+id = 20027
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 151
+ID = 20027
+
+[state a];ƒQ[ƒW5,6
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 150
+trigger1 = root,fvar(28) < 151
+anim = 20028
+id = 20028
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 150
+ID = 20028
+
+[state a];ƒQ[ƒW5,5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 149
+trigger1 = root,fvar(28) < 150
+anim = 20029
+id = 20029
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 149
+ID = 20029
+
+[state a];ƒQ[ƒW5,4
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 148
+trigger1 = root,fvar(28) < 149
+anim = 20030
+id = 20030
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 148
+ID = 20030
+
+[state a];ƒQ[ƒW5,3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 147
+trigger1 = root,fvar(28) < 148
+anim = 20031
+id = 20031
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 147
+ID = 20031
+
+[state a];ƒQ[ƒW5,2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 146
+trigger1 = root,fvar(28) < 147
+anim = 20032
+id = 20032
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 146
+ID = 20032
+
+[state a];ƒQ[ƒW5,1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 145
+trigger1 = root,fvar(28) < 146
+anim = 20033
+id = 20033
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(11)),Ceil(helper(83108310),fvar(16))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 145
+ID = 20033
+
+
+
+[state a];ƒQ[ƒW4,35
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 143
+trigger1 = root,fvar(28) < 144
+anim = 11001
+id = 11001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 143
+ID = 11001
+
+[state a];ƒQ[ƒW4,34
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 142
+trigger1 = root,fvar(28) < 143
+anim = 20000
+id = 20000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 142
+ID = 20000
+
+[state a];ƒQ[ƒW4,33
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 141
+trigger1 = root,fvar(28) < 142
+anim = 20001
+id = 20001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 141
+ID = 20001
+
+[state a];ƒQ[ƒW4,32
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 140
+trigger1 = root,fvar(28) < 141
+anim = 20002
+id = 20002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 140
+ID = 20002
+
+[state a];ƒQ[ƒW4,31
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 139
+trigger1 = root,fvar(28) < 140
+anim = 20003
+id = 20003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 139
+ID = 20003
+
+[state a];ƒQ[ƒW4,30
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 138
+trigger1 = root,fvar(28) < 139
+anim = 20004
+id = 20004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 138
+ID = 20004
+
+[state a];ƒQ[ƒW4,29
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 137
+trigger1 = root,fvar(28) < 138
+anim = 20005
+id = 20005
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 137
+ID = 20005
+
+[state a];ƒQ[ƒW4,28
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 136
+trigger1 = root,fvar(28) < 137
+anim = 20006
+id = 20006
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 136
+ID = 20006
+
+[state a];ƒQ[ƒW4,27
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 135
+trigger1 = root,fvar(28) < 136
+anim = 20007
+id = 20007
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 135
+ID = 20007
+
+[state a];ƒQ[ƒW4,26
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 134
+trigger1 = root,fvar(28) < 135
+anim = 20008
+id = 20008
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 134
+ID = 20008
+
+[state a];ƒQ[ƒW4,25
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 133
+trigger1 = root,fvar(28) < 134
+anim = 20009
+id = 20009
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 133
+ID = 20009
+
+[state a];ƒQ[ƒW4,24
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 132
+trigger1 = root,fvar(28) < 133
+anim = 20010
+id = 20010
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 132
+ID = 20010
+
+[state a];ƒQ[ƒW4,23
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 131
+trigger1 = root,fvar(28) < 132
+anim = 20011
+id = 20011
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 131
+ID = 20011
+
+[state a];ƒQ[ƒW4,22
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 130
+trigger1 = root,fvar(28) < 131
+anim = 20012
+id = 20012
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = -1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 130
+ID = 20012
+
+[state a];ƒQ[ƒW4,21
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 129
+trigger1 = root,fvar(28) < 130
+anim = 20013
+id = 20013
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 129
+ID = 20013
+
+[state a];ƒQ[ƒW4,20
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 128
+trigger1 = root,fvar(28) < 129
+anim = 20014
+id = 20014
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 128
+ID = 20014
+
+[state a];ƒQ[ƒW4,19
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 127
+trigger1 = root,fvar(28) < 128
+anim = 20015
+id = 20015
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 127
+ID = 20015
+
+[state a];ƒQ[ƒW4,18
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 126
+trigger1 = root,fvar(28) < 127
+anim = 20016
+id = 20016
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 126
+ID = 20016
+
+[state a];ƒQ[ƒW4,17
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 125
+trigger1 = root,fvar(28) < 126
+anim = 20017
+id = 20017
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 125
+ID = 20017
+
+[state a];ƒQ[ƒW4,16
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 124
+trigger1 = root,fvar(28) < 125
+anim = 20018
+id = 20018
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 124
+ID = 20018
+
+[state a];ƒQ[ƒW4,15
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 123
+trigger1 = root,fvar(28) < 124
+anim = 20019
+id = 20019
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 123
+ID = 20019
+
+[state a];ƒQ[ƒW4,14
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 122
+trigger1 = root,fvar(28) < 123
+anim = 20020
+id = 20020
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 122
+ID = 20020
+
+[state a];ƒQ[ƒW4,13
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 121
+trigger1 = root,fvar(28) < 122
+anim = 20021
+id = 20021
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 121
+ID = 20021
+
+[state a];ƒQ[ƒW4,12
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 120
+trigger1 = root,fvar(28) < 121
+anim = 20022
+id = 20022
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 120
+ID = 20022
+
+[state a];ƒQ[ƒW4,11
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 119
+trigger1 = root,fvar(28) < 120
+anim = 20023
+id = 20023
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 119
+ID = 20023
+
+[state a];ƒQ[ƒW4,10
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 118
+trigger1 = root,fvar(28) < 119
+anim = 20024
+id = 20024
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 118
+ID = 20024
+
+[state a];ƒQ[ƒW4,9
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 117
+trigger1 = root,fvar(28) < 118
+anim = 20025
+id = 20025
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 117
+ID = 20025
+
+[state a];ƒQ[ƒW4,8
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 116
+trigger1 = root,fvar(28) < 117
+anim = 20026
+id = 20026
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 116
+ID = 20026
+
+[state a];ƒQ[ƒW4,7
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 115
+trigger1 = root,fvar(28) < 116
+anim = 20027
+id = 20027
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 115
+ID = 20027
+
+[state a];ƒQ[ƒW4,6
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 114
+trigger1 = root,fvar(28) < 115
+anim = 20028
+id = 20028
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 114
+ID = 20028
+
+[state a];ƒQ[ƒW4,5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 113
+trigger1 = root,fvar(28) < 114
+anim = 20029
+id = 20029
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 113
+ID = 20029
+
+[state a];ƒQ[ƒW4,4
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 112
+trigger1 = root,fvar(28) < 113
+anim = 20030
+id = 20030
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 112
+ID = 20030
+
+[state a];ƒQ[ƒW4,3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 111
+trigger1 = root,fvar(28) < 112
+anim = 20031
+id = 20031
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 111
+ID = 20031
+
+[state a];ƒQ[ƒW4,2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 110
+trigger1 = root,fvar(28) < 111
+anim = 20032
+id = 20032
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 110
+ID = 20032
+
+[state a];ƒQ[ƒW4,1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 109
+trigger1 = root,fvar(28) < 110
+anim = 20033
+id = 20033
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(12)),Ceil(helper(83108310),fvar(17))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 109
+ID = 20033
+
+
+[state a];ƒQ[ƒW3,35
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 107
+trigger1 = root,fvar(28) < 108
+anim = 11001
+id = 11001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 107
+ID = 11001
+
+[state a];ƒQ[ƒW3,34
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 106
+trigger1 = root,fvar(28) < 107
+anim = 20000
+id = 20000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 106
+ID = 20000
+
+[state a];ƒQ[ƒW3,33
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 105
+trigger1 = root,fvar(28) < 106
+anim = 20001
+id = 20001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 105
+ID = 20001
+
+[state a];ƒQ[ƒW3,32
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 104
+trigger1 = root,fvar(28) < 105
+anim = 20002
+id = 20002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 104
+ID = 20002
+
+[state a];ƒQ[ƒW3,31
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 103
+trigger1 = root,fvar(28) < 104
+anim = 20003
+id = 20003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 103
+ID = 20003
+
+[state a];ƒQ[ƒW3,30
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 102
+trigger1 = root,fvar(28) < 103
+anim = 20004
+id = 20004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 102
+ID = 20004
+
+[state a];ƒQ[ƒW3,29
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 101
+trigger1 = root,fvar(28) < 102
+anim = 20005
+id = 20005
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 101
+ID = 20005
+
+[state a];ƒQ[ƒW3,28
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 100
+trigger1 = root,fvar(28) < 101
+anim = 20006
+id = 20006
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 100
+ID = 20006
+
+[state a];ƒQ[ƒW3,27
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 99
+trigger1 = root,fvar(28) < 100
+anim = 20007
+id = 20007
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 99
+ID = 20007
+
+[state a];ƒQ[ƒW3,26
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 98
+trigger1 = root,fvar(28) < 99
+anim = 20008
+id = 20008
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 98
+ID = 20008
+
+[state a];ƒQ[ƒW3,25
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 97
+trigger1 = root,fvar(28) < 98
+anim = 20009
+id = 20009
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 97
+ID = 20009
+
+[state a];ƒQ[ƒW3,24
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 96
+trigger1 = root,fvar(28) < 97
+anim = 20010
+id = 20010
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 96
+ID = 20010
+
+[state a];ƒQ[ƒW3,23
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 95
+trigger1 = root,fvar(28) < 96
+anim = 20011
+id = 20011
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 95
+ID = 20011
+
+[state a];ƒQ[ƒW3,22
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 94
+trigger1 = root,fvar(28) < 95
+anim = 20012
+id = 20012
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 94
+ID = 20012
+
+[state a];ƒQ[ƒW3,21
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 93
+trigger1 = root,fvar(28) < 94
+anim = 20013
+id = 20013
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 93
+ID = 20013
+
+[state a];ƒQ[ƒW3,20
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 92
+trigger1 = root,fvar(28) < 93
+anim = 20014
+id = 20014
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 92
+ID = 20014
+
+[state a];ƒQ[ƒW3,19
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 91
+trigger1 = root,fvar(28) < 92
+anim = 20015
+id = 20015
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 91
+ID = 20015
+
+[state a];ƒQ[ƒW3,18
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 90
+trigger1 = root,fvar(28) < 91
+anim = 20016
+id = 20016
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 90
+ID = 20016
+
+[state a];ƒQ[ƒW3,17
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 89
+trigger1 = root,fvar(28) < 90
+anim = 20017
+id = 20017
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 89
+ID = 20017
+
+[state a];ƒQ[ƒW3,16
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 88
+trigger1 = root,fvar(28) < 89
+anim = 20018
+id = 20018
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 88
+ID = 20018
+
+[state a];ƒQ[ƒW3,15
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 87
+trigger1 = root,fvar(28) < 88
+anim = 20019
+id = 20019
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 87
+ID = 20019
+
+[state a];ƒQ[ƒW3,14
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 86
+trigger1 = root,fvar(28) < 87
+anim = 20020
+id = 20020
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 86
+ID = 20020
+
+[state a];ƒQ[ƒW3,13
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 85
+trigger1 = root,fvar(28) < 86
+anim = 20021
+id = 20021
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 85
+ID = 20021
+
+[state a];ƒQ[ƒW3,12
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 84
+trigger1 = root,fvar(28) < 85
+anim = 20022
+id = 20022
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 84
+ID = 20022
+
+[state a];ƒQ[ƒW3,11
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 83
+trigger1 = root,fvar(28) < 84
+anim = 20023
+id = 20023
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 83
+ID = 20023
+
+[state a];ƒQ[ƒW3,10
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 82
+trigger1 = root,fvar(28) < 83
+anim = 20024
+id = 20024
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 82
+ID = 20024
+
+[state a];ƒQ[ƒW3,9
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 81
+trigger1 = root,fvar(28) < 82
+anim = 20025
+id = 20025
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 81
+ID = 20025
+
+[state a];ƒQ[ƒW3,8
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 80
+trigger1 = root,fvar(28) < 81
+anim = 20026
+id = 20026
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 80
+ID = 20026
+
+[state a];ƒQ[ƒW3,7
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 79
+trigger1 = root,fvar(28) < 80
+anim = 20027
+id = 20027
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 79
+ID = 20027
+
+[state a];ƒQ[ƒW3,6
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 78
+trigger1 = root,fvar(28) < 79
+anim = 20028
+id = 20028
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 78
+ID = 20028
+
+[state a];ƒQ[ƒW3,5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 77
+trigger1 = root,fvar(28) < 78
+anim = 20029
+id = 20029
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 77
+ID = 20029
+
+[state a];ƒQ[ƒW3,4
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 76
+trigger1 = root,fvar(28) < 77
+anim = 20030
+id = 20030
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 76
+ID = 20030
+
+[state a];ƒQ[ƒW3,3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 75
+trigger1 = root,fvar(28) < 76
+anim = 20031
+id = 20031
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 75
+ID = 20031
+
+[state a];ƒQ[ƒW3,2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 74
+trigger1 = root,fvar(28) < 75
+anim = 20032
+id = 20032
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 74
+ID = 20032
+
+[state a];ƒQ[ƒW3,1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 73
+trigger1 = root,fvar(28) < 74
+anim = 20033
+id = 20033
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(13)),Ceil(helper(83108310),fvar(18))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 73
+ID = 20033
+
+
+[state a];ƒQ[ƒW2,35
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 71
+trigger1 = root,fvar(28) < 72
+anim = 11001
+id = 11001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 71
+ID = 11001
+
+[state a];ƒQ[ƒW2,34
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 70
+trigger1 = root,fvar(28) < 71
+anim = 20000
+id = 20000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 70
+ID = 20000
+
+[state a];ƒQ[ƒW2,33
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 69
+trigger1 = root,fvar(28) < 70
+anim = 20001
+id = 20001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 69
+ID = 20001
+
+[state a];ƒQ[ƒW2,32
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 68
+trigger1 = root,fvar(28) < 69
+anim = 20002
+id = 20002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 68
+ID = 20002
+
+[state a];ƒQ[ƒW2,31
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 67
+trigger1 = root,fvar(28) < 68
+anim = 20003
+id = 20003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 67
+ID = 20003
+
+[state a];ƒQ[ƒW2,30
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 66
+trigger1 = root,fvar(28) < 67
+anim = 20004
+id = 20004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 66
+ID = 20004
+
+[state a];ƒQ[ƒW2,29
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 65
+trigger1 = root,fvar(28) < 66
+anim = 20005
+id = 20005
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 65
+ID = 20005
+
+[state a];ƒQ[ƒW2,28
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 64
+trigger1 = root,fvar(28) < 65
+anim = 20006
+id = 20006
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 64
+ID = 20006
+
+[state a];ƒQ[ƒW2,27
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 63
+trigger1 = root,fvar(28) < 64
+anim = 20007
+id = 20007
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 63
+ID = 20007
+
+[state a];ƒQ[ƒW2,26
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 62
+trigger1 = root,fvar(28) < 63
+anim = 20008
+id = 20008
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 62
+ID = 20008
+
+[state a];ƒQ[ƒW2,25
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 61
+trigger1 = root,fvar(28) < 62
+anim = 20009
+id = 20009
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 61
+ID = 20009
+
+[state a];ƒQ[ƒW2,24
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 60
+trigger1 = root,fvar(28) < 61
+anim = 20010
+id = 20010
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 60
+ID = 20010
+
+[state a];ƒQ[ƒW2,23
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 59
+trigger1 = root,fvar(28) < 60
+anim = 20011
+id = 20011
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 59
+ID = 20011
+
+[state a];ƒQ[ƒW2,22
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 58
+trigger1 = root,fvar(28) < 59
+anim = 20012
+id = 20012
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 58
+ID = 20012
+
+[state a];ƒQ[ƒW2,21
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 57
+trigger1 = root,fvar(28) < 58
+anim = 20013
+id = 20013
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 57
+ID = 20013
+
+[state a];ƒQ[ƒW2,20
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 56
+trigger1 = root,fvar(28) < 57
+anim = 20014
+id = 20014
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 56
+ID = 20014
+
+[state a];ƒQ[ƒW2,19
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 55
+trigger1 = root,fvar(28) < 56
+anim = 20015
+id = 20015
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 55
+ID = 20015
+
+[state a];ƒQ[ƒW2,18
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 54
+trigger1 = root,fvar(28) < 55
+anim = 20016
+id = 20016
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 54
+ID = 20016
+
+[state a];ƒQ[ƒW2,17
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 53
+trigger1 = root,fvar(28) < 54
+anim = 20017
+id = 20017
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 53
+ID = 20017
+
+[state a];ƒQ[ƒW2,16
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 52
+trigger1 = root,fvar(28) < 53
+anim = 20018
+id = 20018
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 52
+ID = 20018
+
+[state a];ƒQ[ƒW2,15
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 51
+trigger1 = root,fvar(28) < 52
+anim = 20019
+id = 20019
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 51
+ID = 20019
+
+[state a];ƒQ[ƒW2,14
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 50
+trigger1 = root,fvar(28) < 51
+anim = 20020
+id = 20020
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 50
+ID = 20020
+
+[state a];ƒQ[ƒW2,13
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 49
+trigger1 = root,fvar(28) < 50
+anim = 20021
+id = 20021
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 49
+ID = 20021
+
+[state a];ƒQ[ƒW2,12
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 48
+trigger1 = root,fvar(28) < 49
+anim = 20022
+id = 20022
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 48
+ID = 20022
+
+[state a];ƒQ[ƒW2,11
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 47
+trigger1 = root,fvar(28) < 48
+anim = 20023
+id = 20023
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 47
+ID = 20023
+
+[state a];ƒQ[ƒW2,10
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 46
+trigger1 = root,fvar(28) < 47
+anim = 20024
+id = 20024
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 46
+ID = 20024
+
+[state a];ƒQ[ƒW2,9
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 45
+trigger1 = root,fvar(28) < 46
+anim = 20025
+id = 20025
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 45
+ID = 20025
+
+[state a];ƒQ[ƒW2,8
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 44
+trigger1 = root,fvar(28) < 45
+anim = 20026
+id = 20026
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 44
+ID = 20026
+
+[state a];ƒQ[ƒW2,7
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 43
+trigger1 = root,fvar(28) < 44
+anim = 20027
+id = 20027
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 43
+ID = 20027
+
+[state a];ƒQ[ƒW2,6
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 42
+trigger1 = root,fvar(28) < 43
+anim = 20028
+id = 20028
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 42
+ID = 20028
+
+[state a];ƒQ[ƒW2,5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 41
+trigger1 = root,fvar(28) < 42
+anim = 20029
+id = 20029
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 41
+ID = 20029
+
+[state a];ƒQ[ƒW2,4
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 40
+trigger1 = root,fvar(28) < 41
+anim = 20030
+id = 20030
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 40
+ID = 20030
+
+[state a];ƒQ[ƒW2,3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 39
+trigger1 = root,fvar(28) < 40
+anim = 20031
+id = 20031
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 39
+ID = 20031
+
+[state a];ƒQ[ƒW2,2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 38
+trigger1 = root,fvar(28) < 39
+anim = 20032
+id = 20032
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 38
+ID = 20032
+
+[state a];ƒQ[ƒW2,1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 37
+trigger1 = root,fvar(28) < 38
+anim = 20033
+id = 20033
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(14)),Ceil(helper(83108310),fvar(19))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 37
+ID = 20033
+
+
+
+[state a];ƒQ[ƒW1,35
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 35
+trigger1 = root,fvar(28) < 36
+anim = 11001
+id = 11001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 35
+ID = 11001
+[state a];ƒQ[ƒW1,34
+
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 34
+trigger1 = root,fvar(28) < 35
+anim = 20000
+id = 20000
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 34
+ID = 20000
+
+[state a];ƒQ[ƒW1,33
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 33
+trigger1 = root,fvar(28) < 34
+anim = 20001
+id = 20001
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 33
+ID = 20001
+
+[state a];ƒQ[ƒW1,32
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 32
+trigger1 = root,fvar(28) < 33
+anim = 20002
+id = 20002
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 32
+ID = 20002
+
+[state a];ƒQ[ƒW1,31
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 31
+trigger1 = root,fvar(28) < 32
+anim = 20003
+id = 20003
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 31
+ID = 20003
+
+[state a];ƒQ[ƒW1,30
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 30
+trigger1 = root,fvar(28) < 31
+anim = 20004
+id = 20004
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 30
+ID = 20004
+
+[state a];ƒQ[ƒW1,29
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 29
+trigger1 = root,fvar(28) < 30
+anim = 20005
+id = 20005
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 29
+ID = 20005
+
+[state a];ƒQ[ƒW1,28
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 28
+trigger1 = root,fvar(28) < 29
+anim = 20006
+id = 20006
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 28
+ID = 20006
+
+[state a];ƒQ[ƒW1,27
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 27
+trigger1 = root,fvar(28) < 28
+anim = 20007
+id = 20007
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 27
+ID = 20007
+
+[state a];ƒQ[ƒW1,26
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 26
+trigger1 = root,fvar(28) < 27
+anim = 20008
+id = 20008
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 26
+ID = 20008
+
+[state a];ƒQ[ƒW1,25
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 25
+trigger1 = root,fvar(28) < 26
+anim = 20009
+id = 20009
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 25
+ID = 20009
+
+[state a];ƒQ[ƒW1,24
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 24
+trigger1 = root,fvar(28) < 25
+anim = 20010
+id = 20010
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 24
+ID = 20010
+
+[state a];ƒQ[ƒW1,23
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 23
+trigger1 = root,fvar(28) < 24
+anim = 20011
+id = 20011
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 23
+ID = 20011
+
+[state a];ƒQ[ƒW1,22
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 22
+trigger1 = root,fvar(28) < 23
+anim = 20012
+id = 20012
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 22
+ID = 20012
+
+[state a];ƒQ[ƒW1,21
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 21
+trigger1 = root,fvar(28) < 22
+anim = 20013
+id = 20013
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 21
+ID = 20013
+
+[state a];ƒQ[ƒW1,20
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 20
+trigger1 = root,fvar(28) < 21
+anim = 20014
+id = 20014
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 20
+ID = 20014
+
+[state a];ƒQ[ƒW1,19
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 19
+trigger1 = root,fvar(28) < 20
+anim = 20015
+id = 20015
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 19
+ID = 20015
+
+[state a];ƒQ[ƒW1,18
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 18
+trigger1 = root,fvar(28) < 19
+anim = 20016
+id = 20016
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 18
+ID = 20016
+
+[state a];ƒQ[ƒW1,17
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 17
+trigger1 = root,fvar(28) < 18
+anim = 20017
+id = 20017
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 17
+ID = 20017
+
+[state a];ƒQ[ƒW1,16
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 16
+trigger1 = root,fvar(28) < 17
+anim = 20018
+id = 20018
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 16
+ID = 20018
+
+[state a];ƒQ[ƒW1,15
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 15
+trigger1 = root,fvar(28) < 16
+anim = 20019
+id = 20019
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 15
+ID = 20019
+
+[state a];ƒQ[ƒW1,14
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 14
+trigger1 = root,fvar(28) < 15
+anim = 20020
+id = 20020
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 13
+ID = 20020
+
+[state a];ƒQ[ƒW1,13
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 13
+trigger1 = root,fvar(28) < 14
+anim = 20021
+id = 20021
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 13
+ID = 20021
+
+[state a];ƒQ[ƒW1,12
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 12
+trigger1 = root,fvar(28) < 13
+anim = 20022
+id = 20022
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 12
+ID = 20022
+
+[state a];ƒQ[ƒW1,11
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 11
+trigger1 = root,fvar(28) < 12
+anim = 20023
+id = 20023
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 11
+ID = 20023
+
+[state a];ƒQ[ƒW1,10
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 10
+trigger1 = root,fvar(28) < 11
+anim = 20024
+id = 20024
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 10
+ID = 20024
+
+[state a];ƒQ[ƒW1,9
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 9
+trigger1 = root,fvar(28) < 10
+anim = 20025
+id = 20025
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 9
+ID = 20025
+
+[state a];ƒQ[ƒW1,8
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 8
+trigger1 = root,fvar(28) < 9
+anim = 20026
+id = 20026
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 8
+ID = 20026
+
+[state a];ƒQ[ƒW1,7
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 7
+trigger1 = root,fvar(28) < 8
+anim = 20027
+id = 20027
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 7
+ID = 20027
+
+[state a];ƒQ[ƒW1,6
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 6
+trigger1 = root,fvar(28) < 7
+anim = 20028
+id = 20028
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 6
+ID = 20028
+
+[state a];ƒQ[ƒW1,5
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 5
+trigger1 = root,fvar(28) < 6
+anim = 20029
+id = 20029
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 5
+ID = 20029
+
+[state a];ƒQ[ƒW1,4
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 4
+trigger1 = root,fvar(28) < 5
+anim = 20030
+id = 20030
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 4
+ID = 20030
+
+[state a];ƒQ[ƒW1,3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 3
+trigger1 = root,fvar(28) < 4
+anim = 20031
+id = 20031
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 3
+ID = 20031
+
+[state a];ƒQ[ƒW1,2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 2
+trigger1 = root,fvar(28) < 3
+anim = 20032
+id = 20032
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 2
+ID = 20032
+
+[state a];ƒQ[ƒW1,1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = root,fvar(28) >= 1
+trigger1 = root,fvar(28) < 2
+anim = 20033
+id = 20033
+postype = right
+bindtime = -1
+pos =  Ceil(helper(83108310),fvar(15)),Ceil(helper(83108310),fvar(20))
+sprpriority = 51
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(28) < 1
+ID = 20033
+
+
+
+
+
+
+
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[statedef 46000];ƒAƒ‹ƒJƒiƒQ[ƒW³•ûŒü
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 70200
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type       = parentvaradd
+trigger1   = helper(45000),var(5)=1
+fv    = 20
+value = -.75
+ignorehitpause=1
+supermovetime = 0
+pausemovetime = 0
+;==================================================
+[state a]
+type     = PalFX
+trigger1 = helper(45000),var(5)=1
+time     = 1
+add      = helper(45000),var(1),-helper(45000),var(1),helper(45000),var(1)
+color    = 256
+invertall =0
+ignorehitpause=1
+pausemovetime = 99999
+supermovetime = 99999
+
+;==================================================
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+
+;==================================================
+[state -2];˜g
+type     = Explod
+trigger1 = NumExplod(70200) = 0
+trigger1 = TeamSide = 1
+anim    = 70200
+id      = 70200
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 1
+scale    = .5, .5
+sprpriority = 50
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(20) = 0
+ID = 70200
+
+[state -2];˜g
+type     = Explod
+trigger1 = NumExplod(70200) = 0
+trigger1 = root,fvar(20) = 0
+anim    = 70201
+id      = 70201
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 1
+scale    = .5, .5
+sprpriority = 50
+persistent=0
+
+;==================================================
+[state a];ƒQ[ƒW72
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (710,720]
+anim    = 70300
+id      = 70300
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW71
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (700,710]
+anim    = 70301
+id      = 70301
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW70
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (690,700]
+anim    = 70302
+id      = 70302
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW69
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (680,690]
+anim    = 70303
+id      = 70303
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW68
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (670,680]
+anim    = 70304
+id      = 70304
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW67
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (660,670]
+anim    = 70305
+id      = 70305
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW66
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (650,660]
+anim    = 70306
+id      = 70306
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW65
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (640,650]
+anim    = 70307
+id      = 70307
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW64
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (630,640]
+anim    = 70308
+id      = 70308
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW63
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (620,630]
+anim    = 70309
+id      = 70309
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW62
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (610,620]
+anim    = 70310
+id      = 70310
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW61
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (600,610]
+anim    = 70311
+id      = 70311
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW60
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (590,600]
+anim    = 70312
+id      = 70312
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW59
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (580,590]
+anim    = 70313
+id      = 70313
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW58
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (570,580]
+anim    = 70314
+id      = 70314
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW57
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (560,570]
+anim    = 70315
+id      = 70315
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW56
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (550,560]
+anim    = 70316
+id      = 70316
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW55
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (540,550]
+anim    = 70317
+id      = 70317
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW54
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (530,540]
+anim    = 70318
+id      = 70318
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW53
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (520,530]
+anim    = 70319
+id      = 70319
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW52
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (510,520]
+anim    = 70320
+id      = 70320
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW51
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (500,510]
+anim    = 70321
+id      = 70321
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW50
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (490,500]
+anim    = 70322
+id      = 70322
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW49
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (480,490]
+anim    = 70323
+id      = 70323
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW48
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (470,480]
+anim    = 70324
+id      = 70324
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW47
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (460,470]
+anim    = 70325
+id      = 70325
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW46
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (450,460]
+anim    = 70326
+id      = 70326
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW45
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (440,450]
+anim    = 70327
+id      = 70327
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW44
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (430,440]
+anim    = 70328
+id      = 70328
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW43
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (420,430]
+anim    = 70329
+id      = 70329
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW42
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (410,420]
+anim    = 70330
+id      = 70330
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW41
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (400,410]
+anim    = 70331
+id      = 70331
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW40
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (390,400]
+anim    = 70332
+id      = 70332
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW39
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (380,390]
+anim    = 70333
+id      = 70333
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW38
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (370,380]
+anim    = 70334
+id      = 70334
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW37
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (360,370]
+anim    = 70335
+id      = 70335
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW36
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (350,360]
+anim    = 70336
+id      = 70336
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW35
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (340,350]
+anim    = 70337
+id      = 70337
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW34
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (330,340]
+anim    = 70338
+id      = 70338
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW33
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (320,330]
+anim    = 70339
+id      = 70339
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW32
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (310,320]
+anim    = 70340
+id      = 70340
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW31
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (300,310]
+anim    = 70341
+id      = 70341
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW30
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (290,300]
+anim    = 70342
+id      = 70342
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW29
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (280,290]
+anim    = 70343
+id      = 70343
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW28
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (270,280]
+anim    = 70344
+id      = 70344
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW27
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (260,270]
+anim    = 70345
+id      = 70345
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW26
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (250,260]
+anim    = 70346
+id      = 70346
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW25
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (240,250]
+anim    = 70347
+id      = 70347
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW24
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (230,240]
+anim    = 70348
+id      = 70348
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW23
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (220,230]
+anim    = 70349
+id      = 70349
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW22
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (210,220]
+anim    = 70350
+id      = 70350
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW21
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (200,210]
+anim    = 70351
+id      = 70351
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW20
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (190,200]
+anim    = 70352
+id      = 70352
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW19
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (180,190]
+anim    = 70353
+id      = 70353
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW18
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (170,180]
+anim    = 70354
+id      = 70354
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW17
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (160,170]
+anim    = 70355
+id      = 70355
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW16
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (150,160]
+anim    = 70356
+id      = 70356
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW15
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (140,150]
+anim    = 70357
+id      = 70357
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW14
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (130,140]
+anim    = 70358
+id      = 70358
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW13
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (120,130]
+anim    = 70359
+id      = 70359
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW12
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (110,120]
+anim    = 70360
+id      = 70360
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW11
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (100,110]
+anim    = 70361
+id      = 70361
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW10
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (90,100]
+anim    = 70362
+id      = 70362
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW9
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (80,90]
+anim    = 70363
+id      = 70363
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW8
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (70,80]
+anim    = 70364
+id      = 70364
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW7
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (60,70]
+anim    = 70365
+id      = 70365
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW6
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (50,60]
+anim    = 70366
+id      = 70366
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW5
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (40,50]
+anim    = 70367
+id      = 70367
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW4
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (30,40]
+anim    = 70368
+id      = 70368
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW3
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (20,30]
+anim    = 70369
+id      = 70369
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW2
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (10,20]
+anim    = 70370
+id      = 70370
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW1
+type     = Explod
+trigger1 = TeamSide = 1
+trigger1 = root,fvar(20) = (0,10]
+anim    = 70371
+id      = 70371
+bindtime = -1
+removetime = -2
+pos      = Ceil(helper(83108310),fvar(21)),Ceil(helper(83108310),fvar(23))
+postype  = left
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[statedef 46001];ƒAƒ‹ƒJƒiƒQ[ƒW•‰•ûŒü
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 70200
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type       = parentvaradd
+trigger1   = helper(45000),var(5)=1
+fv    = 20
+value = -.75
+ignorehitpause=1
+supermovetime = 0
+pausemovetime = 0
+;==================================================
+[state a]
+type     = PalFX
+trigger1 = helper(45000),var(5)=1
+time     = 1
+add      = helper(45000),var(1),-helper(45000),var(1),helper(45000),var(1)
+color    = 256
+invertall =0
+ignorehitpause=1
+pausemovetime = 99999
+supermovetime = 99999
+
+;==================================================
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+;==================================================
+[state -2];˜g
+type     = Explod
+trigger1 = NumExplod(70200) = 0
+trigger1   = TeamSide = 2
+anim    = 70200
+id      = 70200
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 1
+scale    = .5, .5
+sprpriority = 50
+
+[state a]
+type = RemoveExplod
+trigger1 = root,fvar(20) = 0
+ID = 70200
+
+[state -2];˜g
+type     = Explod
+trigger1 = NumExplod(70200) = 0
+trigger1 = root,fvar(20) = 0
+anim    = 70201
+id      = 70201
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 1
+scale    = .5, .5
+sprpriority = 50
+persistent=0
+
+;==================================================
+[state a];ƒQ[ƒW72
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (710,720]
+anim    = 70300
+id      = 70300
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW71
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (700,710]
+anim    = 70301
+id      = 70301
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW70
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (690,700]
+anim    = 70302
+id      = 70302
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW69
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (680,690]
+anim    = 70303
+id      = 70303
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW68
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (670,680]
+anim    = 70304
+id      = 70304
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW67
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (660,670]
+anim    = 70305
+id      = 70305
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW66
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (650,660]
+anim    = 70306
+id      = 70306
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW65
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (640,650]
+anim    = 70307
+id      = 70307
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW64
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (630,640]
+anim    = 70308
+id      = 70308
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW63
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (620,630]
+anim    = 70309
+id      = 70309
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW62
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (610,620]
+anim    = 70310
+id      = 70310
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW61
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (600,610]
+anim    = 70311
+id      = 70311
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW60
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (590,600]
+anim    = 70312
+id      = 70312
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW59
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (580,590]
+anim    = 70313
+id      = 70313
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW58
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (570,580]
+anim    = 70314
+id      = 70314
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW57
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (560,570]
+anim    = 70315
+id      = 70315
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW56
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (550,560]
+anim    = 70316
+id      = 70316
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW55
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (540,550]
+anim    = 70317
+id      = 70317
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW54
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (530,540]
+anim    = 70318
+id      = 70318
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW53
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (520,530]
+anim    = 70319
+id      = 70319
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW52
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (510,520]
+anim    = 70320
+id      = 70320
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW51
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (500,510]
+anim    = 70321
+id      = 70321
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW50
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (490,500]
+anim    = 70322
+id      = 70322
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW49
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (480,490]
+anim    = 70323
+id      = 70323
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW48
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (470,480]
+anim    = 70324
+id      = 70324
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW47
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (460,470]
+anim    = 70325
+id      = 70325
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW46
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (450,460]
+anim    = 70326
+id      = 70326
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW45
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (440,450]
+anim    = 70327
+id      = 70327
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW44
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (430,440]
+anim    = 70328
+id      = 70328
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW43
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (420,430]
+anim    = 70329
+id      = 70329
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW42
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (410,420]
+anim    = 70330
+id      = 70330
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW41
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (400,410]
+anim    = 70331
+id      = 70331
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW40
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (390,400]
+anim    = 70332
+id      = 70332
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW39
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (380,390]
+anim    = 70333
+id      = 70333
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW38
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (370,380]
+anim    = 70334
+id      = 70334
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW37
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (360,370]
+anim    = 70335
+id      = 70335
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW36
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (350,360]
+anim    = 70336
+id      = 70336
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW35
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (340,350]
+anim    = 70337
+id      = 70337
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW34
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (330,340]
+anim    = 70338
+id      = 70338
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW33
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (320,330]
+anim    = 70339
+id      = 70339
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW32
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (310,320]
+anim    = 70340
+id      = 70340
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW31
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (300,310]
+anim    = 70341
+id      = 70341
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW30
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (290,300]
+anim    = 70342
+id      = 70342
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW29
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (280,290]
+anim    = 70343
+id      = 70343
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW28
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (270,280]
+anim    = 70344
+id      = 70344
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW27
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (260,270]
+anim    = 70345
+id      = 70345
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW26
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (250,260]
+anim    = 70346
+id      = 70346
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW25
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (240,250]
+anim    = 70347
+id      = 70347
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW24
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (230,240]
+anim    = 70348
+id      = 70348
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW23
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (220,230]
+anim    = 70349
+id      = 70349
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW22
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (210,220]
+anim    = 70350
+id      = 70350
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW21
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (200,210]
+anim    = 70351
+id      = 70351
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW20
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (190,200]
+anim    = 70352
+id      = 70352
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW19
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (180,190]
+anim    = 70353
+id      = 70353
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW18
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (170,180]
+anim    = 70354
+id      = 70354
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW17
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (160,170]
+anim    = 70355
+id      = 70355
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW16
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (150,160]
+anim    = 70356
+id      = 70356
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW15
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (140,150]
+anim    = 70357
+id      = 70357
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW14
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (130,140]
+anim    = 70358
+id      = 70358
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW13
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (120,130]
+anim    = 70359
+id      = 70359
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW12
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (110,120]
+anim    = 70360
+id      = 70360
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW11
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (100,110]
+anim    = 70361
+id      = 70361
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW10
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (90,100]
+anim    = 70362
+id      = 70362
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW9
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (80,90]
+anim    = 70363
+id      = 70363
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW8
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (70,80]
+anim    = 70364
+id      = 70364
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW7
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (60,70]
+anim    = 70365
+id      = 70365
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW6
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (50,60]
+anim    = 70366
+id      = 70366
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW5
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (40,50]
+anim    = 70367
+id      = 70367
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW4
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (30,40]
+anim    = 70368
+id      = 70368
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW3
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (20,30]
+anim    = 70369
+id      = 70369
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW2
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (10,20]
+anim    = 70370
+id      = 70370
+bindtime = -1
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+[state a];ƒQ[ƒW1
+type     = Explod
+trigger1 = TeamSide = 2
+trigger1 = root,fvar(20) = (0,10]
+anim    = 70371
+id      = 70371
+bindtime = -1
+removetime = -2
+pos      = Ceil(helper(83108310),fvar(22)),Ceil(helper(83108310),fvar(24))
+postype  = right
+ownpal   = 0
+scale    = 0.5,0.5
+sprpriority = 51
+
+
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[statedef 83108320];ƒOƒ‹[ƒu“I‚È‚à‚Ì
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 9999
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a]
+type     = varset
+trigger1 = RoundState = 0
+v        = 1
+value    = random%1
+persistent=0
+
+[state a]
+type     = varadd
+trigger1 = (roundstate=1)*(var(1)=0)*(root,command="U")
+v        = 1
+value    = 1
+[state a]
+type     = varadd
+trigger1 = (roundstate=1)*(var(1)=1)*(root,command="D")
+v        = 1
+value    = -1
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a]
+type     = varset
+trigger1 = RoundState = [0,1]
+v        = 10
+value    = pos y
+[state a]
+type     = varset
+trigger1 = RoundState = [0,1]
+v        = 11
+value    = pos x
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a];¢‹I––
+type = Explod
+trigger1 = var(1)=0
+trigger1 = numexplod(100000)=0
+anim = 100000
+id = 100000
+postype = left
+bindtime = -1
+pos = 50,180
+sprpriority = 52
+ownpal = 1
+scale = 0.5,0.5
+
+[state a];Œ¶‘z‹½
+type = Explod
+trigger1 = var(1)=1
+trigger1 = numexplod(100001)=0
+anim = 100001
+id = 100001
+postype = left
+bindtime = -1
+pos = 50,180
+sprpriority = 52
+ownpal = 1
+scale = 0.5,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = RoundState > 1
+trigger2 = var(1)!=0
+ID = 100000
+
+[state a]
+type = RemoveExplod
+trigger1 = RoundState > 1
+trigger2 = var(1)!=1
+ID = 100001
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a]
+type = helper
+trigger1 = var(1)=0
+trigger1 = numhelper(83108321) = 0
+trigger1 = RoundState = [0,1]
+name = "eff"
+helpertype = normal
+id = 83108321
+stateno = 83108321
+pos = 50,-40
+postype = left
+ownpal= 1
+ignorehitpause=1
+
+[state a]
+type = helper
+trigger1 = var(1)=1
+trigger1 = numhelper(83108322) = 0
+trigger1 = RoundState = [0,1]
+name = "eff"
+helpertype = normal
+id = 83108322
+stateno = 83108322
+pos = 50,-40
+postype = left
+ownpal= 1
+ignorehitpause=1
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[statedef 83108321]
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 100000
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = null;posset
+trigger1 = 1
+y = parent,var(10)
+x = parent,var(11)
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a]
+type = varset
+trigger1 = time=0
+fvar(10)=1
+[state a]
+type = varadd
+trigger1 = 1
+fvar(10)=.04
+
+[State 1000, 0]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(10),fvar(10)
+
+
+[state a]
+type = varadd
+trigger1 = 1
+var(10)=18
+
+[state a]
+type=trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(10), 0+var(10)
+
+[state 1236]
+type = Destroyself
+trigger1=var(10)>=256
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[statedef 83108322]
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+type     = A
+movetype = I
+physics  = N
+ctrl = 0
+anim = 100001
+velset = 0,0
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = null;posset
+trigger1 = 1
+y = parent,var(10)
+x = parent,var(11)
+
+;¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+[state a]
+type = varset
+trigger1 = time=0
+fvar(10)=1
+[state a]
+type = varadd
+trigger1 = 1
+fvar(10)=.04
+
+[State 1000, 0]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(10),fvar(10)
+
+
+[state a]
+type = varadd
+trigger1 = 1
+var(10)=18
+
+[state a]
+type=trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(10), 0+var(10)
+
+[state 1236]
+type = Destroyself
+trigger1=var(10)>=256

@@ -1,0 +1,32 @@
+[Info]
+name="Toyotomi Hideyoshi"
+displayname="Toyotomi Hideyoshi"
+versiondate=2009/12/30
+mugenversion=04,14,2001
+author="rei"
+pal.defaults=1,3,5,7,10
+
+[Files]
+sprite=Toyotomi_Hideyoshi.sff
+sound=Toyotomi_Hideyoshi.snd
+anim=Toyotomi_Hideyoshi.air
+cmd=Toyotomi_Hideyoshi.cmd
+cns=Toyotomi_Hideyoshi.cns
+st=Toyotomi_Hideyoshi.cns
+st2=System-Toyotomi_Hideyoshi.cns
+st3=Engun-Toyotomi_Hideyoshi.cns
+st4=option.mode
+st5=BASARAX_System.cns
+stcommon=common1-Toyotomi_Hideyoshi.cns
+pal1=Toyotomi_Hideyoshi04.act
+pal2=Toyotomi_Hideyoshi05.act
+pal3=Toyotomi_Hideyoshi06.act
+pal4=Toyotomi_Hideyoshi01.act
+pal5=Toyotomi_Hideyoshi02.act
+pal6=Toyotomi_Hideyoshi03.act
+pal7=Toyotomi_Hideyoshi200.act	;by Gal129
+pal8=Toyotomi_Hideyoshi201.act	;by Gal129
+pal9=Toyotomi_Hideyoshi201.act	;by Gal129
+pal10=Toyotomi_Hideyoshi100.act
+pal11=Toyotomi_Hideyoshi02.act
+pal12=Toyotomi_Hideyoshi01.act

@@ -1,0 +1,32 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Shin"        ;キャラの名前
+displayname = "Shin Aino" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "ahuron"         ;改変、中(あたる)
+pal.defaults = 1,2,3,4     ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd       = system/Shin.cmd   ;キャラのコマンド
+cns       = cns/Shin.cns   ;キャラのプログラム
+st        = cns/Shin.cns   ;基本動作、必殺技、特殊ゲージ
+st2       = cns/Shin2.cns  ;超必殺技
+st4       = cns/helper.cns  ;ゲージとか
+st3       = cns/gage.cns
+st5       = config.txt
+st6       = cns/-2,-3.cns
+st7       = cns/Arcana.cns
+stcommon  = cns/shincommon.cns 
+sprite    = system/Shin.sff   ;キャラの絵
+anim      = system/Shin.air   ;キャラの動き
+sound     = system/Shin.snd   ;キャラの音
+pal1      = act/Shin-aino.act
+pal2      = act/Shin-Lieselotte.act
+pal3      = act/Shin-Reimu.act
+pal4      = act/Shin-Marisa.act
+pal5      = act/Shin.act
+pal6      = act/Shin2.act
+;pal11     = act/Shin11.act
+;pal12     = act/Shin12.act
