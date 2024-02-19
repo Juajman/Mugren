@@ -1,0 +1,24 @@
+[Info]
+name = "Jotaro Kujo"		;空条承太郎
+displayname = "Mario Kujo"	;空条承太郎
+versiondate=01,26,2011	;Version date of character
+mugenversion=06,14,2003	;Version of M.U.G.E.N character works on
+author="Warusaki3"		;悪咲3号
+pal.Defaults=4,5
+
+[Files]
+cmd=jotaro.cmd
+cns=jotaro.cns
+st=jotaro.cns
+st1=jotaro_system.cns
+st2=jotaro_damage.cns
+st3=config.txt
+stcommon=common1.cns
+sprite=jotaro.sff
+anim=jotaro.air
+sound=jotaro.snd
+pal1=act004.act;スタンドボタンカラー
+pal2=act005.act;スタートボタンカラー
+;[Arcade]
+;intro.storyboard = opening.def
+;ending.storyboard = ending.def
