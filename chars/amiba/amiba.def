@@ -1,0 +1,38 @@
+
+; Player information
+[Info]
+name ="amiba"
+displayname ="amiba"
+versiondate =07,20,2009
+mugenversion =07,20,2009
+author ="Drowin hokuto"
+author ="oki" ;アミバに改変した者の名前
+pal.defaults =4
+
+; Files for the player
+[Files]
+cmd     = amiba.cmd   ;Command set
+cns     = amiba.cns   ;Constants
+st      = amiba.cns   ;States
+st1     =hokuto.cns
+st2     =arcana.cns
+stcommon = Scommon.cns ;Common states
+sprite  = amiba.sff   ;Sprite
+anim    = amiba.air   ;Animation
+sound   = amiba.snd   ;Sound
+pal1    = amiba.act;a 
+pal2    = amiba.act;b
+pal3    = amiba.act;c
+pal4    = amiba.act;x
+pal5    = amiba.act;y
+pal6    = amiba.act;z
+pal7    = amiba.act;sa
+pal8    = amiba.act;sb
+pal9    = amiba.act;sc
+pal10   = amiba.act; 
+pal11   = amiba.act
+pal12   = amiba.act
+
+[Arcade];
+intro.storyboard=
+ending.storyboard=
