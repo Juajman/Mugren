@@ -1,0 +1,71 @@
+;┳────┳───────────────────────━
+;｜基本情報｜　真面目に修練を積んだアミバ様
+;┻────┻───────────────────────━
+[Info]
+Name         = "Amiba"           ;キャラクターの名前
+DisplayName  = "Amiba"           ;実際に表示される名前
+VersionDate  = 07,08,2018        ;キャラクターの最終更新日
+MugenVersion = 1.0               ;動作出来るM.U.G.E.Nの改訂版(WinMugenでは別途のcommonパッチを使ってください)
+;mugenversion = 04,14,2002        ;mugen1.0以外の記述
+Author       = "Ts"              ;本来なら→【 Author = "E-FRY" 】ですが、変更したら色々バグりました
+Pal.Defaults = 4,5,6,1,2,3       ;CPU時のカラーパレットの順番
+;LocalCoord   = 400,300 ;320,240 ;←mugen1.0でのサイズ調整
+
+;┳──────┳─────────────────────━
+;｜ファイル設定｜
+;┻──────┻─────────────────────━
+[Files]
+Cmd      = CNS/Amiba_cmd.cns         ;コマンドファイル
+Cns      = CNS/Amiba0.cns            ;コンスタンツファイル
+
+St       = CNS/Amiba0.cns            ;ステートファイル
+St1      = CNS/Amiba1.cns            ;通常技
+St2      = CNS/Amiba2.cns            ;必殺技
+St3      = CNS/Amiba3.cns            ;超必殺技
+
+St4      = CNS/Amiba-2.cns           ;常時監視ステート
+St5      = CNS/Amiba-3.cns           ;準常時監視ステート
+
+St6      = 00config.txt              ;winmugen-plus以降のシステム設定ファイル
+St7      = CNS/win_mugen_common.cns  ;winmugen専用コモンステート
+
+StCommon = common1.cns
+
+Sprite   = DATA/Amiba2.sff     ;スプライトファイル
+Anim     = DATA/Amiba2.air     ;アニメーションファイル
+Sound    = DATA/Amiba2.snd     ;サウンドファイル
+
+;┳───────┳────────────────────━
+;｜カラーパレット｜
+;┻───────┻────────────────────━
+Pal1 = ACT/amiba-red.act
+Pal2 = ACT/amiba-red2.act
+Pal3 = ACT/amiba-ps1.act       ;PS1ゲーム風
+Pal4 = ACT/amiba-anime.act     ;アミバ様の基本色(アニメ1)
+Pal5 = ACT/amiba.act           ;トキの基本色
+Pal6 = ACT/amiba-anime2.act    ;アニメ2(奇跡の村)
+
+Pal7 = ACT/amiba-green1.act
+Pal8 = ACT/amiba-green2.act
+Pal9 = ACT/amiba-blue.act
+Pal10= ACT/amiba-sgouki.act
+Pal11= ACT/amiba-black.act
+Pal12= ACT/amiba-gold.act      ;ゴールドカラー
+
+;Pal0 = ACT2/amiba-black2.act
+;Pal0 = ACT2/amiba-bpurple.act
+;Pal0 = ACT2/amiba-brown.act
+;Pal0 = ACT2/amiba-dblue.act
+;Pal0 = ACT2/amiba-morrigan.act
+;Pal0 = ACT/amiba-dblack.act
+;Palno= ACT/amiba-kurokami.act
+
+
+;┳────────┳───────────────────━
+;｜ストーリーボード｜
+;┻────────┻───────────────────━
+;[Arcade]
+;Intro.Storyboard  = intro.def     ;オープニングファイル
+;Ending.Storyboard = ending.def    ;エンディングファイル
+
+;━────────────────────────────━

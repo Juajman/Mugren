@@ -1,0 +1,1274 @@
+;var(0) ランダム
+;var(1) 時間
+;var(2) 音声重複防止1
+;var(3) 音声重複防止2
+;var(4) 一度のみの音声
+;var(5) 
+;var(6) 
+
+;援軍待機
+[statedef 10000]
+type = S
+ctrl = 0
+velset = 0,0
+anim = 10000
+sprpriority = -5
+
+[state 10000]
+type = DestroySelf
+trigger1 = root,var(40)=0&&time
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&(prevstateno!=[10000,19999])
+x = ifelse(teamside=2,60,-60)
+y = -20
+
+[state 190]
+type = PosSet
+trigger1 = Time=ifelse(roundstate<2,1,0)&&IsHelper(10000)&&(prevstateno!=[10000,19999])&&numpartner
+trigger1 = (root,ID-partner,ID)>0
+x = ifelse(teamside=2,120,-120)
+y = -20
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&NumHelper(18000)&&(prevstateno=[10000,19999])
+x = Helper(18000),Pos X
+y = -20
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=-1
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = VarAdd
+trigger1 = Roundstate>=2
+var(1) = 1
+
+[state 190]
+type = VarSet
+trigger1 = var(1)>2400
+var(1) = 0
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 190]
+type = VarAdd
+trigger1 = Roundstate>=2
+var(6) = 1
+
+;援軍生産時
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(10000)&&Time
+trigger1 = root,var(12)<0
+value = 14400
+
+;援軍勝利時
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(10000)&&Time
+trigger1 = (root,stateno=[180,189])&&root,time>=1 && Win && Roundstate>3
+value = 10180
+
+[state 14000]
+type = ParentVarSet
+trigger1 = prevstateno=16500&&time<60
+var(40) = ifelse(root,var(40)>=10,root,var(40),2)
+
+[state 14000]
+type = ParentVarSet
+trigger1 = prevstateno=16500&&time=60
+var(40) = 1
+
+[state 14000]
+type = RemoveExplod
+trigger1 = (time=10||time=50)&&prevstateno=16500
+trigger2 = !time&&prevstateno!=16500
+id = 10000
+
+[state 14000]
+type = RemoveExplod
+trigger1 = time=30&&prevstateno=16500
+trigger2 = !time&&prevstateno!=16500
+id = 10001
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 10001
+pos = -floor(140*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime= -1
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)&&time=10&&prevstateno=16500
+id = 10000
+anim = 16000
+pos = -floor(240*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = -1.0,0
+accel = .025,0
+bindtime= -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)&&ifelse(prevstateno=16500,time=50,1)
+id = 10000
+anim = 10000
+pos = -floor(280*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime= -1
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = null;ChangeAnim
+trigger1 = 0;AnimTime=0 && random%64=0
+value = 10010
+
+[state 19000]
+type = null;RemoveExplod
+trigger1 = AnimTime=0
+id = 10001
+
+[state 19000]
+type = null;RemoveExplod
+trigger1 = AnimTime=0
+id = 10000
+
+;~~~
+
+;~~手出し無用宣言~~~
+
+[state 190]
+type = VarAdd
+trigger1 = var(19)
+var(19) = -1
+
+[state 190]
+type = VarSet
+trigger1 = root,var(40)=-2&&Root,NumExplod(6295)
+var(19) = 181
+persistent=0
+
+;承知しやした。
+;おぅみんなー、手出しすんなよー！
+[state 190]
+type = PlaySND
+trigger1 = root,var(40)=-2&&var(19)=1
+trigger1 = var(2):=180*floor(TicksPerSecond/60)
+value = 20,20
+channel = 2
+persistent=0
+
+;その他~~~~
+;いよっしゃー！波に乗ってきたぁ！(ジャストディフェンス成功時)
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&(root,stateno=150||root,stateno=152||root,stateno=154)&&root,time<=1&&root,numexplod(7706)&&random%2=0
+trigger1 = var(2):=184*floor(TicksPerSecond/60)
+value = 20,6
+channel = 2
+;3.055sec
+
+;やばい、もう持たねえっす(カラクリ兵器残り耐久値が少ない時)
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&!root,numexplod(40000)&&numhelper(20000)
+trigger1 = (helper(20000),prevstateno=[5000,5099])&&helper(20000),time=1&&((root,var(12)=[10002,10500])||(root,var(12)=[2002,2400])||(root,var(12)=[2,300]))&&random%3=0
+trigger1 = var(2):=130*floor(TicksPerSecond/60)
+value = 20,16
+channel = 2
+;2.159sec
+
+;（カラクリ兵器ダメージ時）
+;のおおおう…
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&!root,numexplod(40000)&&numhelper(20000)
+trigger1 = (helper(20000),prevstateno=[5000,5099])&&helper(20000),time=1 && random%3=0
+trigger1 = var(2):=46*floor(TicksPerSecond/60)
+value = 20,2
+channel = 2
+;0.756sec
+
+;（援軍カウンター失敗時）
+;すまねえアニキ…
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&numhelper(26710)
+trigger1 = helper(26710),stateno=26710&&helper(26710),time=25&&!helper(26710),movehit
+trigger1 = var(2):=97*floor(TicksPerSecond/60)
+value = 20,3
+channel = 2
+;1.613sec
+
+;（援軍ブロックされ時）
+;なんてこった…
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&numhelper(26710)
+trigger1 = helper(26710),stateno!=26710&&helper(26710),time=1
+trigger1 = var(2):=84*floor(TicksPerSecond/60)
+value = 20,4
+channel = 2
+;1.402sec
+
+;うおおおお！俺らもガチで決めるぜ！(アシスト)
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&!root,numexplod(40000)&&numhelper(20000)
+trigger1 = helper(20000),stateno%10=9&&helper(20000),time=1
+trigger1 = helper(20000),var(50)=7
+trigger1 = var(2):=274*floor(TicksPerSecond/60)
+value = 20,7
+channel = 2
+;4.574
+
+;突撃ー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&roundstate=2&&root,alive&&!root,numexplod(40000)&&numhelper(20000)
+trigger1 = helper(20000),stateno%10=9&&helper(20000),time=1&&random%2=0
+trigger1 = (helper(20000),var(50)=[4,6])||helper(20000),var(50)=8
+trigger1 = var(2):=105*floor(TicksPerSecond/60)
+value = 20,5
+channel = 2
+;1.752sec
+
+;~~~~~~SP獲得時
+
+;熱い！熱いぜアニキ！
+;アニキが、追い波に乗ってるぜ！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3) && root,var(11)&&roundstate=2
+trigger1 = var(2):=ifelse(var(0)%2=0,174,167)*floor(TicksPerSecond/60)
+value = 20,12+var(0)%2
+channel = 2
+;2.898sec
+;2.780sec
+
+;~~~~~~~~~移動中～到着後ランダム(1回のみ)
+
+;==相手援軍要請時
+;んなもんで俺らがビビると思ってんのか！
+[state 190]
+type = PlaySND
+triggerall = !var(2)&&!var(3)&&roundstate=2
+triggerall = var(2) := 168*floor(TicksPerSecond/60)
+trigger1 = enemynear,fvar(39)=7&&(enemynear,authorname="rei"||enemynear,authorname="gal129")&&enemynear,var(40)=-10
+trigger2 = enemynear,authorname="Ahuron"&&enemynear,name="Keiji"&&enemynear,var(40)=-10
+trigger3 = (enemynear,authorname="Neat Unsou"||enemynear,authorname="syouga")&&enemynear,var(40)=1&&enemynear,var(46)=660
+trigger4 = enemynear,name="Mukuro"&&enemynear,authorname="ahuron"&&enemynear,stateno=12600 && enemynear,time=1
+trigger5 = enemynear,name="bonus game"&&enemynear,authorname="BK"&&(gametime%960=[0,120])&&gametime%2=0&&random%70=0
+value = 20,23
+channel = 2
+;2.800sec
+
+
+;~~~一定時間毎に判別~~~~
+;詳しい条件がわからないのでほぼアレンジ
+
+;===優勢時
+;アニキ！歯ごたえのない奴らですね！（元親体力多い時）
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&root,life>=(root,lifemax*.9)&&random%8=0&&var(1)>=1600&&var(0)%160=0&&roundstate=2
+trigger1 = var(2):=192*floor(TicksPerSecond/60)
+value = 20,12
+channel = 2
+;3.191sec
+
+;よーほー！すげえぜアニキー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&((root,life-enemynear,life)=[100,200])&&root,life>=(root,const(data.life)-300)&&var(1)>=1600&&var(0)%160=0&&roundstate=2
+trigger1 = var(2):=300*floor(TicksPerSecond/60)
+value = 20,10
+channel = 2
+
+;アニキ最高ー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&((root,life-enemynear,life)=[1,350])&&enemynear,life<(enemynear,lifemax-350)&&var(1)>=1600&&var(0)%160=0&&roundstate=2
+trigger1 = var(2):=300*floor(TicksPerSecond/60)
+value = 20,24
+channel = 2
+
+;===劣勢時
+
+;アニキを信じろ！アニキが終わるわけねー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&root,movetype!=H&&!root,var(2)&&(root,life/root,lifemax)<.3&&var(0)%420=0&&roundstate=2
+trigger1 = var(2) := 228*floor(TicksPerSecond/60)
+value = 20,9
+channel = 2
+;3.784sec
+
+;アニキ！危ねえ！ぬおおおお！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&root,movetype=H&&root,gethitvar(damage)&&root,gethitvar(hitcount)%5=0 && root,gethitvar(hitcount)>4&&var(0)%300=0&&roundstate=2
+trigger1 = var(2) := 152*floor(TicksPerSecond/60)
+value = 20,8
+channel = 2
+;2.530sec
+
+;~~~~攻撃ヒット時~~~~
+;BASARA技ヒット時
+;アニキー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&Root,movetype!=H&&(root,stateno=3000||root,stateno=3010)&&root,movehit=1&&root,hitpausetime<=1&&random%4=0&&roundstate=2
+trigger1 = var(2):=300*floor(TicksPerSecond/60)
+value = 20,22
+channel = 2
+
+;詳しい条件がわからないのでほぼアレンジ
+
+;俺ら海賊をなめんなよ！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&!var(3)&&((root,movecontact=1&&!root,hitpausetime)||(root,movecontact=2&&(root,var(52)=[1,99])))&&(root,life-enemynear,life)>=200&&var(0)<25&&roundstate=2
+trigger1 = var(2) := 134*floor(TicksPerSecond/60)
+value = 20,1
+channel = 2
+;2.231sec
+
+;~~援軍キャラ（凡庸）~~
+;援軍が到着した後に一定時間毎に喋ります。その際に何か喋っていると喋りません。
+
+;==イントロ
+;通常
+;何処のどいつだ！アニキとタメ張ろうっていうのは！
+[state 190]
+type = PlaySND
+trigger1 = root,stateno=190&&root,anim=191&&root,animelem=1,=1
+value = 20,0
+channel = 2
+
+;キャラ別はアニキ親衛隊にはありません
+
+;援軍勝利
+[statedef 10180]
+type = S
+physics = S
+movetype=I
+anim = 10180
+velset = 0,0
+sprpriority = -5
+ctrl = 0
+
+[state 19000]
+type = RemoveExplod
+trigger1 = time=30
+id = 10001
+
+[state 19000]
+type = RemoveExplod
+trigger1 = time=60
+id = 10000
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 10181
+pos = -floor(120*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime= -1
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)
+id = 10000
+anim = 10180
+pos = -floor(240*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime= -1
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+;援軍生産
+[statedef 14400]
+movetype=I
+physics = N
+type = S
+anim = 14400
+sprpriority = -5
+ctrl = 0
+
+[state 19000]
+type = RemoveExplod
+trigger1 = time=0 && numexplod(10000)
+id = 10000
+
+[state 19000]
+type = RemoveExplod
+trigger1 = time=0 &&numexplod(10001)
+id = 10001
+
+[state 19000]
+type = RemoveExplod
+trigger1 = anim=14400&&animtime=0 && numexplod(10000)
+id = 10000
+
+[state 19000]
+type = RemoveExplod
+trigger1 = anim=14400&&animtime=0 &&numexplod(10001)
+id = 10001
+
+[state 19000]
+type = ChangeAnim
+trigger1 = anim=14400&&animtime=0
+value = 11000
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=1
+
+[state 19000]
+type = Turn
+trigger1 = !Time
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 16500]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = VelSet
+trigger1 = Anim=11000
+x = 6.0
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)&&!time
+id = 10001
+anim = 14401
+pos = floor(140*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)&&!time
+id = 10000
+anim = 14400
+pos = floor(280*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 11001
+pos = floor(120*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)
+id = 10000
+anim = 11000
+pos = floor(240*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = AnimElem=4
+id = 6915
+anim = 6915
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime= -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = ChangeState
+trigger1 = ifelse(facing=1,helper(30000),pos x-pos x,-(helper(30005),pos x-pos x))<=(-60)
+value = 19000
+
+;援軍生産・帰還（移動）
+[statedef 14500]
+movetype=I
+physics = N
+type = S
+anim = 11000
+sprpriority = -5
+ctrl = 0
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=1
+
+[state 19000]
+type = Turn
+trigger1 = !Time
+trigger1 = (teamside=1&&facing=-1)||(teamside=2&&facing=1)
+
+;用意出来やしたぜ、アニキ！
+[state 190]
+type = PlaySND
+trigger1 = !Time
+trigger1 = var(2):=123*floor(TicksPerSecond/60)
+value = 20,15
+channel = 2
+;2.039sec
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 16500]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = VelSet
+trigger1 = 1
+x = 6.0
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 11001
+pos = -floor(120*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)
+id = 10000
+anim = 11000
+pos = -floor(240*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = AnimElem=4
+id = 6915
+anim = 6915
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime= -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = ChangeState
+trigger1 = Pos X=[Helper(18000),Pos X-Vel X*11*facing-4,Helper(18000),Pos X-Vel X*11*facing+4]
+value = 14600
+
+;援軍生産・帰還2（整列）
+[statedef 14600]
+type = S
+physics = N
+anim = 16000
+sprpriority = -5
+ctrl = 0
+
+[state 14000]
+type = Turn
+trigger1 = Time=0
+trigger1 = (teamside=1&&facing=-1)||(teamside=2&&facing=1)
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=-1
+
+[state 19000]
+type = VelSet
+trigger1 = !time
+x = 6.0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel X<.75
+x = 0
+
+[state 19000]
+type = VelMul
+trigger1 = 1
+x = .925
+
+[state 19000]
+type = RemoveExplod
+trigger1 = !time
+id = 10001
+
+[state 19000]
+type = RemoveExplod
+trigger1 = !time
+id = 10000
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 16001
+pos = -floor(140*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime=-1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)
+id = 10000
+anim = 16000
+pos = -floor(280*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+bindtime=-1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = RemoveExplod
+trigger1 = Time=40
+id = 10001
+
+[state 19000]
+type = RemoveExplod
+trigger1 = Time=40
+id = 10001
+
+[state 19000]
+type = ChangeState
+trigger1 = AnimTime=0
+value = 10000
+
+;援軍到着・帰還
+[statedef 16000]
+movetype=I
+physics = N
+type = S
+anim = 11000
+ctrl = 0
+sprpriority = -5
+
+[state 17000]
+type = ParentVarAdd
+trigger1 = prevstateno=17000&&root,var(42)<root,var(41)
+var(42) = ifelse(root,var(42)<(root,var(41)-3),4,1)
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=1
+
+[state 19000]
+type = Turn
+trigger1 = !Time
+trigger1 = ((Pos X<helper(18000),pos x&&facing=-1)||(Pos X>helper(18000),pos x&&facing=1))
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno!=19000
+var(40) = 0
+
+[state 19000]
+type = VarSet
+trigger1 = !Time&&prevstateno=19000
+var(40) = floor(240*ifelse(root,var(43)>=100000,1.0,ifelse(root,var(43)>=50000,1.5,2.0)))
+
+[state 19000]
+type = VarAdd
+trigger1 = Time&&var(40)>0
+var(40) = -1
+
+[state 14000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = 10
+
+[state 19000]
+type = ParentVarSet
+trigger1 = !Time&&prevstateno=17000
+var(40) = -900
+
+;援軍アタック・勝利時(待機用ヘルパー隔離)
+[state 10000]
+type = ChangeState
+triggerall = IsHelper(10000)&&Time
+trigger1 = root,stateno=180&&root,time>=1
+value = 19000
+
+;到着
+;帆を張れー！風向き良ーし！進めー！
+[state 190]
+type = PlaySND
+trigger1 = !var(2)&&Time=0&&prevstateno=17000&&var(4)%4<2&&roundstate=2
+value = 20,19
+channel = 2
+
+[state 190]
+type = varadd
+trigger1 = !var(2)&&Time=0&&prevstateno=17000&&var(4)%4<2&&roundstate=2
+trigger2 = (!time&&(prevstateno!=[10000,19999]))
+var(4) = 2
+
+[state 190]
+type = varset
+trigger1 = !var(2)&&Time=0&&prevstateno=16000&&var(4)%4<2&&roundstate=2
+var(2) = 151*floor(TicksPerSecond/60)
+;2.503秒
+
+[state 10000]
+type = varset
+trigger1 = prevstateno=14400&&(Pos X=[(Helper(18000),Pos X-vel x*90)*ifelse(teamside=2,-1,1)-4,(Helper(18000),Pos X-vel x*90)*ifelse(teamside=2,-1,1)+4])
+var(2) = 154*floor(TicksPerSecond/60)
+;2.566秒
+persistent=0
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 16500]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state 19000]
+type = VelSet
+trigger1 = 1
+x = 6.0
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 11001
+pos = -floor(120*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10000)
+id = 10000
+anim = 11000
+pos = -floor(240*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = 6,0
+removetime = -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = Explod
+trigger1 = prevstateno=17000&&AnimElem=2
+trigger2 = AnimElem=4
+id = 6915
+anim = 6915
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime= -1
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = ChangeState
+trigger1 = Pos X=[Helper(18000),Pos X-Vel X*11*facing-4,Helper(18000),Pos X-Vel X*11*facing+4]
+value = 16500
+
+;援軍戻り
+[statedef 16500]
+type = S
+physics = N
+anim = 16000
+ctrl = 0
+sprpriority = -5
+
+[state 14000]
+type = Turn
+trigger1 = Time=0
+trigger1 = (teamside=1&&facing=-1)||(teamside=2&&facing=1)
+
+[state 17000]
+type = ParentVarAdd
+trigger1 = prevstateno=16000&&root,var(42)<root,var(41)
+var(42) = ifelse(root,var(42)<(root,var(41)-3),4,1)
+
+[state 14000]
+type = ParentVarSet
+trigger1 = !Time
+var(40) = ifelse(root,var(40)>=10,root,var(40),2)
+
+[state 14000]
+type = PosSet
+trigger1 = !Time
+y = -20
+
+[state 190]
+type = PalFX
+trigger1 = 1
+mul = 224,224,224
+time=-1
+
+[state 19000]
+type = VelSet
+trigger1 = !time
+x = -6.0
+
+[state 19000]
+type = VelSet
+trigger1 = Vel X>-.75
+x = 0
+
+[state 19000]
+type = VelMul
+trigger1 = 1
+x = .925
+
+[state 19000]
+type = RemoveExplod
+trigger1 = Time=30
+id = 10001
+
+[state 19000]
+type = Explod
+trigger1 = !numexplod(10001)
+id = 10001
+anim = 16001
+pos = -floor(100*const(size.xscale)),0
+postype = p1
+ownpal = 0
+sprpriority = -5
+shadow= 0,0,0
+vel = -1.0,0
+accel = .025,0
+ignorehitpause=1
+pausemovetime=999
+supermovetime=999
+scale = const(size.xscale),const(size.yscale)
+
+[state 19000]
+type = ChangeState
+trigger1 = AnimTime=0
+value = 10000
+
+;援軍移動中
+[statedef 17000]
+type = S
+sprpriority = -5
+anim = 90000
+ctrl = 0
+
+[state 17000]
+type = PosSet
+trigger1 = !time
+x = ifelse(teamside=1,floor(root,fvar(12))+80,-floor((root,fvar(12)-floor(root,fvar(12)))*10000)-80)
+y = -20
+
+[state 190]
+type = VarRandom
+trigger1 = 1
+v = 0
+range = 0,999
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+;おう、アニキのお呼びだ、準備しろ！
+[state 17000]
+type = PlaySND
+trigger1 = prevstateno=19900&& time=120 && roundstate>=2 && root,var(43)<100000
+value = 20,17
+channel = 2
+
+;今行きますぜ、アニキー！
+[state 17000]
+type = PlaySND
+trigger1 = (time=[300,480])&&var(0)%6=0&&time%30=0&&root,var(43)<100000
+trigger2 = time=120 && roundstate>=2 && root,var(43)>=100000
+value = 20,18
+channel = 2
+persistent=0
+
+[state 17000]
+type = VarSet
+trigger1 = prevstateno=19900&&time=120&&roundstate>=2
+trigger2 = (prevstateno!=[10000,19999])&&!time
+var(2) = ifelse(root,var(43)>=100000,146,165)
+;2.746秒,2.419秒
+
+[state 17000]
+type = VarSet
+trigger1 = prevstateno=19900&&time=120&&roundstate>=2&&root,var(43)<100000
+var(2) = 81
+;1.337秒
+
+[state 190]
+type = varadd
+trigger1 = var(2)=164&&var(4)%2<1&&var(0)%48=0&&roundstate=2&&time&&!(root,var(43)<100000&&time<=190)
+trigger2 = (prevstateno!=[10000,19999])&&!time
+var(4) = 1
+
+;援軍ゲージ最大値設定
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&root,var(40)>=-10
+var(41) = 71+floor((floor(root,var(43)/1000)-1)*1.0/.77)+(root,var(43)=100)
+
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&(root,var(40)=[0,-10])
+var(42) = 0
+
+[state 17000]
+type = ParentVarSet
+trigger1 = !time&&root,var(40)>=-10&&root,var(40)<=0
+var(40) = -10
+
+[state 17000]
+type = ParentVarAdd
+trigger1 = time=1
+var(40) = -1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)<=-670||root,var(40)=1
+value = 16000
+
+;基準位置判別ヘルパー
+[statedef 18000]
+type = S
+anim = 90000
+sprpriority = -5
+ctrl = 0
+
+[state 18000]
+type = PosSet
+trigger1 = Time=0
+x = ifelse(teamside=2,40,-40)
+
+[state 18000]
+type = PosAdd
+trigger1 = Time=0&&numpartner&&ifelse(teamside=2,Pos X<60,Pos X>-60)
+trigger1 = (root,ID-partner,ID)>0
+x = ifelse(teamside=2,60,-60)
+
+;援軍行動中（待機用ヘルパー隔離）
+[statedef 19000]
+type = S
+anim = 90000
+velset =0,0
+ctrl = 0
+
+[state 19000]
+type = RemoveExplod
+trigger1 = !time
+id = 10000
+
+[state 19000]
+type = RemoveExplod
+trigger1 = !time
+id = 10001
+
+[state 190]
+type = StopSND
+trigger1 = !Time&&!(root,stateno=180&&Root,WinTime&&root,var(51)%2=0)
+channel = 2
+
+[state 10000]
+type = varadd
+trigger1 = var(2)
+var(2) = -1
+
+[state 10000]
+type = varadd
+trigger1 = var(3)
+var(3) = -1
+
+;手出し無用宣言可能か判別
+[state 10000]
+type = varset
+trigger1 = !time
+var(30) = 1
+
+[state 19000]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 19000]
+type = VarSet
+trigger1 = !Time
+trigger2 = root,var(40)=-1||root,var(40)=3
+var(7) = 0
+
+[state 19000]
+type = VarSet
+trigger1 = Time&&(root,NumHelper(11000)||root,NumHelper(11010))
+trigger1 = root,var(40)=4
+var(7) = 1
+
+[state 19000]
+type = PosSet
+trigger1 = Time&&(var(7)||root,var(12)>=0)
+x = ifelse(teamside=2,floor(root,fvar(12))+240,-floor((root,fvar(12)-floor(root,fvar(12)))*10000)-240)
+
+[state 19000]
+type = ChangeState
+trigger1 = Time&&!Root,NumHelper(11000)&&!Root,NumHelper(11010) && var(7)
+value = 16500
+
+[state 19000]
+type = ChangeState
+trigger1 = Time && root,var(12)>=0
+value = 14500
+
+;援軍要請前
+[statedef 19900]
+type = S
+anim = 90000
+ctrl = 0
+
+[state 190]
+type = PosSet
+trigger1 = Time=0&&IsHelper(10000)&&(prevstateno!=[10000,19999])
+x = ifelse(teamside=2,60,-60)
+y = -20
+
+[state 17000]
+type = ParentVarSet
+trigger1 = 1
+var(41) = 71+floor((floor(root,var(43)/1000)-1)*1.0/.77)+(root,var(43)=100)
+
+;援軍要請
+[state -2]
+type = ParentVarSet
+triggerall = !(enemynear,name="Oichi"&&enemynear,authorname="rei"&&enemynear,numexplod(6793))
+triggerall = !(enemynear,name="Mouri Motonari"&&enemynear,authorname="Neat Unsou"&&enemynear,var(29))
+trigger1 = !(root,stateno=3000&&root,AnimElemTime(1)>=1&&root,AnimElemTime(1)<31&&root,Anim=3000)&&!(root,stateno=3100&&root,AnimElemTime(2)>=0&&root,AnimElemTime(2)<30)
+trigger1 = !(root,stateno=3010&&root,AnimElemTime(3)>=0&&root,AnimElemTime(3)<30&&root,Anim=3010)&&!(root,stateno=3500&&root,AnimElemTime(4)>=0&&root,AnimElemTime(7)<=0)
+triggerall = !root,var(40)&&roundstate=2&&!root,numexplod(40000)
+trigger1 = !root,var(59)&&command="a"&&!root,numhelper(90000)
+trigger2 = root,var(59) && root,var(37)>=ifelse(roundsexisted,2000,5000)&&floor(root,var(43)/1000)>=ifelse(roundsexisted&&root,life<=600,61,71) && random%3=0
+trigger3 = root,var(59) && floor(root,var(43)/1000)>=90 && root,var(37)<9999
+trigger4 = floor(root,var(43)/1000)>=100
+var(40) = -10
+ignorehitpause=1
+
+[state 19000]
+type = ChangeState
+trigger1 = root,var(40)<=-10||root,var(40)=1
+value = 17000
+
+

@@ -1,0 +1,35 @@
+[Info]
+name="Chousokabe Motochika";í∑ë\â‰ïîå≥êe
+displayname="Chousokabe Motochika"
+versiondate=04,19,2015
+mugenversion=04,14,2001
+author="Gal129"
+pal.defaults=4,5,6,1
+
+[Files]
+sprite=Chousokabe_Motochika.sff
+sound=Chousokabe_Motochika.snd
+anim=Chousokabe_Motochika.air
+cmd=Chousokabe_Motochika.cmd
+cns=Chousokabe_Motochika.cns
+stcommon=common1-Chousokabe_Motochika.cns
+st=Chousokabe_Motochika.cns
+st2=System-Chousokabe_Motochika.cns
+st3=BASARAX_System.cns
+st4=Engun-Chousokabe_Motochika.cns
+st5=Weapon-Chousokabe_Motochika.cns
+st6=Treasure-Chousokabe_Motochika.cns
+st7=option.txt
+pal1=color/Chousokabe_Motochika04.act
+pal2=color/Chousokabe_Motochika05.act
+pal3=color/Chousokabe_Motochika06.act
+pal4=color/Chousokabe_Motochika01.act
+pal5=color/Chousokabe_Motochika02.act
+pal6=color/Chousokabe_Motochika03.act
+pal7=color/Chousokabe_Motochika10.act
+pal8=color/Chousokabe_Motochika11.act
+pal9=color/Chousokabe_Motochika12.act
+pal10=color/Chousokabe_Motochika07.act
+pal11=color/Chousokabe_Motochika08.act
+pal12=color/Chousokabe_Motochika09.act
+
