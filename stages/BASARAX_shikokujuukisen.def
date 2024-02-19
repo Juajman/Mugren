@@ -1,0 +1,273 @@
+[Info]
+name ="BASARAX_shikokujuukisen"
+;élçëèdãRêÌ
+Editor: xWagnerPlaguesx
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -94 ;Å¶
+boundright = 94 ;Å¶
+boundhigh  = -175
+boundlow   = -4
+tension =50
+verticalfollow =.93
+floortension = 109
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+[PlayerInfo]
+p1startx =-80
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =80
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 232
+autoturn = 2
+resetBG  = 1
+Hires=1
+
+[Shadow]
+intensity = 128
+yscale =.18
+fade.range = -300,-50
+
+
+[Reflection]
+;intensity = 128
+
+
+[Music]
+bgmusic  = sound/bgm_bs009_tyousogabe.mp3
+bgvolume = 40
+
+;----------------------------------------------------------------------
+[BGdef]
+spr =BASARAX_shikokujuukisen.sff
+debugbg = 0
+
+[BG 01]
+type = normal
+spriteno =0, 0
+layerno = 0
+start = 0,32
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 02]
+type = normal
+spriteno =0, 1
+layerno = 0
+start = 0,32
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime20]
+type = anim
+layerno = 0
+actionno = 20
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 03]
+type = normal
+spriteno =0, 2
+layerno = 0
+start = 0,32
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 30]
+type = normal
+spriteno =30, 0
+layerno = 0
+start = 0,32
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 10
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime40]
+type = anim
+layerno = 0
+actionno = 40
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime41]
+type = anim
+layerno = 0
+actionno = 41
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime50]
+type = anim
+layerno = 0
+actionno = 50
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime60]
+type = anim
+layerno = 0
+actionno = 60
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime70]
+type = anim
+layerno = 0
+actionno = 70
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime80]
+type = anim
+layerno = 0
+actionno = 80
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime90]
+type = anim
+layerno = 0
+actionno = 90
+start = 0, 32
+delta = 2,2
+trans = None 
+mask = 0
+
+;///////////////////anime/////////////////////
+[Begin Action 10]
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,2, 0,0, 8
+10,3, 0,0, 8
+10,4, 0,0, 8
+10,3, 0,0, 8
+10,4, 0,0, 8
+10,3, 0,0, 8
+10,4, 0,0, 8
+10,2, 0,0, 8
+
+[Begin Action 20]
+20,0,  0,0, 20
+20,0,  2,0, 20
+20,0,  0,0, 20
+20,0, -2,0, 20
+
+[Begin Action 40]
+40,0, 0,0, 36
+40,1, 0,0, 15
+40,2, 0,0, 15
+40,1, 0,0, 15
+
+[Begin Action 41]
+41,2, 0,0, 15
+41,1, 0,0, 15
+41,0, 0,0, 36
+41,1, 0,0, 15
+
+[Begin Action 50]
+50,0, 0,0, 12
+50,1, 0,0, 24
+50,2, 0,0, 12
+50,3, 0,0, 12
+50,2, 0,0, 12
+50,3, 0,0, 12
+50,2, 0,0, 12
+50,3, 0,0, 12
+50,2, 0,0, 12
+50,3, 0,0, 12
+
+[Begin Action 60]
+60,0, 0,0, 12
+60,1, 0,0, 12
+
+[Begin Action 70]
+70,0, 0,0, 128
+70,1, 0,0, 15
+70,2, 0,0, 15
+70,1, 0,0, 15
+70,2, 0,0, 15
+70,1, 0,0, 15
+70,2, 0,0, 15
+70,3, 0,0, 15
+
+
+[Begin Action 80]
+80,0, 0,0, 12
+80,1, 0,0, 12
+80,2, 0,0, 12
+80,1, 0,0, 12
+
+
+[Begin Action 90]
+90,0, 0,0, 12
+90,1, 0,0, 12
+90,2, 0,0, 12
+90,1, 0,0, 12

@@ -1,0 +1,261 @@
+[Info]
+name ="Battle of Hasedo"
+author = "Neat Unsou"
+mugenversion=1.1
+
+;MUGEN1.1用にズームとステージ幅を調整したdefです
+;MUGEN1.1ではこちらを使って下さい
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -91
+boundright = 91
+boundhigh  = -383
+boundlow   = -2
+verticalfollow =.93
+floortension = 109
+tension = 90
+
+cutlow=10
+overdrawhigh=90
+overdrawlow=90
+
+tensionhigh = 105
+tensionlow = -47
+zoomin=1
+zoomout=.7
+
+[PlayerInfo]
+p1startx =-70
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =70
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 222
+autoturn = 2
+resetBG  = 1
+Hires=1
+
+[Shadow]
+intensity = 128
+yscale =.18
+fade.range = -300,-50
+
+
+[Reflection]
+;intensity = 128
+
+
+[Music]
+bgmusic  = sound/Determination of the Right Eye.mp3
+bgmvolume = 100
+
+;----------------------------------------------------------------------
+[BGdef]
+spr =Battle of Hasedo_1.1.sff
+debugbg = 0
+
+[BG 01]
+type = normal
+spriteno =0, 3
+layerno = 0
+start = 0,0
+delta = 1.8,1.05
+trans = none
+mask = 1
+zoomdelta=0.8
+
+[BG 03]
+type = normal
+spriteno =0, 1
+layerno = 0
+start = 0,0
+delta = 1.9,1.2
+trans = none
+mask = 1
+zoomdelta=0.9
+
+[BG 01]
+type = anim
+layerno = 0
+actionno = 15
+start = -334,66
+delta = 1.9,1.2
+trans = none
+mask = 1
+zoomdelta=0.9
+
+[BG 01]
+type = anim
+layerno = 0
+actionno = 16
+start = -118,80
+delta = 1.9,1.2
+trans = none
+mask = 1
+zoomdelta=0.9
+
+
+[BG 01]
+type = anim
+layerno = 0
+actionno = 17
+start = 391,84
+delta = 1.9,1.2
+trans = none
+mask = 1
+zoomdelta=0.9
+
+
+[BG 04]
+type = normal
+spriteno =12, 0
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 12
+start = 341,126
+delta = 2,2
+trans = None 
+mask = 1
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 14
+start = -50,126
+delta = 2,2
+trans = None 
+mask = 1
+
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 13
+start = -375,126
+delta = 2,2
+trans = None 
+mask = 1
+
+[BG 01]
+type = anim
+layerno = 0
+actionno = 18
+start = 0,524
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 04]
+type = normal
+spriteno =0, 0
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 11
+start = 16,74
+delta = 2,2
+trans = None 
+mask = 1
+
+
+;-------------------------------------------------
+
+[Begin Action 11]
+11,0, 0,0, 6
+11,1, 0,0, 6
+11,2, 0,0, 6
+11,3, 0,0, 6
+11,4, 0,0, 6
+11,5, 0,0, 6
+11,6, 0,0, 6
+11,7, 0,0, 6
+11,8, 0,0, 6
+11,9, 0,0, 6
+
+
+[Begin Action 12]
+13,0, 0,0, 5
+13,1, 0,0, 5
+13,2, 0,0, 5
+13,3, 0,0, 5
+
+[Begin Action 13]
+13,4, 0,0, 5
+13,5, 0,0, 5
+13,6, 0,0, 5
+
+[Begin Action 14]
+13,9, 0,0, 4
+13,7, 0,0, 4
+13,8, 0,0, 4
+13,10, 0,0, 4
+13,11, 0,0, 4
+
+[Begin Action 15]
+15,148, 0,0, 323,,,1,1,0
+Interpolate Angle
+15,148, 0,0, 323,,,1,1,-180
+Interpolate Angle
+15,148, 0,0, 1,,,1,1,-360
+
+
+[Begin Action 16]
+16,0, 0,0, 215,,,1,1,0
+Interpolate Angle
+16,0, 0,0, 215,,,1,1,-180
+Interpolate Angle
+16,0, 0,0, 1,,,1,1,-360
+
+[Begin Action 17]
+17,0, 0,0, 180,,,1,1,0
+Interpolate Angle
+17,0, 0,0, 180,,,1,1,-180
+Interpolate Angle
+17,0, 0,0, 1,,,1,1,-360
+
+[Begin Action 18]
+18,0, 0,0, 184,,,1,1,-180
+Interpolate Angle
+18,0, 0,0, 184,,,1,1,-90
+Interpolate Angle
+18,0, 0,0, 1,,,1,1,0
+-1,0, 0,0, 30

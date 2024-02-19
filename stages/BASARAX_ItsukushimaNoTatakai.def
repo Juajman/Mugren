@@ -1,0 +1,378 @@
+[Info]
+name ="BASARAX_ItsukushimaNoTatakai"
+;åµìáÇÃêÌÇ¢
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -95 ;Å¶
+boundright = 95 ;Å¶
+boundhigh  = -190
+boundlow   = -3
+tension =50
+verticalfollow =.93
+floortension = 109
+
+tensionhigh = 90
+tensionlow = -20
+
+zoomin = 1
+zoomout = .71
+
+[PlayerInfo]
+p1startx =-80
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =80
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 232
+autoturn = 2
+resetBG  = 1
+Hires=1
+
+[Shadow]
+intensity = 128
+yscale =.18
+fade.range = -300,-50
+
+
+[Reflection]
+;intensity = 128
+
+
+[Music]
+bgmusic  = sound/bgm_bs013_mouri.mp3
+bgvolume = 40
+
+;----------------------------------------------------------------------
+[BGdef]
+spr =BASARAX_ItsukushimaNoTatakai.sff
+debugbg = 0
+
+[BG 01]
+type = normal
+spriteno =0,4
+layerno = 0
+start = 0,-64
+delta = 1.76,1.82
+trans = none
+mask = 1
+
+[BG 02]
+type = normal
+spriteno =0,3
+layerno = 0
+start = 0,-64
+delta = 1.87,1.96
+trans = none
+mask = 1
+
+[BG 03]
+type = normal
+spriteno =0,2
+layerno = 0
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime35]
+type = anim
+layerno = 0
+actionno = 35
+start = 0,-59
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 07]
+type = normal
+spriteno =0,6
+layerno = 0
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 04]
+type = normal
+spriteno =0,1
+layerno = 0
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime15]
+type = anim
+layerno = 0
+actionno = 15
+start = 0,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 10
+start = 0,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime23]
+type = anim
+layerno = 0
+actionno = 22
+start = 64,-90
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime24]
+type = anim
+layerno = 0
+actionno = 21
+start = 192,-90
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime25]
+type = anim
+layerno = 0
+actionno = 20
+start = 320,-90
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime30]
+type = anim
+layerno = 0
+actionno = 30
+start = 0, -48
+delta = 2,2
+trans = None 
+mask = 0
+tile = 1,1
+velocity = -2.74,0
+tilespacing = 3120
+
+[BG 08]
+type = normal
+spriteno =0,8
+layerno = 0
+start = 0,-64
+delta = 1.87,1.96
+trans = none
+mask = 1
+
+[BG 07]
+type = normal
+spriteno =0,7
+layerno = 0
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime16]
+type = anim
+layerno = 0
+actionno = 16
+start = -116,-46
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime17]
+type = anim
+layerno = 0
+actionno = 17
+start = -153,-40
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime20]
+type = anim
+layerno = 0
+actionno = 21
+start = 0,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime21]
+type = anim
+layerno = 0
+actionno = 22
+start = 128,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime22]
+type = anim
+layerno = 0
+actionno = 20
+start = 256,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime25]
+type = anim
+layerno = 0
+actionno = 25
+start = 0,-64
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 06]
+type = normal
+spriteno =0,5
+layerno = 0
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 05]
+type = normal
+spriteno =0,0
+layerno = 1
+start = 0,-64
+delta = 2,2
+trans = none
+mask = 1
+
+;///////////////////anime/////////////////////
+
+[Begin Action 10]
+10,0, 0,0, 12
+10,1, 0,0, 12
+10,2, 0,0, 12
+
+[Begin Action 15]
+15,0, 0,0, 12
+15,1, 0,0, 12
+15,2, 0,0, 12
+
+[Begin Action 16]
+15,1, 0,0, 12
+15,2, 0,0, 12
+15,0, 0,0, 12
+
+[Begin Action 17]
+15,2, 0,0, 12
+15,0, 0,0, 12
+15,1, 0,0, 12
+
+[Begin Action 20]
+20,0, 0,0, 12
+20,1, 0,0, 12
+20,2, 0,0, 12
+
+[Begin Action 21]
+20,2, 0,0, 12
+20,0, 0,0, 12
+20,1, 0,0, 12
+
+[Begin Action 22]
+20,1, 0,0, 12
+20,2, 0,0, 12
+20,0, 0,0, 12
+
+[Begin Action 25]
+25,3, 0,0, 12
+25,1, 0,0, 12
+25,2, 0,0, 12
+
+[Begin Action 30]
+30,0, 0,0, 8
+30,1, 0,0, 8
+30,2, 0,0, 8
+30,3, 0,0, 8
+30,4, 0,0, 8
+30,5, 0,0, 8
+
+[Begin Action 35]
+35,3, -54,0, 8
+35,4, -48,0, 8
+35,5, -42,0, 8
+35,0, -36,0, 8
+35,1, -30,0, 8
+35,2, -24,0, 8
+35,3, -18,0, 8
+35,4, -12,0, 8
+35,5, -6,0, 8
+35,0, 0,0, 8
+35,1, 6,0, 8
+35,2, 12,0, 8
+35,3, 18,0, 8
+35,4, 24,0, 8
+35,5, 30,0, 8
+35,0, 36,0, 8
+35,1, 42,0, 8
+35,2, 48,0, 8
+35,3, 54,0, 8
+35,4, 60,0, 8
+35,5, 66,0, 8
+35,0, 72,0, 8
+35,1, 78,0, 8
+35,2, 84,0, 8
+35,3, 90,0, 8
+35,4, 96,0, 8
+35,5, 102,0, 8
+35,0, 108,6, 8
+35,1, 112,12, 8
+35,2, 118,18, 8
+35,3, 124,24, 8
+35,4, 130,30, 8
+35,5, 136,36, 8
+35,0, 140,42, 8
+35,1, 146,48, 8
+35,2, 152,54, 8
+35,3, 158,60, 8
+35,4, 164,66, 8
+35,5, 170,72, 8
+35,0, 176,78, 8
+35,1, 182,84, 8
+35,2, 188,90, 8
+35,3, 194,96, 8
+35,4, 200,102, 8
+35,5, 206,108, 8
+35,0, 212,114, 8
+35,1, 218,120, 8
+35,2, 224,126, 8
+35,3, 230,132, 8
+35,4, 236,138, 8
+35,5, 242,142, 800

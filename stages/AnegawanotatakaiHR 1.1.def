@@ -1,0 +1,496 @@
+Anegawanotatakai HR stage. 
+
+Powered by brokenMUGENhr team 
+
+CG : Resources.
+Vyx : Communication.
+Herbaliser : code. 
+Nabakelty :graphics.
+
+available on http://www.brokenmugenhr.com
+
+;--------------------------------------------------------
+
+[Info]
+ ;Name of the stage.
+name = "Anegawanotatakai"
+mugen 1.1 version = "Manuz"
+
+;--------------------------------------------------------
+
+[Camera]
+;Camera starting position: Usually 0 for both
+startx				= 0
+starty				= 0
+boundleft			= -48
+boundright			= 48
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -117
+boundlow = 0
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+verticalfollow = .5
+
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+floortension = 72
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+tension = 50
+
+zoomin = 1
+zoomout = .59
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 220
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 1
+hires = 1
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow darkening intensity. Valid values range from
+ ;0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 176
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 0,0,0
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = 1.6
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for a MOD, MP3 or MIDI here, or just leave it
+ ;blank if you don't want music. If an invalid filename is
+ ;given, then no music will play. To play CD audio, put
+ ;the track number followed by ".da". Using a track number of
+ ;0 will play a random audio track. For example, to play
+ ;track 3 from a music CD, use:
+ ;  bgmusic = 3.da
+bgmusic = sound/bgm_bs012_oichi.mp3
+
+ ;Adjust the volume. 0 is normal, negative for softer, and
+ ;positive for louder (only for mp3, mods and CDA)
+bgvolume = 0
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = AnegawanotatakaiHR 1.1.sff
+
+ ;Set to 1 if you want to clear the screen to magenta before
+ ;drawing layer 0 (the default background). Good for spotting "holes"
+ ;in your background.
+ ;Remember to turn this off when you are done debugging the background,
+ ;because it slows down performance.
+debugbg = 0
+
+;--------------------------------------------------------
+
+[BG 0]
+type				= normal
+spriteno			= 0, 0
+layerno				= 0
+start				= 0, -5
+delta				= 1.8,1.8
+trans				= None
+mask				= 1
+
+[BG 0]
+type				= normal
+spriteno			= 0, 1
+layerno				= 0
+start				= 0, -5
+delta				= 1.9,1.9
+trans				= None
+mask				= 1
+
+[BG 0]
+type				= normal
+spriteno			= 0, 2
+layerno				= 0
+start				= 0, -5
+delta				= 2,2
+trans				= None
+mask				= 1
+
+;●走
+[BG 14]
+type				= anim
+actionno			= 14
+start				= 0, -5
+layerno				= 0
+delta				= 2,2
+mask				= 1
+
+[BG 114]
+type				= anim
+actionno			= 114
+start				= 0, -5
+layerno				= 0
+delta				= 2,2
+mask				= 1
+
+;●走2
+[BG 54]
+type				= anim
+actionno			= 54
+start				= 0, -5
+layerno				= 0
+delta				= 2,2
+mask				= 1
+
+[BG 154]
+type				= anim
+actionno			= 154
+start				= 0, -5
+layerno				= 0
+delta				= 2,2
+mask				= 1
+
+;●門下
+[BG 11]
+type				= normal
+spriteno			= 11, 0
+layerno				= 0
+start				= 0, -5
+delta				= 2,2
+trans				= None
+mask				= 1
+
+;●かぶせ
+[BG 15]
+type				= normal
+spriteno			= 15, 0
+layerno				= 0
+start				= 0, -5
+delta				= 2,2
+trans				= None
+mask				= 1
+
+
+;●笛
+[BG 10]
+type				= anim
+actionno			= 10
+start				= 3, -5
+delta				= 2,2
+mask				= 1
+
+[BG 110]
+type				= anim
+actionno			= 110
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+;●かぶせ2
+[BG 16]
+type				= normal
+spriteno			= 16, 0
+layerno				= 0
+start				= 0, -5
+delta				= 2,2
+trans				= None
+mask				= 1
+
+;●剣
+[BG 12]
+type				= anim
+actionno			= 12
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+[BG 112]
+type				= anim
+actionno			= 112
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+;●盾
+[BG 13]
+type				= anim
+actionno			= 13
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+
+
+;●大炎右
+[BG 21]
+type				= anim
+actionno			= 21
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+;●大炎左
+[BG 22]
+type				= anim
+actionno			= 22
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+;●小炎右
+[BG 23]
+type				= anim
+actionno			= 23
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+;●小炎左
+[BG 24]
+type				= anim
+actionno			= 24
+start				= 0, -5
+delta				= 2,2
+mask				= 1
+
+
+;--------------------------------------------------------
+
+[Begin action 10]
+10,0, 0,0, 8
+10,1, 0,0, 12
+10,0, 0,0, 8
+10,2, 0,0, 12
+
+[Begin action 12]
+12,0, 0,0, 7
+12,1, 0,0, 7
+12,2, 0,0, 7
+12,1, 0,0, 7
+
+[Begin action 13]
+13,0, 0,0, 6
+13,1, 0,0, 6
+13,2, 0,0, 6
+13,1, 0,0, 6
+
+
+[Begin action 112]
+112,0, 0,0, 7
+112,1, 0,0, 7
+112,2, 0,0, 7
+112,1, 0,0, 7
+
+[Begin action 110]
+110,0, 0,0, 8
+110,1, 0,0, 8
+110,0, 0,0, 8
+110,2, 0,0, 8
+
+
+;●大炎右
+[Begin action 21]
+21,0, 0,0, 5, ,A
+21,1, 0,0, 5, ,A
+21,2, 0,0, 5, ,A
+21,3, 0,0, 5, ,A
+
+;●大炎左
+[Begin action 22]
+22,1, 0,0, 5, ,A
+22,2, 0,0, 5, ,A
+22,3, 0,0, 5, ,A
+22,0, 0,0, 5, ,A
+
+;●小炎右
+[Begin action 23]
+23,2, 0,0, 5, ,A
+23,3, 0,0, 5, ,A
+23,0, 0,0, 5, ,A
+23,1, 0,0, 5, ,A
+
+
+;●小炎左
+[Begin action 24]
+24,3, 0,0, 5, ,A
+24,0, 0,0, 5, ,A
+24,1, 0,0, 5, ,A
+24,2, 0,0, 5, ,A
+
+
+[Begin action 14]
+14,1, -20,0, 8, ,AS100
+14,2, -40,0, 8, ,AS180
+14,3, -60,0, 8, ,AS180
+14,4, -80,0, 8, ,
+14,5, -100,0, 8, ,
+14,0, -120,0, 8, ,
+14,1, -140,0, 8, ,
+14,2, -160,0, 8, ,
+14,3, -180,0, 8, ,
+14,4, -200,0, 8, ,
+14,5, -220,0, 8, ,
+14,0, -240,0, 8, ,
+14,1, -260,0, 8, ,
+14,2, -280,0, 8, ,
+14,3, -300,0, 8, ,
+14,4, -320,0, 8, ,
+14,5, -340,0, 8, ,
+14,0, -360,0, 8, ,
+14,2, -1000,0, 200, ,
+
+
+[Begin action 114]
+114,1, 20,0, 8, ,AS180
+114,2, 40,0, 8, ,
+114,3, 60,0, 8, ,
+114,4, 80,0, 8, ,
+114,5, 100,0, 8, ,
+114,0, 120,0, 8, ,
+114,1, 1140,0, 8, ,
+114,2, 160,0, 8, ,
+114,3, 180,0, 8, ,
+114,4, 200,0, 8, ,
+114,5, 220,0, 8, ,
+114,0, 240,0, 8, ,
+114,1, 260,0, 8, ,
+114,2, 280,0, 8, ,
+114,3, 300,0, 8, ,
+114,4, 320,0, 8, ,
+114,5, 340,0, 8, ,
+114,0, 360,0, 8, ,
+114,2, 1000,0, 200, ,
+
+
+
+[Begin action 54]
+14,2, -1000,0, 20, ,
+14,1, -20,0, 8, ,AS100
+14,2, -40,0, 8, ,AS180
+14,3, -60,0, 8, ,AS180
+14,4, -80,0, 8, ,
+14,5, -100,0, 8, ,
+14,0, -120,0, 8, ,
+14,1, -140,0, 8, ,
+14,2, -160,0, 8, ,
+14,3, -180,0, 8, ,
+14,4, -200,0, 8, ,
+14,5, -220,0, 8, ,
+14,0, -240,0, 8, ,
+14,1, -260,0, 8, ,
+14,2, -280,0, 8, ,
+14,3, -300,0, 8, ,
+14,4, -320,0, 8, ,
+14,5, -340,0, 8, ,
+14,0, -360,0, 8, ,
+14,2, -1000,0, 868, ,
+
+
+[Begin action 154]
+114,2, -1000,0, 364, ,
+114,1, 20,0, 8, ,AS180
+114,2, 40,0, 8, ,
+114,3, 60,0, 8, ,
+114,4, 80,0, 8, ,
+114,5, 100,0, 8, ,
+114,0, 120,0, 8, ,
+114,1, 1140,0, 8, ,
+114,2, 160,0, 8, ,
+114,3, 180,0, 8, ,
+114,4, 200,0, 8, ,
+114,5, 220,0, 8, ,
+114,0, 240,0, 8, ,
+114,1, 260,0, 8, ,
+114,2, 280,0, 8, ,
+114,3, 300,0, 8, ,
+114,4, 320,0, 8, ,
+114,5, 340,0, 8, ,
+114,0, 360,0, 8, ,
+114,2, 1000,0, 524, ,
+

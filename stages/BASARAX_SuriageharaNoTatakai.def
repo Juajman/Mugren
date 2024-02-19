@@ -1,0 +1,177 @@
+[Info]
+name ="BASARAX_SuriageharaNoTatakai"
+;êÌçëBASARAXÇÊÇËê†è„å¥ÇÃêÌÇ¢
+Editor: xWagnerPlaguesx
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -94 ;Å¶
+boundright = 94 ;Å¶
+boundhigh  = -160
+boundlow   = -2
+tension =50
+verticalfollow =.93
+floortension = 109
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+[PlayerInfo]
+p1startx =-80
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =80
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 232
+autoturn = 2
+resetBG  = 1
+Hires= 1
+
+[Shadow]
+intensity = 128
+yscale =.18
+fade.range = -300,-50
+
+
+[Reflection]
+;intensity = 128
+
+
+[Music]
+bgmusic  = sound/sengoku-basara-theme-of-date-masamune-dual-mix.mp3
+bgvolume = 40
+
+;----------------------------------------------------------------------
+[BGdef]
+spr =BASARAX_SuriageharaNoTatakai.sff
+debugbg = 0
+
+[BG 01]
+type = normal
+spriteno =0, 0
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 02]
+type = normal
+spriteno =0, 1
+layerno = 0
+start = 0,0
+delta = 2.08,2
+trans = none
+mask = 1
+
+[BG 03]
+type = normal
+spriteno =0, 2
+layerno = 0
+start = 0,0
+delta = 1.96,2
+trans = none
+mask = 1
+
+[BG anime01]
+type = anim
+layerno = 0
+actionno = 1
+start = 0, 0
+delta = 1.96,2
+trans = None 
+mask = 0
+
+[BG 04]
+type = normal
+spriteno =0, 3
+layerno = 0
+start = 0,131
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime02]
+type = anim
+layerno = 0
+actionno = 2
+start = 0, 131
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime03]
+type = anim
+layerno = 0
+actionno = 3
+start = 0, 131
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime04]
+type = anim
+layerno = 0
+actionno = 4
+start = 0, 131
+delta = 2,2
+trans = None 
+mask = 0
+
+
+;///////////////////anime/////////////////////
+[Begin Action 1]
+5,0, 0,0, 4
+5,1, 0,0, 4
+5,2, 0,0, 4
+5,3, 0,0, 4
+
+[Begin Action 2]
+0,4, 0,0, 4 ,,AS64D256
+0,4, 0,0, 4 ,,AS32D256
+0,4, 1000000,0, 8
+
+[Begin Action 3]
+10,0, 0,0, 4 ,,AS256D256
+10,1, 0,0, 4 ,,AS256D256
+10,2, 0,0, 4 ,,AS192D256
+10,3, 0,0, 4 ,,AS128D256
+10,4, 0,0, 4 ,,AS64D256
+
+[Begin Action 4]
+20,2, 0,0, 4 ,,AS192D256
+20,3, 0,0, 4 ,,AS128D256
+20,4, 0,0, 4 ,,AS64D256
+20,0, 0,0, 4 ,,AS256D256
+20,1, 0,0, 4 ,,AS256D256
+

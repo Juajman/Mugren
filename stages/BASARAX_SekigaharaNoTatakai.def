@@ -1,0 +1,240 @@
+[Info]
+name ="BASARAX_SekigaharaNoTatakai"
+;ä÷Ç™å¥ÇÃêÌÇ¢
+Editor: xWagnerPlaguesx
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -94 ;Å¶
+boundright = 94 ;Å¶
+boundhigh  = -160
+boundlow   = 0
+tension =50
+verticalfollow =.93
+floortension = 109
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+[PlayerInfo]
+p1startx =-80
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =80
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 232
+autoturn = 2
+resetBG  = 1
+Hires=1
+
+[Shadow]
+intensity = 128
+yscale =.18
+fade.range = -300,-50
+
+
+[Reflection]
+;intensity = 128
+
+
+[Music]
+bgmusic  = sound/bgm_bs014_honda.mp3
+bgvolume = 40
+
+;----------------------------------------------------------------------
+[BGdef]
+spr =BASARAX_SekigaharaNoTatakai.sff
+debugbg = 0
+
+[BG 01]
+type = normal
+spriteno =0, 0
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 02]
+type = normal
+spriteno =0, 1
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG anime10]
+type = anim
+layerno = 0
+actionno = 10
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+tile = 1,1
+velocity = -2.3,0
+tilespacing = 3680
+[BG anime4]
+type = anim
+layerno = 0
+actionno = 4
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime5]
+type = anim
+layerno = 0
+actionno = 5
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime6]
+type = anim
+layerno = 0
+actionno = 6
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime1]
+type = anim
+layerno = 0
+actionno = 1
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime2]
+type = anim
+layerno = 0
+actionno = 2
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime3]
+type = anim
+layerno = 0
+actionno = 3
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG anime7]
+type = anim
+layerno = 0
+actionno = 7
+start = 0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 03]
+type = normal
+spriteno =0, 2
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 05]
+type = normal
+spriteno =0, 5
+layerno = 0
+start = 0,0
+delta = 2,2
+trans = none
+mask = 1
+
+;///////////////////anime/////////////////////
+[Begin Action 1]
+1,0, 0,0, 8
+1,1, 0,0, 8
+1,2, 0,0, 8
+1,3, 0,0, 8
+1,2, 0,0, 8
+1,1, 0,0, 8
+
+[Begin Action 2]
+2,0, 0,0, 8
+2,1, 0,0, 8
+2,2, 0,0, 8
+2,1, 0,0, 8
+
+[Begin Action 3]
+3,0, 0,0, 8
+3,1, 0,0, 8
+3,2, 0,0, 8
+3,1, 0,0, 8
+
+[Begin Action 4]
+4,0, 0,0, 15
+4,1, 0,0, 15
+4,2, 0,0, 15
+4,1, 0,0, 15
+
+[Begin Action 5]
+5,0, 0,0, 10
+5,1, 0,0, 10
+5,2, 0,0, 10
+5,1, 0,0, 10
+
+[Begin Action 6]
+6,0, 0,0, 13
+6,1, 0,0, 13
+
+[Begin Action 7]
+7,0, 0,0, 10
+7,1, 0,0, 10
+7,2, 0,0, 10
+7,3, 0,0, 10
+7,2, 0,0, 10
+7,1, 0,0, 10
+
+[Begin Action 10]
+10,0, 0,0, 5
+10,1, 0,0, 5
+10,2, 0,0, 5
+10,3, 0,0, 5
+10,4, 0,0, 5
+10,5, 0,0, 5
