@@ -1,0 +1,29 @@
+; Player information
+[Info]
+name = "Heart&Heart"        ;Name of character
+displayname = "Heart&Heart" ;Name of character to display
+versiondate = 04,14,2002    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "Ahuron"         ;Character author name
+pal.defaults = 6,3,4,2      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Heart&Heart.cmd   ;Command set
+cns     = Heart&Heart.cns   ;Constants
+st      = Heart&Heart.cns   ;States
+st2     = Heart&Heart2.cns  ;States
+st3     = helper.cns   ;ƒwƒ‹ƒp[
+st4     = Arcana.cns   ;
+st5     = Arcana2.cns   ;
+st6     = Partner.cns   ;ˆ¤”T‚Í‚Ÿ‚ÆA‚¢‚Ä‚¦‚æ`IIƒwƒ‹ƒp[—p“®ì
+stcommon = Heart&Heart_common1.cns ;Common states
+sprite  = Heart&Heart.sff   ;Sprite
+anim    = Heart&Heart.air   ;Animation
+sound   = Heart&Heart.snd   ;Sound
+pal1    = Heart&Heart.act
+pal2    = Heart&Heart.act
+pal3    = Heart&Heart.act
+pal4    = Heart&Heart.act
+pal5    = Heart&Heart.act
+pal6    = Heart&Heart.act
