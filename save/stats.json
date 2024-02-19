@@ -1,0 +1,33 @@
+{
+  "modes": {
+    "training": {
+      "playtime": 0
+    },
+    "netplayversus": {
+      "playtime": 756.6
+    },
+    "arcade": {
+      "playtime": 407.83,
+      "clear": 1,
+      "clearcount": {
+        "amiba": 1
+      },
+      "ranking": [
+        {
+          "score": 761200,
+          "time": 407.83,
+          "name": "AAA",
+          "chars": [
+            "amiba"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 6,
+          "lose": 0,
+          "consecutive": 2
+        }
+      ]
+    }
+  },
+  "playtime": 1164.43
+}
