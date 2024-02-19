@@ -1,0 +1,1586 @@
+; Definition of stage 0 (training stage)
+; *** denotes values you should change/check for each stage.
+; The term "background" is used to mean both backgrounds and foregrounds.
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Inferno"
+mugen 1.1 version = "Manuz"
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -106
+boundright = 106
+
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -224
+boundlow = -7
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+verticalfollow = .5
+
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+floortension = 72
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+tension = 50
+
+zoomin = 1
+zoomout = .75 
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 220
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 1
+hires = 1
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow darkening intensity. Valid values range from
+ ;0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 176
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 0,0,0
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = 1.6
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for a MOD, MP3 or MIDI here, or just leave it
+ ;blank if you don't want music. If an invalid filename is
+ ;given, then no music will play. To play CD audio, put
+ ;the track number followed by ".da". Using a track number of
+ ;0 will play a random audio track. For example, to play
+ ;track 3 from a music CD, use:
+ ;  bgmusic = 3.da
+bgmusic = sound/bgm_bs015_oda.mp3
+
+ ;Adjust the volume. 0 is normal, negative for softer, and
+ ;positive for louder (only for mp3, mods and CDA)
+bgvolume = 0
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"add1"/"sub"" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0) - only for Normal BG
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float)
+; width = ?, ?     Top width, bottom width (int)  (use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = sbx-inferno 1.1.sff
+
+ ;Set to 1 if you want to clear the screen to magenta before
+ ;drawing layer 0 (the default background). Good for spotting "holes"
+ ;in your background.
+ ;Remember to turn this off when you are done debugging the background,
+ ;because it slows down performance.
+debugbg = 0
+
+
+;----------
+[BG 0]
+type  = normal
+spriteno = 0, 0
+delta = 2, 2
+start = 0,96
+mask = 0
+
+[BG 0]
+type  = anim
+actionno = 1
+delta = 2, 2
+start = 0,96
+
+[BG 0]
+type  = anim
+actionno = 0
+delta = 2, 2
+start = 0,96
+
+[Begin Action 0]
+2,0, 0,0, 5,,A
+2,1, 0,0, 5,,A
+2,2, 0,0, 5,,A
+2,3, 0,0, 5,,A
+2,4, 0,0, 5,,A
+
+[Begin Action 1]
+-1,0, 0,0, 240
+4,0, 0,0, 12,,AS224D256
+4,0, 0,0, 12,,AS192D256
+4,0, 0,0, 8,,AS176D256
+4,0, 0,0, 8,,AS144D256
+4,0, 0,0, 8,,AS128D256
+4,0, 0,0, 8,,AS96D256
+4,0, 0,0, 8,,AS64D256
+4,0, 0,0, 8,,AS32D256
+4,0, 0,0, 32,,AS0D256
+4,0, 0,0, 8,,AS32D256
+4,0, 0,0, 8,,AS64D256
+4,0, 0,0, 8,,AS96D256
+4,0, 0,0, 8,,AS128D256
+4,0, 0,0, 8,,AS144D256
+4,0, 0,0, 8,,AS176D256
+4,0, 0,0, 12,,AS192D256
+4,0, 0,0, 12,,AS224D256
+
+;----------
+[BG 0]
+type  = normal
+spriteno = 3,0
+delta = 2, 2
+start = 0,96
+sin.x = 7.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,1
+delta = 2, 2
+start = 0,96
+sin.x = 7.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,2
+delta = 2, 2
+start = 0,96
+sin.x = 8.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,3
+delta = 2, 2
+start = 0,96
+sin.x = 8.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,4
+delta = 2, 2
+start = 0,96
+sin.x = 8.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,5
+delta = 2, 2
+start = 0,96
+sin.x = 8.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,6
+delta = 2, 2
+start = 0,96
+sin.x = 8.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,7
+delta = 2, 2
+start = 0,96
+sin.x = 9.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,8
+delta = 2, 2
+start = 0,96
+sin.x = 9.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,9
+delta = 2, 2
+start = 0,96
+sin.x = 9.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,10
+delta = 2, 2
+start = 0,96
+sin.x = 9.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,11
+delta = 2, 2
+start = 0,96
+sin.x = 9.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,12
+delta = 2, 2
+start = 0,96
+sin.x = 10.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,13
+delta = 2, 2
+start = 0,96
+sin.x = 10.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,14
+delta = 2, 2
+start = 0,96
+sin.x = 10.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,15
+delta = 2, 2
+start = 0,96
+sin.x = 10.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,16
+delta = 2, 2
+start = 0,96
+sin.x = 10.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,17
+delta = 2, 2
+start = 0,96
+sin.x = 11.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,18
+delta = 2, 2
+start = 0,96
+sin.x = 11.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,19
+delta = 2, 2
+start = 0,96
+sin.x = 11.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,20
+delta = 2, 2
+start = 0,96
+sin.x = 11.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,21
+delta = 2, 2
+start = 0,96
+sin.x = 11.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,22
+delta = 2, 2
+start = 0,96
+sin.x = 12.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,23
+delta = 2, 2
+start = 0,96
+sin.x = 12.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,24
+delta = 2, 2
+start = 0,96
+sin.x = 12.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,25
+delta = 2, 2
+start = 0,96
+sin.x = 12.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,26
+delta = 2, 2
+start = 0,96
+sin.x = 12.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,27
+delta = 2, 2
+start = 0,96
+sin.x = 13.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,28
+delta = 2, 2
+start = 0,96
+sin.x = 13.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,29
+delta = 2, 2
+start = 0,96
+sin.x = 13.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,30
+delta = 2, 2
+start = 0,96
+sin.x = 13.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,31
+delta = 2, 2
+start = 0,96
+sin.x = 13.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,32
+delta = 2, 2
+start = 0,96
+sin.x = 14.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,33
+delta = 2, 2
+start = 0,96
+sin.x = 13.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,34
+delta = 2, 2
+start = 0,96
+sin.x = 13.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,35
+delta = 2, 2
+start = 0,96
+sin.x = 13.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,36
+delta = 2, 2
+start = 0,96
+sin.x = 13.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,37
+delta = 2, 2
+start = 0,96
+sin.x = 13.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,38
+delta = 2, 2
+start = 0,96
+sin.x = 12.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,39
+delta = 2, 2
+start = 0,96
+sin.x = 12.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,40
+delta = 2, 2
+start = 0,96
+sin.x = 12.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,41
+delta = 2, 2
+start = 0,96
+sin.x = 12.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,42
+delta = 2, 2
+start = 0,96
+sin.x = 12.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,43
+delta = 2, 2
+start = 0,96
+sin.x = 11.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,44
+delta = 2, 2
+start = 0,96
+sin.x = 11.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,45
+delta = 2, 2
+start = 0,96
+sin.x = 11.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,46
+delta = 2, 2
+start = 0,96
+sin.x = 11.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,47
+delta = 2, 2
+start = 0,96
+sin.x = 11.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,48
+delta = 2, 2
+start = 0,96
+sin.x = 10.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,49
+delta = 2, 2
+start = 0,96
+sin.x = 10.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,50
+delta = 2, 2
+start = 0,96
+sin.x = 10.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,51
+delta = 2, 2
+start = 0,96
+sin.x = 10.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,52
+delta = 2, 2
+start = 0,96
+sin.x = 10.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,53
+delta = 2, 2
+start = 0,96
+sin.x = 9.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,54
+delta = 2, 2
+start = 0,96
+sin.x = 9.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,55
+delta = 2, 2
+start = 0,96
+sin.x = 9.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,56
+delta = 2, 2
+start = 0,96
+sin.x = 9.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,57
+delta = 2, 2
+start = 0,96
+sin.x = 9.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,58
+delta = 2, 2
+start = 0,96
+sin.x = 8.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,59
+delta = 2, 2
+start = 0,96
+sin.x = 8.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,60
+delta = 2, 2
+start = 0,96
+sin.x = 8.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,61
+delta = 2, 2
+start = 0,96
+sin.x = 8.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,62
+delta = 2, 2
+start = 0,96
+sin.x = 8.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,63
+delta = 2, 2
+start = 0,96
+sin.x = 7.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,64
+delta = 2, 2
+start = 0,96
+sin.x = 7.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,65
+delta = 2, 2
+start = 0,96
+sin.x = 7.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,66
+delta = 2, 2
+start = 0,96
+sin.x = 7.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,67
+delta = 2, 2
+start = 0,96
+sin.x = 7.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,68
+delta = 2, 2
+start = 0,96
+sin.x = 6.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,69
+delta = 2, 2
+start = 0,96
+sin.x = 6.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,70
+delta = 2, 2
+start = 0,96
+sin.x = 6.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,71
+delta = 2, 2
+start = 0,96
+sin.x = 6.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,72
+delta = 2, 2
+start = 0,96
+sin.x = 6.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,73
+delta = 2, 2
+start = 0,96
+sin.x = 6.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,74
+delta = 2, 2
+start = 0,96
+sin.x = 6.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,75
+delta = 2, 2
+start = 0,96
+sin.x = 6.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,76
+delta = 2, 2
+start = 0,96
+sin.x = 6.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,77
+delta = 2, 2
+start = 0,96
+sin.x = 7.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,78
+delta = 2, 2
+start = 0,96
+sin.x = 7.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,79
+delta = 2, 2
+start = 0,96
+sin.x = 7.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,80
+delta = 2, 2
+start = 0,96
+sin.x = 7.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,81
+delta = 2, 2
+start = 0,96
+sin.x = 7.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,82
+delta = 2, 2
+start = 0,96
+sin.x = 8.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,83
+delta = 2, 2
+start = 0,96
+sin.x = 8.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,84
+delta = 2, 2
+start = 0,96
+sin.x = 8.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,85
+delta = 2, 2
+start = 0,96
+sin.x = 8.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,86
+delta = 2, 2
+start = 0,96
+sin.x = 8.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,87
+delta = 2, 2
+start = 0,96
+sin.x = 9.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,88
+delta = 2, 2
+start = 0,96
+sin.x = 9.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,89
+delta = 2, 2
+start = 0,96
+sin.x = 9.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,90
+delta = 2, 2
+start = 0,96
+sin.x = 9.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,91
+delta = 2, 2
+start = 0,96
+sin.x = 9.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,92
+delta = 2, 2
+start = 0,96
+sin.x = 10.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,93
+delta = 2, 2
+start = 0,96
+sin.x = 10.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,94
+delta = 2, 2
+start = 0,96
+sin.x = 10.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,95
+delta = 2, 2
+start = 0,96
+sin.x = 10.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,96
+delta = 2, 2
+start = 0,96
+sin.x = 10.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,97
+delta = 2, 2
+start = 0,96
+sin.x = 11.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,98
+delta = 2, 2
+start = 0,96
+sin.x = 11.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,99
+delta = 2, 2
+start = 0,96
+sin.x = 11.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,100
+delta = 2, 2
+start = 0,96
+sin.x = 11.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,101
+delta = 2, 2
+start = 0,96
+sin.x = 11.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,102
+delta = 2, 2
+start = 0,96
+sin.x = 12.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,103
+delta = 2, 2
+start = 0,96
+sin.x = 12.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,104
+delta = 2, 2
+start = 0,96
+sin.x = 12.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,105
+delta = 2, 2
+start = 0,96
+sin.x = 12.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,106
+delta = 2, 2
+start = 0,96
+sin.x = 12.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,107
+delta = 2, 2
+start = 0,96
+sin.x = 13.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,108
+delta = 2, 2
+start = 0,96
+sin.x = 13.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,109
+delta = 2, 2
+start = 0,96
+sin.x = 13.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,110
+delta = 2, 2
+start = 0,96
+sin.x = 13.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,111
+delta = 2, 2
+start = 0,96
+sin.x = 13.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,112
+delta = 2, 2
+start = 0,96
+sin.x = 14.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,113
+delta = 2, 2
+start = 0,96
+sin.x = 13.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,114
+delta = 2, 2
+start = 0,96
+sin.x = 13.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,115
+delta = 2, 2
+start = 0,96
+sin.x = 13.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,116
+delta = 2, 2
+start = 0,96
+sin.x = 13.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,117
+delta = 2, 2
+start = 0,96
+sin.x = 13.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,118
+delta = 2, 2
+start = 0,96
+sin.x = 12.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,119
+delta = 2, 2
+start = 0,96
+sin.x = 12.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,120
+delta = 2, 2
+start = 0,96
+sin.x = 12.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,121
+delta = 2, 2
+start = 0,96
+sin.x = 12.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,122
+delta = 2, 2
+start = 0,96
+sin.x = 12.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,123
+delta = 2, 2
+start = 0,96
+sin.x = 11.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,124
+delta = 2, 2
+start = 0,96
+sin.x = 11.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,125
+delta = 2, 2
+start = 0,96
+sin.x = 11.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,126
+delta = 2, 2
+start = 0,96
+sin.x = 11.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,127
+delta = 2, 2
+start = 0,96
+sin.x = 11.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,128
+delta = 2, 2
+start = 0,96
+sin.x = 10.8, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,129
+delta = 2, 2
+start = 0,96
+sin.x = 10.6, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,130
+delta = 2, 2
+start = 0,96
+sin.x = 10.4, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,131
+delta = 2, 2
+start = 0,96
+sin.x = 10.2, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BG 0]
+type  = normal
+spriteno = 3,132
+delta = 2, 2
+start = 0,96
+sin.x = 10.0, 48.0, 0
+mask = 1
+trans = add
+ID = 1
+
+[BGCtrlDef 0]
+looptime = 416
+ctrlID = 1
+
+[BGCtrl 0]
+type = Enable
+value = 1
+time = 0
+
+[BGCtrl 0]
+type = Enable
+value = 0
+time = 240

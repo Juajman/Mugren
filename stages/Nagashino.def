@@ -1,0 +1,344 @@
+[Info]
+name             = "Nagashino"
+displayname      = "NAGASHINO"
+versiondate      =  20,02,2010
+author           = "Alucardtommy"
+Editor           = "xWagnerPlaguesx"
+
+[Camera]
+startx           =  0
+starty           =  0
+boundleft        = -94
+boundright       =  94
+boundhigh        = -180
+boundlow         =  -7
+verticalfollow   =  1
+floortension     =  40
+tension          =  50
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+[PlayerInfo]
+p1startx         = -70         
+p1starty         =  0           
+p1startz         =  0           
+p1facing         =  1           
+
+p2startx         =  70
+p2starty         =  0
+p2startz         =  0
+p2facing         = -1
+
+leftbound        = -1000 
+rightbound       =  1000 
+topbound         =  0     
+botbound         =  0     
+
+;------------------------------
+[Scaling]
+topz             =  0       
+botz             =  50      
+topscale         =  1.0     
+botscale         =  1.4     
+
+;------------------------------
+[Bound]
+screenleft       =  17
+screenright      =  17 
+
+;------------------------------
+[StageInfo]
+zoffset          =  220
+autoturn         =  1
+resetBG          =  1
+hires            =  1
+
+;------------------------------
+[Shadow]
+color            = 22,22,22
+yscale           = .3
+reflect          = 0
+
+;-------------------------------
+[Music]
+bgmusic          = sound/sengoku-basara-theme-of-sanada-yukimura-dual-mix.mp3
+bgvolume         = 155
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr              = stages/Nagashino.sff
+debugbg          = 0
+
+[BG 00]
+type             = normal
+spriteno         = 0, 3
+delta            = 2, 2
+mask             = 0
+
+[BG 01]
+type             = normal
+spriteno         = 0, 2
+delta            = 2, 2
+mask             = 1
+
+[BG 02]
+type             = normal
+spriteno         = 0, 1
+delta            = 2, 2
+mask             = 1
+
+;Atiradores
+[BG 03]
+type             = anim
+actionno         = 0
+delta            = 2, 2
+mask             = 1
+
+;Agua
+[BG 04]
+type             = anim
+actionno         = 9
+delta            = 2, 2
+mask             = 1
+
+;Cavalo 1
+[BG 05]
+type             = anim
+actionno         = 4
+start            = -140,0
+delta            = 2, 2
+mask             = 1
+;velocity         = 0,0
+ID               = 4
+
+;Cavalo 2
+[BG 06]
+type             = anim
+actionno         = 5
+delta            = 2, 2
+mask             = 1
+velocity         = 0,0
+ID               = 5
+
+;Cavalo 3
+[BG 07]
+type             = anim
+actionno         = 6
+start            = 140,0
+delta            = 2, 2
+mask             = 1
+;velocity         = 0,0
+ID               = 6
+
+;Cavalo 4
+[BG 08]
+type             = anim
+actionno         = 7
+start            = -200,0
+delta            = 2, 2
+mask             = 1
+;velocity         = 0,0
+ID               = 7
+
+;Cavalo 5
+[BG 09]
+type             = anim
+actionno         = 8
+start            = 180,0
+delta            = 2, 2
+mask             = 1
+;velocity         = 0,0
+ID               = 8
+
+;Atiradores
+[BG 10]
+type             = anim
+actionno         = 1
+delta            = 2, 2
+mask             = 1
+
+;Atiradores
+[BG 11]
+type             = anim
+actionno         = 2
+delta            = 2, 2
+mask             = 1
+
+
+[BG 12]
+type             = normal
+spriteno         = 0, 0
+delta            = 2, 2
+mask             = 1
+
+[BG 13]
+type             = normal
+spriteno         = 0, 4
+layerno          = 1
+delta            = 2, 2
+;layerno          = 1
+mask             = 1
+
+;Monstro
+[BG 14]
+type             = anim
+actionno         = 3
+delta            = 2, 2
+mask             = 1
+
+[Begin Action 0]
+1,1, 0,0, 10, 
+1,2, 0,0, 10, 
+1,1, 0,0, 10, 
+1,2, 0,0, 10, 
+1,1, 0,0, 10, 
+1,2, 0,0, 10, 
+1,1, 0,0, 10, 
+1,0, 0,0, 150, 
+
+[Begin Action 1]
+1,5, 0,0, 10, 
+1,4, 0,0, 10, 
+1,5, 0,0, 10, 
+1,4, 0,0, 10, 
+1,5, 0,0, 10, 
+1,4, 0,0, 10, 
+1,5, 0,0, 10, 
+1,3, 0,0, 250, 
+
+[Begin Action 2]
+1,7, 0,0, 10, 
+1,8, 0,0, 10, 
+1,7, 0,0, 10, 
+1,8, 0,0, 10, 
+1,7, 0,0, 10, 
+1,8, 0,0, 10, 
+1,7, 0,0, 10, 
+1,8, 0,0, 10, 
+1,7, 0,0, 10, 
+1,8, 0,0, 10, 
+1,6, 0,0, 300, 
+
+[Begin Action 3]
+3,0, 0,0, 13, 
+3,1, 0,0, 13, 
+3,2, 0,0, 13, 
+3,1, 0,0, 13, 
+3,0, 0,0, 13, 
+3,1, 0,0, 13, 
+3,2, 0,0, 13, 
+3,1, 0,0, 13, 
+;====================
+[Begin Action 4]
+2,0, 0,0, 10, 
+2,2, 0,0, 10, 
+2,3, 0,0, 10, 
+2,1, 0,0, 10, 
+
+[BGCtrlDef 4]         
+looptime = 320
+CtrlID = 4
+
+[BGCtrl 4]
+type = posset
+time = 0
+x = 0
+
+[BGCtrl 4-1]
+type = velset
+time = 1
+x = -9
+;=====================
+[Begin Action 5]
+2,0, 0,0, 10, 
+2,2, 0,0, 10, 
+2,3, 0,0, 10, 
+2,1, 0,0, 10, 
+
+[BGCtrlDef 5]         
+looptime = 420
+CtrlID = 5        
+
+[BGCtrl 5]
+type = posset
+time = 0
+x = 0
+
+[BGCtrl 5-1]
+type = velset
+time = 1
+x = -7
+;====================================
+[Begin Action 6]
+2,0, 0,0, 10, 
+2,2, 0,0, 10, 
+2,3, 0,0, 10, 
+2,1, 0,0, 10, 
+ 
+[BGCtrlDef 6]         
+looptime = 520
+CtrlID = 6        
+
+[BGCtrl 6]
+type = posset
+time = 0
+x = 0
+
+[BGCtrl 6-1]
+type = velset
+time = 1
+x = -8
+;====================================
+[Begin Action 7]
+2,0, 0,0, 10, 
+2,2, 0,0, 10, 
+2,3, 0,0, 10, 
+2,1, 0,0, 10, 
+ 
+[BGCtrlDef 7]         
+looptime = 520
+CtrlID = 7        
+
+[BGCtrl 7]
+type = posset
+time = 0
+x = 0
+
+[BGCtrl 7-1]
+type = velset
+time = 1
+x = -6
+;====================================
+[Begin Action 8]
+2,0, 0,0, 10, 
+2,2, 0,0, 10, 
+2,3, 0,0, 10, 
+2,1, 0,0, 10, 
+ 
+[BGCtrlDef 8]         
+looptime = 520
+CtrlID = 8        
+
+[BGCtrl 8]
+type = posset
+time = 0
+x = 0
+
+[BGCtrl 8-1]
+type = velset
+time = 1
+x = -5
+;====================================
+[Begin Action 9]
+4,0, 0,0, 10, 
+4,2, 0,0, 10, 
+4,3, 0,0, 10, 
+4,4, 0,0, 10, 
+4,1, 0,0, 10, 
