@@ -1,0 +1,153 @@
+
+
+;~~~~~~“Á’èƒLƒƒƒ‰—p~~~~~~
+
+;~~~~~~“G‰‡ŒR“’…
+;‘Î­@A¬\˜Y
+;‘o—³‚»‚ë‚Á‚½‚¼I...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Date_Masamune"||enemynear,name="Kojuro"
+trigger1 = enemynear,var(0)&&enemynear,authorname="ni"
+value = 0,156
+channel = 2
+persistent=0
+
+;‘ÎK‘º
+;‚¨H@b”ã•“cŒR...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Sanada_Yukimura"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 0,157
+channel = 2
+persistent=0
+
+;‘ÎŒcŸ
+;’‰ŸA‘O“c•vÈ‚ğ...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Maeda_Keiji"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 10,158
+channel = 2
+persistent=0
+
+;‘ÎŒ³e
+;‚ ‚ñ‚Èƒ‚ƒm‚¿o‚µ‚Ä...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Chousokabe_Motochika"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 10,159
+channel = 2
+persistent=0
+
+;‘ÎŒ³A
+;ƒAƒbƒnƒbƒnƒbƒnƒbI...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Mouri_Motonari"
+trigger1 = enemynear,var(0)&&enemynear,authorname="ni"
+value = 10,160
+channel = 2
+persistent=0
+
+;‘ÎG‹g
+;’¾–Ù‚Ì”¼•º‰q‚©...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Toyotomi_Hideyoshi"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 10,161
+channel = 2
+persistent=0
+
+;‘ÎM’·
+;M’·ŒöAƒƒV‚à...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Oda_Nobunaga"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 10,162
+channel = 2
+persistent=0
+
+;‘ÎŒªM
+;ã™‚Ì”E‚©I...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Uesugi_Kenshin"
+trigger1 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+value = 10,163
+channel = 2
+persistent=0
+
+;‘Î‚¨s
+;’‰Ÿ‘Šè‚Éà‹³‚µ‚É—ˆ‚½‚Ì‚©H...
+[state 10000]
+type = PlaySND
+trigger1 = Time&&!var(10)&&enemynear,name="Oichi"
+trigger1 = enemynear,var(0)&&enemynear,authorname="nagamasa"
+value = 10,164
+channel = 2
+persistent=0
+
+;‚Qd–h~
+[state 10000]
+type = VarSet
+trigger1 = enemynear,name="Date_Masamune"||enemynear,name="Kojuro"
+trigger1 = enemynear,var(0)&&enemynear,authorname="ni"
+trigger2 = enemynear,name="Sanada_Yukimura"
+trigger2 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger3 = enemynear,name="Maeda_Keiji"
+trigger3 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger4 = enemynear,name="Chousokabe_Motochika"
+trigger4 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger5 = enemynear,name="Mouri_Motonari"
+trigger5 = enemynear,var(0)&&enemynear,authorname="ni"
+trigger6 = enemynear,name="Toyotomi_Hideyoshi"
+trigger6 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger7 = enemynear,name="Oda_Nobunaga"
+trigger7 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger8 = enemynear,name="Uesugi_Kenshin"
+trigger8 = enemynear,var(0)&&enemynear,authorname="abcxyz"
+trigger9 = enemynear,name="Oichi"
+trigger9 = enemynear,var(0)&&enemynear,authorname="nagamasa"
+var(10)=1
+persistent=0
+
+;~~~~{ƒ¿~~~~
+;‚ ‚ñ‚È‚à‚Ì‚¿o‚µ‚Ä...
+;‘å•Ší‚¿
+[state 10000]
+type = PlaySND
+triggerall = enemynear,movecontact=1 && root,time=0 && root,movetype=H && var(0)%5=0
+trigger1 = enemynear,name="zankuro"||enemynear,name="gaoh"
+trigger2 = enemynear,name="A.B.A."
+value = 10,159
+channel = 2
+
+;‚»‚ñ‚ÈŠß‹ï‚Å’‰Ÿ‚Æ...
+;•Ší‚¿in•¨ˆÈŠOj
+[state 10000]
+type = PlaySND
+triggerall = enemynear,movecontact=1 && root,time=0 && root,movetype=H && var(0)%5=0
+trigger1 = enemynear,name="cvschang"||enemynear,name="chang"
+value = 0,0
+channel = 2
+
+;”Ep‚ª–³“G‚Ì’‰Ÿ‚É•·‚­‚©‚ŸI...
+[state 10000]
+type = PlaySND
+triggerall = enemynear,movecontact=1 && root,time=0 && root,movetype=H && var(0)%5=0
+trigger1 = enemynear,name="cvsmukuro"||enemynear,name="mukuro"||enemynear,name="kenji"||enemynear,name="hanzo"
+value = 10,175
+channel = 2
+
+[state 10000]
+type = PlaySND
+trigger1 = 1
+value = 0,0
+channel = 2
+

@@ -1,0 +1,40 @@
+
+; Player information
+[Info]
+name ="Q-drowin"
+displayname ="Q"
+versiondate =09,08,2006
+mugenversion =04,14,2001
+author ="Drowin"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =tekkamen.cmd
+cns     =q.cns
+st      =q.cns
+st1     =hokuto.cns
+st2     =SF3.cns
+stcommon =RobotKeiji.cns
+sprite  =q3.sff
+anim    =q.air
+sound   =q.snd
+pal1=Q-d.act;ノーマル
+pal2=3.act;中Kカラー　サンタさん 
+pal3=6.act;オリジナル　バッタさん
+pal4=2.act;強Pカラー　製作者の使うカラー
+pal5=5.act;オリジナル　ダーク
+pal6=4.act;オリジナル　どっかで見たことある色
+pal7=Q-d.act;ノーマル
+pal8=3.act;中Kカラー　サンタさん 
+pal9=6.act;オリジナル　バッタさん
+pal10=2.act;強Pカラー　製作者の使うカラー
+pal11=5.act;オリジナル　ダーク
+pal12=4.act;どっかで見たことある色
+
+
+[Arcade];
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = opening.def
+;ending.storyboard = ending.def

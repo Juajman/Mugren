@@ -1,0 +1,87 @@
+;==============================================================
+;======ゲージ位置調整用(you can move some gauge position.)========
+;==============================================================
+[statedef 9000]
+ctrl = 0
+anim = 90000
+
+
+;==BASARAゲージ
+;==BASARA gauge
+
+;X方向の位置調整+で右、-で左へ
+;position X(+:right, -:left)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(0) = 0;デフォルト:0;Default:0
+
+;Y方向の位置調整+で下、-で上へ（最大±999ドット）
+;position Y(+:down, -:up)(maximum:999, minimum:-999)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(1) = 0;デフォルト:0;Default:0
+
+;==援軍ゲージ
+;==Engun gauge
+
+;X方向の位置調整+で右、-で左へ
+;position X(+:right, -:left)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(2) = 0;デフォルト:0;Default:0
+
+;Y方向の位置調整+で下、-で上へ（最大±999ドット）
+;position Y(+:down, -:up)(maximum:999, minimum:-999)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(3) = 0;デフォルト:0;Default:0
+
+;==ガードゲージ
+;==Guard gauge
+
+;X方向の位置調整+で右、-で左へ
+;position X(+:right, -:left)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(4) = 0;デフォルト:0;Default:0
+
+;Y方向の位置調整+で下、-で上へ（最大±999ドット）
+;position Y(+:down, -:up)(maximum:999, minimum:-999)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(5) = 0;デフォルト:0;Default:0
+
+;==開け根の国ゲージ
+;==Kaikoku gauge
+
+;X方向の位置調整+で右、-で左へ
+;position X(+:right, -:left)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(6) = 0;デフォルト:0;Default:0
+
+;Y方向の位置調整+で下、-で上へ（最大±999ドット）
+;position Y(+:down, -:up)(maximum:999, minimum:-999)
+[state 9000]
+type = varset
+trigger1 = time=0
+var(7) = 0;デフォルト:0;Default:0
+
+;ダメージ設定（0:原作、1:若干上昇(最大3ゲージ)）
+;You can changed Damage.（0:Default, 1:Up(full:3 gauge)）
+[state 9000]
+type = parentvarset
+trigger1 = time=0
+fvar(21) = 0;デフォルト:0;Default:0
+
+[state 9000]
+type = ChangeState
+trigger1 = time=0
+value = 9001

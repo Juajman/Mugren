@@ -1,0 +1,33 @@
+[Info]
+name="Oda Nobunaga"
+displayname="Oda Nobunaga"
+versiondate=09,18,2010
+mugenversion=04,14,2002
+author="rei"
+pal.defaults=4,5,6
+
+[Files]
+sprite=Oda_Nobunaga.sff
+sound=Oda_Nobunaga.snd
+anim=Oda_Nobunaga.air
+cmd=Oda_Nobunaga.cmd
+cns=Oda_Nobunaga.cns
+st=Oda_Nobunaga.cns
+st2=System-Oda_Nobunaga.cns
+st3=Engun-Oda_Nobunaga.cns
+st4=option.mode
+st5=BASARAX_System.cns
+stcommon=common1-Oda_Nobunaga.cns
+pal1=Oda_Nobunaga04.act
+pal2=Oda_Nobunaga05.act
+pal3=Oda_Nobunaga06.act
+pal4=Oda_Nobunaga01.act
+pal5=Oda_Nobunaga02.act
+pal6=Oda_Nobunaga03.act
+pal7=Oda_Nobunaga200.act	;by Gal129
+pal8=Oda_Nobunaga201.act	;by Gal129
+pal9=Oda_Nobunaga202.act	;by Gal129
+pal10=Oda_Nobunaga203.act	;by Gal129
+pal11=Oda_Nobunaga100.act	;Original
+;pal12=Oda_Nobunaga101.act
+
