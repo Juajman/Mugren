@@ -1,0 +1,65 @@
+; _______________________________
+;| Vega by Phantom.of.the.Server |
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+;===================<CONSTANTS>================
+[Data]
+life=1000
+power=4000
+attack=70
+defence=100
+fall.defence_up=50
+liedown.time=60
+airjuggle=15
+sparkno=s8010
+guard.sparkno=s8000
+KO.echo=0
+volume=128
+IntPersistIndex=0
+FloatPersistIndex=0
+
+[Size]
+xscale=.23
+yscale=.26
+ground.back=20
+ground.front=20
+air.back=20
+air.front=20
+height=60
+attack.dist=160
+proj.attack.dist=90
+proj.doscale=0
+head.pos=5,-92
+mid.pos=-2,-61
+shadowoffset=0
+draw.offset=0,0
+
+[Velocity]
+walk.fwd=3
+walk.back=-2.5
+run.fwd=6.5,0
+run.back=-12,0
+jump.neu=0,-11.62
+jump.fwd=3.81
+jump.back=-4.46
+runjump.fwd=5.72,-11.62
+runjump.back=-6.69,-11.62
+
+[Movement]
+airjump.num=0
+airjump.height=0
+yaccel=.55
+stand.friction=.85
+crouch.friction=.85
+
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "My psycho power feeds on hatred and death!"
+victory2 = "I demand an opponent worthy of my strength!"
+victory3 = "When I control the planet I shall purge it of all hope!"
+victory4 = "Anyone who defies me willingly invites thier own death!"
+victory5 = "Close your eyes because an endless nightmare awaits!"
+victory6 = "Embrace your fear as you are enveloped by an eternal nightmare!"
+victory7 = "Kneel before me or die beneath my heal The choice is yours to make freely!"
+victory8 = "Pledge your allegiance to Shadaloo and I will let you live!"
+victory9 = "One as weak as you has nothing to offer!"
+

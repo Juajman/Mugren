@@ -1,0 +1,31 @@
+
+[Info]
+name        = "M.Bison"
+displayname = "MBison"
+versiondate = 06,20,2011
+mugenversion= 06,14,2011
+pal.defaults= 4,5,6,1,2,3,10,11,12,7,8,9
+author = "Jose Cuervo-(dragon972 PAtch)"
+
+[Files]
+cmd     = Command.cmd
+cns     = Constants.cns
+st      = System.st
+st1     = Normal.st
+st2     = Specials.st
+st3     = Supers.st
+st4     = Helpers.st
+stcommon= common1.cns
+sprite  = Sprite.sff
+anim    = Anim.air
+sound   = Sound.snd
+
+pal1    = rojo.act
+pal2    = verde.act
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= Ending_Bison.def
+

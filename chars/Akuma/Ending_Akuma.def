@@ -1,0 +1,30 @@
+;=================================
+;Super Street Fighter IV M.U.G.E.N
+;=================================
+
+[Info]
+name = "Akuma's Ending"                   
+author = "RistaR87" 
+
+[SceneDef]
+spr = Ending_Akuma.sff       
+
+[Scene 1]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 50
+fadeout.col = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,30
+layer0.anim =  1		;Anim action number for slideshow pictures
+mask = 0
+end.time = 1970		;600 ticks = 10 seconds
+bgm = Ending_Akuma.mp3
+bgm.loop = 0
+
+[Begin Action 1]
+0,1, 0,0, 420
+0,2, 0,0, 480
+0,3, 0,0, 720
+0,4, 0,0, 500

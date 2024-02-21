@@ -1,0 +1,136 @@
+;-----------------------------------
+;Ending For Pornodiano by TonyADV
+;-----------------------------------
+[Info]
+localcoord = 320,240
+
+[SceneDef]
+spr = IntroEnd.sff
+;----------------------------------
+;scena1 - dark vs Diano
+[Scene 1]
+fadein.time = 110
+fadein.col = 0,0,0
+fadeout.time = 75
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+bg.name = BG0
+layer0.anim = 1
+layer0.offset = 0,0
+layer1.anim = 2
+layer1.offset = 50,238
+layer2.anim = 3
+layer2.offset = 180,242
+layer9.anim = 4
+layer9.offset = 10,5
+bgm = end.mid 
+bgm.loop = 0
+end.time = 1600
+;-----------------------------------
+[Begin Action 1]
+4,0, 0,0, -1
+
+[Begin Action 2]
+7,0, 0,0, -1
+
+[Begin Action 3]
+9,0, 0,0, -1,
+
+[Begin Action 4]
+100,99, 0,0, 125
+200,0, 0,0, 10,,a2
+200,0, 0,0, 10,,a1
+200,0, 0,0, 1200
+200,1, 0,0, -1
+
+[Begin Action 15]
+15,99, 0,0, 150,,a
+15,0, 0,0, 10,,a
+15,1, 0,0, 10,,a
+15,2, 0,0, 25,,a
+15,1, 0,0, 10,,a
+
+;----------------------------------
+;BG def for scrolling Image
+[BG0Def]
+
+[BG0 Credits]
+id = 1
+type = normal
+spriteno = 2,0
+start = -155,350
+window = 0,0, 320,240
+layerno = 1
+mask = 1
+
+;BG controller to stop text from scrolling
+[BG0CtrlDef Credits]
+CtrlID = 1
+looptime = -1
+
+[BG0Ctrl Start scrolling]
+type = VelSet
+time = 0
+y = -.5
+
+[BG0Ctrl Stop scrolling]
+type = VelSet
+time = 3500
+y = 0
+
+;----------------------------------
+;scena2 
+[Scene 2]
+fadein.time = 75
+fadein.col = 0,0,0
+fadeout.time = 110
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 5
+layer0.offset = 0,0
+layer9.anim = 6
+layer9.offset = 10,160
+end.time = 600
+
+[Begin Action 5]
+1,0, 0,0, -1
+
+[Begin Action 6]
+100,99, 0,0, 250
+200,2, 0,0, 10,,a2
+200,2, 0,0, 10,,a1
+200,2, 0,0, -1
+
+;----------------------------------
+;scena8 - continua
+[Scene 8]
+fadein.time = 100
+fadein.col = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 60
+layer0.offset = 0,0
+end.time = 250
+;-----------------------------------
+;----------------------------------
+;scena9 - tonylogo
+[Scene 9]
+fadein.time = 100
+fadein.col = 0,0,0
+fadeout.time = 150
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 80
+layer0.offset = 0,0
+end.time = 450
+;----------------------------------
+[Begin Action 60]
+60,0, 0,0, -1
+
+[Begin Action 80]
+80,0, 0,0, -1

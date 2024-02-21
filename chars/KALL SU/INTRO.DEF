@@ -1,0 +1,63 @@
+;-----------------------------------
+;Intro For KAll by TonyADV
+;-----------------------------------
+[Info]
+localcoord = 320,240
+
+[SceneDef]
+spr = IntroEnd.sff
+;----------------------------------
+;scena1 - kall vs dark
+[Scene 1]
+fadein.time = 110
+fadein.col = 0,0,0
+fadeout.time = 70
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 1
+layer0.offset = 0,0
+layer1.anim = 2
+layer1.offset = 40,238
+layer2.anim = 3
+layer2.offset = 190,238
+layer9.anim = 4
+layer9.offset = 10,5
+bgm = intro.mid 
+bgm.loop = 0
+end.time = 850
+;-----------------------------------
+[Begin Action 1]
+4,0, 0,0, -1
+
+[Begin Action 2]
+5,0, 0,0, -1
+
+[Begin Action 3]
+7,0, 0,0, -1,
+
+[Begin Action 4]
+100,99, 0,0, 50
+100,0, 0,0, 8,,a2
+100,0, 0,0, 8,,a1
+100,0, 0,0, 230
+100,1, 0,0, 250
+100,2, 0,0, -1
+
+[Begin Action 5]
+1,0, 0,0, -1,
+
+;----------------------------------
+;scena2 - kall 
+[Scene 2]
+fadein.time = 70
+fadein.col = 0,0,0
+fadeout.time = 110
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 1
+layer0.offset = 0,0
+layer9.anim = 5
+layer9.offset = 0,80
+end.time = 300

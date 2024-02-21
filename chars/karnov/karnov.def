@@ -1,0 +1,29 @@
+;ジンボロフ・カルノフスキー　ｄｅｆファイル
+; Player information
+[Info]
+name = "Karnov"
+displayname = "Karnov"
+versiondate = 04,27,2003
+mugenversion = 1.1
+author = "adamskie"   
+pal.defaults = 1,4,2,3      
+
+[Files]
+cmd     = karnov.cmd
+cns     = karnov.cns
+st      = karnov.cns
+st2     = karnov_s.cns
+stcommon = common1.cns
+sprite  = karnov.sff
+anim    = karnov.air
+sound   = karnov.snd 
+pal1    = karnov2.act
+pal2    = karnov4.act
+pal3    = karnov6.act
+pal4    = karnov.act
+pal5    = karnov3.act
+pal6    = karnov5.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

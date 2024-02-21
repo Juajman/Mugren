@@ -1,0 +1,32 @@
+;---------------------------------------------------------
+;Definition File for PornoDiano from Bastard by TonyADV
+;---------------------------------------------------------
+
+[Info]
+name = "PornoDiano"              
+displayname = "Pornodiano"      
+versiondate = 20,02,2004 
+mugenversion = 14,04,2002 
+author = "TonyADV (Tony World S.r.L.)"  
+pal.defaults = 1,2,3,4,5,6            
+
+[Files]
+cmd     = diano.cmd  
+cns     = Costume\dianoCS.cns   
+st      = Costume\dianoCS.cns  
+st1     = diano2.cns
+stcommon = diano1.cns 
+sprite  = Costume\dianoCS.sff        
+anim    = diano.air 
+sound   = diano.snd        
+pal1    = Normal.act  
+pal2    = nero.act
+pal3    = blu.act
+pal4    = grigio.act
+pal5    = rosa.act
+pal6    = verde.act
+pal7    = arancio.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = end.def

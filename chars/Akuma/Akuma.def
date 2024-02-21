@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Akuma-sf4"
+displayname = "Akuma"
+versiondate = 05,20,2012
+mugenversion = 1.0
+author = "donGeronimo"
+pal.defaults = 1,2,3
+
+[Files]
+sprite = Sprite.sff
+anim = Anim.air
+sound = AKUMASF4.snd
+cmd = Command.cmd
+cns = Constants.cns
+stcommon = common1.cns
+st = System.st
+st1 = Normal.st
+st2 = Specials.st
+st3 = Supers.st
+st4 = Helpers.st
+pal1 = Orange.act
+pal2 = Black.act
+pal3 = Green.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= Ending_Akuma.def

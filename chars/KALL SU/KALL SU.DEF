@@ -1,0 +1,30 @@
+; Definition file for Kall-Su from Bastard!!! by TonyADV
+
+; Player information
+[Info]
+name = "Kall Su"        
+displayname = "Kall Su" 
+versiondate = 1,4,2004    
+mugenversion = 04,14,2001 
+author = "TONY ADV"         
+pal.defaults = 1,2,3,4,5,6    
+
+; Files for the player
+[Files]
+cmd     = kall.cmd   
+cns     = kall.cns   
+st      = kall.cns 
+stcommon = kallCom.cns 
+sprite  = kall.sff   
+anim    = kall.air   
+sound   = kall.snd  
+pal1 = 001.act
+pal2 = 004.act
+pal3 = 006.act 
+pal4 = 002.act
+pal5 = 005.act
+pal6 = 003.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = end.def

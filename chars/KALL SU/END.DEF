@@ -1,0 +1,140 @@
+;-----------------------------------
+;Ending For KALL by TonyADV
+;-----------------------------------
+[Info]
+localcoord = 320,240
+
+[SceneDef]
+spr = IntroEnd.sff
+;----------------------------------
+;scena0 - fenice 
+[Scene 0]
+fadein.time = 110
+fadein.col = 255,255,255
+fadeout.time = 75
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 0
+layer0.offset = 0,0
+layer7.anim = 8
+layer7.offset = 320,0
+bgm = end.mid 
+bgm.loop = 0
+end.time = 400
+
+;----------------------------------
+[Begin Action 0]
+3,0, 0,0, -1
+
+;----------------------------------
+
+;scena1 - kall 
+[Scene 1]
+fadein.time = 75
+fadein.col = 0,0,0
+fadeout.time = 75
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 1
+layer0.offset = 0,0
+layer1.anim = 2
+layer1.offset = 0,72
+layer7.anim = 8
+layer7.offset = 320,0
+layer9.anim = 3
+layer9.offset = 10,5
+end.time = 400
+;----------------------------------
+
+[Begin Action 1]
+4,0, 0,0, -1
+
+[Begin Action 2]
+2,0, 0,0, -1
+
+[Begin Action 3]
+200,0, 0,0, -1
+
+;----------------------------------
+;scena1 - kall vs dark
+[Scene 2]
+fadein.time = 75
+fadein.col = 0,0,0
+fadeout.time = 75
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 1
+layer0.offset = 0,0
+layer1.anim = 4
+layer1.offset = 40,238
+layer2.anim = 5
+layer2.offset = 190,238
+layer7.anim = 7
+layer7.offset = 0,0
+layer9.anim = 6
+layer9.offset = 10,5
+end.time = 450
+;-----------------------------------
+[Begin Action 4]
+6,0, 0,0, -1
+
+[Begin Action 5]
+8,0, 0,0, -1
+
+[Begin Action 6]
+200,99, 0,0, 100
+200,1, 0,0, 8,,a2
+200,1, 0,0, 8,,a1
+200,1, 0,0, -1
+
+[Begin Action 7]
+200,99, 0,0, 150
+15,0, 0,0, 15,,a
+15,1, 0,0, 15,,a
+15,2, 0,0, 20,,a
+15,1, 0,0, 15,,a
+
+[Begin Action 8]
+200,99, 0,0, 100,h
+15,0, 0,0, 15,h,,a
+15,1, 0,0, 15,h,,a
+15,2, 0,0, 20,h,,a
+15,1, 0,0, 15,h,,a
+200,99, 0,0, 50,h
+
+;----------------------------------
+;----------------------------------
+;scena3 - continua
+[Scene 3]
+fadein.time = 100
+fadein.col = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 10
+layer0.offset = 0,0
+end.time = 250
+;----------------------------------
+;----------------------------------
+;scena4 - tonylogo
+[Scene 4]
+fadein.time = 100
+fadein.col = 0,0,0
+fadeout.time = 150
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0  
+layer0.anim = 11
+layer0.offset = 0,0
+end.time = 450
+;----------------------------------
+
+[Begin Action 10]
+60,0, 0,0, -1
+
+[Begin Action 11]
+80,0, 0,0, -1

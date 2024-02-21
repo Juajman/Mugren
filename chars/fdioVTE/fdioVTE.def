@@ -1,0 +1,42 @@
+[Info]
+name = "final dio"		;DIO（最終ラウンド）
+displayname = "DIO"	;DIO（最終ラウンド）
+versiondate=09,08,2011	;Version date of character
+mugenversion=1.0	;Version of M.U.G.E.N character works on
+author="Warusaki3"		;悪咲3号
+Pal.Defaults=1,2,3,4,5,6
+
+[Files]
+cmd=m-ism/fdio.cmd
+cns=m-ism/fdio.cns
+st=m-ism/fdio.cns
+st1=fdio_system.cns
+st2=fdio_damage.cns
+st3=config.txt
+st4=m-ism/AI.cns
+st5=m-ism/AI_Helpers.st
+stcommon=common1.cns
+sprite=fdio.sff
+anim=fdio.air
+sound=fdio.snd
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1 ;Press button X to select palette 1, etc.
+b = 2
+c = 3
+x = 4
+y = 5
+z = 6
+a2 = 7 ;Hold Start and press button X for palette 7, etc.
+b2 = 8
+c2 = 9
+x2 = 10
+y2 = 11
+z2 = 12
+
+; Arcade mode
+[Arcade]
+intro.storyboard = Intro.def
+ending.storyboard = Ending.def
+
