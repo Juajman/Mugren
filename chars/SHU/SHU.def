@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "SHUU"
+displayname = "E"
+versiondate = 23,04,2004
+mugenversion = 04,01,2001
+author = "LUCA S., Mikehaggar for update"
+pal.defaults = 1
+
+[Files]
+sprite = SHUU.sff
+anim = SHUU.air
+sound = SHUU.snd
+cmd = SHUU.cmd
+cns = SHUU.cns
+stcommon = common1.cns
+st = SHUU.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = SHUU.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

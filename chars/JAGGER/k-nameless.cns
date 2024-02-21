@@ -1,0 +1,234 @@
+------------
+;----------------------------[2002 UM MAX2 BG]----------------------------------
+[Statedef 40001]
+anim = 9999
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noBG
+flag2 = noFG
+
+[State 40001, Tile #1-7]
+type = Explod
+triggerall = !numexplod(15600)
+trigger1 = !time
+anim = F15600
+ID = 15600
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+removetime = 10
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+persistent = 0
+
+[State 40001, Tile #1-7]
+type = Explod
+triggerall = !numexplod(15601) < 2
+trigger1 = !time
+trigger2 = (time%10) = 0
+anim = F15600
+ID = 15601
+pos = 320,0
+postype = left  ;p2,front,back,left,right
+removetime = 20
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[State 40001, Tile #2-6]
+type = Explod
+triggerall = !numexplod(15610)
+trigger1 = !time
+anim = F15601
+ID = 15610
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+removetime = 20
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[State 40001, Tile #2-6]
+type = Explod
+triggerall = !numexplod(15611) < 2
+trigger1 = !time
+trigger2 = (time%20) = 0
+anim = F15601
+ID = 15611
+pos = 320,0
+postype = left  ;p2,front,back,left,right
+removetime = 40
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[State 40001, Tile #3-5]
+type = Explod
+triggerall = !numexplod(15620)
+trigger1 = !time
+anim = F15602
+ID = 15620
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+removetime = 40
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[State 40001, Tile #3-5]
+type = Explod
+triggerall = !numexplod(15621) < 2
+trigger1 = !time
+trigger2 = (time%40) = 0
+anim = F15602
+ID = 15621
+pos = 320,0
+postype = left  ;p2,front,back,left,right
+removetime = 80
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[State 40001, Tile #4]
+type = Explod
+triggerall = !numexplod(15630)
+trigger1 = !time
+anim = F15603
+ID = 15630
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+removetime = 80
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[State 40001, Tile #3-5]
+type = Explod
+triggerall = !numexplod(15631) < 2
+trigger1 = !time
+trigger2 = (time%80) = 0
+anim = F15603
+ID = 15631
+pos = 320,0
+postype = left  ;p2,front,back,left,right
+removetime = 160
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+
+[State 40001, Glass Break]
+type = ChangeState
+trigger1 = (Parent,Stateno != [2200,2222])
+trigger2 =  root, stateno = 2200 && root,animelemtime(1) = 1  || root, stateno = 2222 && root,animelemtime(35) = 1
+value = 40002
+
+[Statedef 40002]
+anim = 9999
+
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15600
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15601
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15610
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15611
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15620
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15621
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15630
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 15631
+
+[State 40002, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = F14001,0
+volume = 200
+
+[State 40001, Glass Break]
+type = Explod
+triggerall = !numexplod(15640)
+trigger1 = !time
+anim = F15604
+ID = 15640
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[State 40001, DestroySelf]
+type = DestroySelf
+trigger1 = time = 1
+
+;--------------------------
+;---------------------------------------------------------------------------
+; ‰ñ“]Œ^“ËŠÑ‰œ‹ZE—†ù
+
+
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;-------------------------------

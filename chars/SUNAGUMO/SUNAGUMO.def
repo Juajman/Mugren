@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "SUNAGAMO"
+displayname = "Y"
+;versiondate = 06,22,2006
+;mugenversion = 04,14,2002
+author = "LUCA S., Mikehaggar for update"
+pal.defaults = 1,2
+
+[Files]
+sprite = SUNAGAMO.sff
+anim = SUNAGAMO.air
+sound = SUNAGAMO.snd
+cmd = SUNAGAMO.cmd
+cns = SUNAGAMO.cns
+stcommon = common.cns
+st = SUNAGAMO.cns
+st2 = SUNAGAMO_SP.cns
+st3 = SUNAGAMO_HP.cns
+st4 = SUNAGAMO1.cns
+pal1 = SUNAGAMO.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

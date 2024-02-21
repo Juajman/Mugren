@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "jagger"
+displayname = "B"
+versiondate = 07,08,2008
+mugenversion = 04,14,2001
+author = "RICK TAYLOR & LUCA S., Mikehaggar for update"
+pal.defaults = 1
+
+[Files]
+sprite = JAGGER.sff
+anim = JAGGER.air
+sound = JAGGER.snd
+cmd = JAGGER.cmd
+cns = JAGGER.cns
+stcommon = common1.cns
+st = JAGGER.cns
+st1 = special.cns
+st2 = hyper.cns
+st3 = k-nameless.cns
+pal1 = anime.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 
