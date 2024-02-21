@@ -1,0 +1,27 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "WEIN"
+displayname = "K"
+versiondate = 3,10,2008
+mugenversion = 04,14,2001
+author = "LUCA S., Mikehaggar for update"
+pal.defaults = 1,2
+
+[Files]
+sprite = WEIN.sff
+anim = WEIN.air
+sound = WEIN.snd
+cmd = WEIN.cmd
+cns = WEIN.cns
+stcommon = common1.cns
+st = WEIN.cns
+st1 = WEIN2.cns
+pal1 = WEIN.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,28 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "SHIN"
+displayname = "C"
+versiondate = 02,12,2004
+mugenversion = 04,14,2001
+author = "LUCA S., Mikehaggar for update"
+pal.defaults = 1,2
+
+[Files]
+sprite = SHIN.sff
+anim = SHIN.air
+sound = SHIN.snd
+cmd = SHIN.cmd
+cns = SHIN.cns
+stcommon = common1.cns
+st = SHIN.cns
+st2 = AI.cns
+pal1 = SHIN.act
+pal2 = SHIN2.act
+
+[Arcade]
+;intro.storyboard = 
+ending.storyboard = 
