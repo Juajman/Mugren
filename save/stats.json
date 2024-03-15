@@ -4,7 +4,7 @@
       "playtime": 0
     },
     "netplayversus": {
-      "playtime": 1707.08
+      "playtime": 2077.28
     },
     "arcade": {
       "playtime": 407.83,
@@ -27,7 +27,10 @@
           "consecutive": 2
         }
       ]
+    },
+    "freebattle": {
+      "playtime": 424
     }
   },
-  "playtime": 2114.91
+  "playtime": 2909.11
 }

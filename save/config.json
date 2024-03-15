@@ -56,7 +56,9 @@
   "GameWidth": 640,
   "GameHeight": 480,
   "GameFramerate": 60,
-  "IP": {},
+  "IP": {
+    "sant": "26.225.123.38"
+  },
   "LifeMul": 100,
   "ListenPort": "7500",
   "LoseSimul": true,
@@ -147,28 +149,28 @@
         "s",
         "d",
         "RETURN",
-        "q",
-        "w",
-        "Not used"
+        "f",
+        "v",
+        "RSHIFT"
       ]
     },
     {
       "Joystick": -1,
       "Buttons": [
+        "KP_8",
+        "KP_5",
+        "KP_4",
+        "KP_6",
+        "u",
         "i",
-        "k",
+        "o",
         "j",
+        "k",
         "l",
-        "f",
-        "g",
-        "h",
-        "r",
-        "t",
-        "y",
-        "RSHIFT",
+        "p",
         "LBRACKET",
-        "RBRACKET",
-        "Not used"
+        "QUOTE",
+        "SEMICOLON"
       ]
     },
     {
