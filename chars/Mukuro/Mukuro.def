@@ -1,0 +1,31 @@
+[Info]
+name = "Mukuro"        ;Name of character
+displayname = "Mukuro" ;Name of character to display
+versiondate = 04,14,2002    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "ahuron"         ;Character author name
+pal.defaults = 6,3,4,2,10,11,12      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Mukuro.cmd   ;Command set
+cns     = Mukuro.cns   ;Constants
+st      = Mukuro.cns   ;States
+st2     = Mukuro2.cns   ;超、潜在、昇華、乱舞、ゲージ
+st3	= helper.cns
+stcommon = Mukuro-common1.cns ;Common states
+sprite  = Mukuro.sff   ;Sprite
+anim    = Mukuro.air   ;Animation
+sound   = Mukuro.snd   ;Sound
+pal1    = Mukuro2.act
+pal2    = Mukuro4.act
+pal3    = Mukuro6.act
+pal4    = Mukuro.act
+pal5    = Mukuro3.act
+pal6    = Mukuro5.act
+pal7    = Mukuro2.act
+pal8    = Mukuro4.act
+pal9    = Mukuro6.act
+pal10   = Mukuro.act
+pal11   = Mukuro3.act
+pal12   = Mukuro5.act
